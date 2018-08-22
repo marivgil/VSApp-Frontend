@@ -3,18 +3,20 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeEcologyComponent } from './components/homeEcology/homeEcology.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import {APP_ROUTING} from "./app.routes";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    HomeEcologyComponent,
     NavbarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    APP_ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]
