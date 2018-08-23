@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HomeEcologyComponent } from './components/homeEcology/homeEcology.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {APP_ROUTING} from "./app.routes";
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeEcologyComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
