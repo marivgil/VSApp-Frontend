@@ -7,32 +7,58 @@
   </style>
 </head>
 
-<div class="d-flex flex-column flex-lg-row justify-content-between">
+<div class="main-container">
 
-<div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="location">
-  <div class="input-group-append">
-    <button class="btn btn-success" type="submit" (click)=getReceptionCenter()>Buscar</button>
+    <div class="d-flex flex-column flex-lg-row justify-content-between">
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="location">
+      <div class="input-group-append">
+        <button class="btn btn-success" type="submit" (click)=getReceptionCenter()>Buscar</button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Localidad</th>
+            <th>Tel. Contacto</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let receptionCenter of listRecepCenters">
+          <td>{{receptionCenter.name}}</td>
+          <td>{{receptionCenter.surname}}</td>
+          <td>{{receptionCenter.phone}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+      <div *ngIf="listRecepCenters.length === 0" class="alert alert-light text-center" role="alert">
+        <p>No existen centros de recepción para la localidad que estás buscando</p>
+      </div>
+
+    </div>
+  <!--
+          <div class="modal fade" id="modalNoCenters" role="dialog">
+            <div class="modal-dialog">
+
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Ops...</h4>
+                </div>
+                <div class="modal-body">
+                  <p>No existen centros de recepción para la localidad que estás buscando</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+ -->
   </div>
-</div>
-
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Localidad</th>
-        <th>Tel. Contacto</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let receptionCenter of listRecepCenters">
-      <td>{{receptionCenter.name}}</td>
-      <td>{{receptionCenter.surname}}</td>
-      <td>{{receptionCenter.phone}}</td>
-    </tr>
-    </tbody>
-  </table>
-</div>
-
-</div>
