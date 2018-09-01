@@ -12,6 +12,8 @@ import { ReceptionCentersService } from './components/reception.centers/receptio
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {NgxPaginationModule} from "ngx-pagination";
+import { LoginComponent } from './components/login/login.component';
+import {AuthService} from "./auth.service";
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import {NgxPaginationModule} from "ngx-pagination";
     HomeEcologyComponent,
     NavbarComponent,
     ProfileComponent,
-    ReceptionCentersComponent
+    ReceptionCentersComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,9 @@ import {NgxPaginationModule} from "ngx-pagination";
     HttpModule,
     NgxPaginationModule
   ],
-  providers: [ReceptionCentersService],
+  providers: [
+    ReceptionCentersService,
+    AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
