@@ -13,6 +13,7 @@ export class ReceptionCentersComponent implements OnInit {
 
   listRecepCenters = [];
   location = '';
+  rc;
 
   constructor(private service: ReceptionCentersService) { }
 

@@ -11,6 +11,7 @@ import { ReceptionCentersComponent } from './components/reception.centers/recept
 import { ReceptionCentersService } from './components/reception.centers/reception.centers.service';
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {HttpModule} from "@angular/http";
     BrowserModule,
     APP_ROUTING,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgxPaginationModule
   ],
   providers: [ReceptionCentersService],
   bootstrap: [AppComponent]

@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div class="table-responsive">
+    <div class="table-responsive" *ngFor="let recepCenter of listRecepCenters| paginate: { itemsPerPage: 3, currentPage: rc }">
       <table class="table">
         <thead>
           <tr>
@@ -42,6 +42,10 @@
       </div>
 
     </div>
+
+  <div *ngIf="listRecepCenters.length > 0" class="d-flex flex-row justify-content-center">
+    <pagination-controls (pageChange)="rc = $event"></pagination-controls>
+  </div>
   <!--
           <div class="modal fade" id="modalNoCenters" role="dialog">
             <div class="modal-dialog">
