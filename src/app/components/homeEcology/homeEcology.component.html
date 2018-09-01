@@ -1,0 +1,40 @@
+<head>
+  <style>
+    div {
+      margin: 50px;
+    }
+  </style>
+</head>
+
+<div class="d-flex flex-column flex-lg-row justify-content-between">
+  <ul class="list-group margin-top-40">
+    <li class="list-group-item btn text-left my-1" [routerLink]="['receptionCenters']">
+      Centros de Recepción
+    </li>
+    <li class="list-group-item btn text-left my-1">
+      B.I.T.E.s
+    </li>
+    <li class="list-group-item btn text-left my-1" >
+      Bandejas
+    </li>
+    <li class="list-group-item btn text-left my-1" >
+      Tapitas
+    </li>
+    <li class="list-group-item btn text-left my-1" >
+      Forestación
+    </li>
+    <li class="list-group-item" >
+      Educación
+      <!--
+      <button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-education"></span> Educación
+      </button>
+      -->
+    </li>
+  </ul>
+
+  <div class="main-container flex-fill">
+    <router-outlet></router-outlet>
+
+  </div>
+</div>

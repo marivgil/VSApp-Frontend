@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container d-flex flex-column flex-lg-row">
+  <form>
+    <div class="form-group">
+      <label>Usuario:</label>
+      <input class="form-control" id="usuario" placeholder="Ingresar nombre">
+    </div>
+    <div class="form-group">
+      <label>Nombre:</label>
+      <input class="form-control" id="name" placeholder="Ingresar nombre">
+    </div>
+    <div class="form-group">
+      <label >Apellido:</label>
+      <input class="form-control" id="lastName" placeholder="Ingresar Apellido">
+    </div>
+    <div class="form-group">
+      <label >Telefono:</label>
+      <input class="form-control" id="telefono" placeholder="Ingresar Telefono">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Ingresar email">
+    </div>
+
+    <div class="form-group">
+      <label >Localidad:</label>
+      <input class="form-control" id="localidad" placeholder="Ingresar localidad">
+    </div>
+
+    <div class="form-group dropdown">
+      <button class="btn btn-primary" type="button" data-toggle="dropdown">Perfil
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Admin</a></li>
+        <li><a href="#">User</a></li>
+      </ul>
+    </div>
+
+    <div class="form-group dropdown">
+      <button class="btn btn-primary" type="button" data-toggle="dropdown">Área
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Ecología</a></li>
+        <li><a href="#">Hospitales</a></li>
+        <li><a href="#">Villa</a></li>
+        <li><a href="#">Valle</a></li>
+        <li><a href="#">Difusión</a></li>
+      </ul>
+    </div>
+
+    <button class="form-group" type="submit" class="btn btn-default">Guardar</button>
+
+  </form>
+</div>
+
+</body>
+</html>
