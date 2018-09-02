@@ -5,14 +5,16 @@ import {ReceptionCentersComponent} from "./components/reception.centers/receptio
 import {LoginComponent} from "./components/login/login.component";
 import {HomeEducationComponent} from "./components/home-education/home-education.component";
 import {HomeComponent} from "./components/home/home.component";
+import {AuthGuardService} from "./auth-guard.service";
 
 const APP_ROUTES: Routes = [
-  { path: 'homeEcology', component: HomeEcologyComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'homeEcology/receptionCenters', component: ReceptionCentersComponent},
+  { path: 'homeEcology', component: HomeEcologyComponent, canActivate: [AuthGuardService] ,
+    children: []},
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+  { path: 'homeEcology/receptionCenters', component: ReceptionCentersComponent, canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent},
-  { path: 'homeEcology/education', component: HomeEducationComponent},
+  { path: 'homeEcology/education', component: HomeEducationComponent, canActivate: [AuthGuardService]},
   ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
