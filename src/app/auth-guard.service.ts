@@ -12,16 +12,21 @@ export class AuthGuardService implements CanActivate{
     private router : Router) { }
 
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot) {
-    if(this.authService.isAuthenticated()){
-      return true;
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+    ): Observable<boolean> {
+      return this.authService.isLoggedIn
+        .pipe(
+          take(1),
+          map((isLoggedIn: boolean) => {
+            if (!isLoggedIn){
+              window.alert("Tenes que estár logueado para acceder a la info solicitada.");
+              return false;
+            }
+            return true;
+          }));
+
     }
-    else {
-      this.authService.login();
-      return false;
-    }
-  }
 
 
 }
