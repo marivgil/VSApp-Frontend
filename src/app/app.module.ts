@@ -14,6 +14,8 @@ import {HttpModule} from "@angular/http";
 import {NgxPaginationModule} from "ngx-pagination";
 import { LoginComponent } from './components/login/login.component';
 import {AuthService} from "./auth.service";
+import { HomeEducationComponent } from './components/home-education/home-education.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import {AuthService} from "./auth.service";
     NavbarComponent,
     ProfileComponent,
     ReceptionCentersComponent,
-    LoginComponent
+    LoginComponent,
+    HomeEducationComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,6 @@ import {AuthService} from "./auth.service";
   providers: [
     ReceptionCentersService,
     AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

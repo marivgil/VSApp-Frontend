@@ -13,7 +13,7 @@ export class AuthService {
     domain: 'vsapp.auth0.com',
     responseType: 'token id_token',
     audience: 'https://vsapp.auth0.com/userinfo',
-    redirectUri: this.router.navigate(['home']),
+    redirectUri: 'http://localhost:4200',
     scope: 'openid'
   });
 
@@ -34,6 +34,10 @@ export class AuthService {
   public isAuthenticated(): boolean {
     const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
     return new Date().getTime() < expiresAt;
+  }
+
+  public isLoggedIn(){
+
   }
 
 }
