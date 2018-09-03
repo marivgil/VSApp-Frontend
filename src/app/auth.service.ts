@@ -17,7 +17,7 @@ export class AuthService {
     responseType: 'token id_token',
     audience: 'https://vsapp.auth0.com/userinfo',
     redirectUri: 'http://localhost:4200',
-    scope: 'openid'
+    scope: 'openid profile email'
   });
 
   constructor(public router: Router,
@@ -49,12 +49,17 @@ export class AuthService {
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
+    this.getProfile((err , res) => {
+      this.userService.userProfile = res;
+      localStorage.setItem('email', res.email);
+    });
   }
 
   public logout(): void {
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    localStorage.removeItem('email');
     this.router.navigate(['login']);
   }
 
@@ -68,6 +73,30 @@ export class AuthService {
   }
   isLoggednIn() {
     return this.getToken() !== null;
+  }
+
+
+  public getProfile(cb): any {
+    const accessToken = localStorage.getItem('access_token');
+    if (!accessToken) {
+      alert("No hay token");
+    }
+
+    const self = this;
+    this.auth0.client.userInfo(accessToken, (err, profile) => {
+
+      if (profile) {
+        self.userService.userProfile = profile;
+          this.userService.getUser(profile.email).subscribe( res => {
+
+            if (res.status === 204) {
+              window.alert("No estás dado de alto en el sistema...");
+              this.logout();
+            }
+          });
+      }
+      cb(err, profile);
+    });
   }
 
 }
