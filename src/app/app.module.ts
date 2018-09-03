@@ -11,6 +11,13 @@ import { ReceptionCentersComponent } from './components/reception.centers/recept
 import { ReceptionCentersService } from './components/reception.centers/reception.centers.service';
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
+import {NgxPaginationModule} from "ngx-pagination";
+import { LoginComponent } from './components/login/login.component';
+import {AuthService} from "./auth.service";
+import { HomeEducationComponent } from './components/home-education/home-education.component';
+import { HomeComponent } from './components/home/home.component';
+import {AuthGuardService} from "./auth-guard.service";
+import {UserService} from "./user.service";
 
 
 @NgModule({
@@ -19,15 +26,23 @@ import {HttpModule} from "@angular/http";
     HomeEcologyComponent,
     NavbarComponent,
     ProfileComponent,
-    ReceptionCentersComponent
+    ReceptionCentersComponent,
+    LoginComponent,
+    HomeEducationComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTING,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgxPaginationModule
   ],
-  providers: [ReceptionCentersService],
-  bootstrap: [AppComponent]
+  providers: [
+    ReceptionCentersService,
+    AuthService,
+    AuthGuardService,
+    UserService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
