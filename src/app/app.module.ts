@@ -17,6 +17,7 @@ import {AuthService} from "./auth.service";
 import { HomeEducationComponent } from './components/home-education/home-education.component';
 import { HomeComponent } from './components/home/home.component';
 import {AuthGuardService} from "./auth-guard.service";
+import {UserService} from "./user.service";
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {AuthGuardService} from "./auth-guard.service";
   providers: [
     ReceptionCentersService,
     AuthService,
-  AuthGuardService],
+    AuthGuardService,
+    UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
