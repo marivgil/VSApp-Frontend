@@ -18,25 +18,24 @@
       </div>
     </div>
 
-    <!--<div class="table-responsive" *ngFor="let recepCenter of listRecepCenters| paginate: { itemsPerPage: 2, currentPage: rc }">-->
-      <div class="table-responsive">
-        <table class="table">
-          <thead>
-            <tr >
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Tel. Contacto</th>
-            </tr>
-          </thead>
-          <tbody >
-          <tr *ngFor="let receptionCenter of listRecepCenters">
-            <td>{{receptionCenter.name}}</td>
-            <td>{{receptionCenter.surname}}</td>
-            <td>{{receptionCenter.phone}}</td>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr >
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Tel. Contacto</th>
           </tr>
-          </tbody>
-        </table>
-      </div>
+        </thead>
+        <tbody >
+        <tr *ngFor="let receptionCenter of listRecepCenters | paginate: { itemsPerPage: 2, currentPage: rc }; let i = index">
+          <td>{{receptionCenter.name}}</td>
+          <td>{{receptionCenter.surname}}</td>
+          <td>{{receptionCenter.phone}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 
         <div *ngIf="listRecepCenters.length === 0" class="alert alert-light text-center" role="alert">
           <p>No existen centros de recepción para la localidad que estás buscando</p>
