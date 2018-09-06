@@ -18,17 +18,17 @@
       </div>
     </div>
 
-    <div class="table-responsive" *ngFor="let recepCenter of listRecepCenters| paginate: { itemsPerPage: 3, currentPage: rc }">
+    <div class="table-responsive">
       <table class="table">
         <thead>
-          <tr>
+          <tr >
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Tel. Contacto</th>
           </tr>
         </thead>
-        <tbody>
-        <tr *ngFor="let receptionCenter of listRecepCenters">
+        <tbody >
+        <tr *ngFor="let receptionCenter of listRecepCenters | paginate: { itemsPerPage: 2, currentPage: rc }; let i = index">
           <td>{{receptionCenter.name}}</td>
           <td>{{receptionCenter.surname}}</td>
           <td>{{receptionCenter.phone}}</td>
@@ -37,32 +37,32 @@
       </table>
     </div>
 
-      <div *ngIf="listRecepCenters.length === 0" class="alert alert-light text-center" role="alert">
-        <p>No existen centros de recepción para la localidad que estás buscando</p>
+        <div *ngIf="listRecepCenters.length === 0" class="alert alert-light text-center" role="alert">
+          <p>No existen centros de recepción para la localidad que estás buscando</p>
+        </div>
+
       </div>
 
-    </div>
+      <div *ngIf="listRecepCenters.length > 0" class="d-flex flex-row justify-content-center">
+        <pagination-controls (pageChange)="rc = $event"></pagination-controls>
+      </div>
+    <!--
+                <div class="modal fade" id="modalNoCenters" role="dialog">
+                  <div class="modal-dialog">
 
-  <div *ngIf="listRecepCenters.length > 0" class="d-flex flex-row justify-content-center">
-    <pagination-controls (pageChange)="rc = $event"></pagination-controls>
-  </div>
-  <!--
-          <div class="modal fade" id="modalNoCenters" role="dialog">
-            <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Ops...</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>No existen centros de recepción para la localidad que estás buscando</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
 
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Ops...</h4>
+                  </div>
                 </div>
-                <div class="modal-body">
-                  <p>No existen centros de recepción para la localidad que estás buscando</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
- -->
+       -->
   </div>
