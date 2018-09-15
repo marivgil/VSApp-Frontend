@@ -18,6 +18,7 @@ import { HomeEducationComponent } from './components/home-education/home-educati
 import { HomeComponent } from './components/home/home.component';
 import {AuthGuardService} from "./auth-guard.service";
 import {UserService} from "./user.service";
+import { HomeStreetComponent } from './components/home-street/home-street.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {UserService} from "./user.service";
     ReceptionCentersComponent,
     LoginComponent,
     HomeEducationComponent,
-    HomeComponent
+    HomeComponent,
+    HomeStreetComponent
   ],
   imports: [
     BrowserModule,
