@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.visible {
+  visibility: visible;
+}
+.invisible {
+  visibility: hidden;
+}
+
+.margin50{
+  margin: 50px;
+}
+
+.panel-footer.panel-custom {
+  background: #ffb3ff;
+  color: white;
+}

@@ -19,6 +19,8 @@ import { HomeComponent } from './components/home/home.component';
 import {AuthGuardService} from "./auth-guard.service";
 import {UserService} from "./user.service";
 import { HomeStreetComponent } from './components/home-street/home-street.component';
+import {NewRequestComponent} from "./components/new-request/new-request.component";
+import {FooterComponent} from "./components/footer/footer.component";
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { HomeStreetComponent } from './components/home-street/home-street.compon
     LoginComponent,
     HomeEducationComponent,
     HomeComponent,
-    HomeStreetComponent
+    HomeStreetComponent,
+    NewRequestComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
