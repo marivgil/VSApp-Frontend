@@ -18,28 +18,23 @@ export class HomeStreetComponent implements OnInit {
   rounds = ROUNDS;
   genders = GENDER;
   waists = WAIST;
+  clothes = [];
 
   //Un pedido
   round;
   request: Request;
-  clothes = [];
+  clothesRequest = [];
+  preparedBy;
+  reviewedBy;
 
-  //un ropa
+  //una ropa
   nameClothes;
   waist;
   gender = '';
-  quantityClothes;
+  quantityClothes=1;
 
 
   ngOnInit() {
-    //this.getRounds()
-  }
-
-  getRounds(){
-    this.service.getRounds().subscribe(res => {
-      this.rounds = res.json();
-      console.log(this.rounds);
-    });
   }
 
   selectClothesGender(){
@@ -50,5 +45,36 @@ export class HomeStreetComponent implements OnInit {
     }
   }
 
+  addClothes(){
+    let clothes = {
+      "nameClothes": this.nameClothes,
+      "waist": this.waist,
+      "quantityClothes": this.quantityClothes,
+      "gender": this.gender
+    };
+
+    this.clothesRequest.push(clothes);
+
+  }
+
+  addQuantity(clothes){
+    clothes.quantityClothes ++;
+  }
+
+  subQuantity(clothes){
+    if (clothes.quantityClothes > 0)
+      clothes.quantityClothes --;
+  }
+
+  closedRequest(){
+    let request = {
+      "round": this.round,
+      "preparedBy": this.preparedBy,
+      "reviewedBy": this.reviewedBy,
+      "clothes": this.clothesRequest
+    };
+    console.log("en el ts")
+    this.service.closedRequest(request);
+  }
 
 }
