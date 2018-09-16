@@ -1,3 +1,19 @@
-<p>
-  home-street works!
-</p>
+
+<div class="flex container margin50">
+  <div class="drow">
+    <div class="col-md-5 mb-3">
+      <label>Elegí tu recorrido:</label>
+      <form #f="ngForm">
+        <select class="custom-select d-block w-100" name="state" required ngModel>
+          <option value="" disabled>Buscar...</option>
+          <option *ngFor="let state of states" [ngValue]="state">
+            {{ state.abbrev }}
+          </option>
+        </select>
+      </form>
+      <div class="invalid-feedback">
+        Please select a valid country.
+      </div>
+    </div>
+  </div>
+</div>
