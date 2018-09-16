@@ -4,16 +4,13 @@
     <div class="col-md-5 mb-3">
       <label>Elegí tu recorrido:</label>
       <form #f="ngForm">
-        <select class="custom-select d-block w-100" name="state" required ngModel>
+        <select class="custom-select d-block w-100" name="round" required [(ngModel)]="round">
           <option value="" disabled>Buscar...</option>
-          <option *ngFor="let state of states" [ngValue]="state">
-            {{ state.abbrev }}
+          <option *ngFor="let round of rounds" [ngValue]="round">
+            {{ round.name }}
           </option>
         </select>
       </form>
-      <div class="invalid-feedback">
-        Please select a valid country.
-      </div>
     </div>
   </div>
 </div>

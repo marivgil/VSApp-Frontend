@@ -21,6 +21,7 @@ import {UserService} from "./user.service";
 import { HomeStreetComponent } from './components/home-street/home-street.component';
 import {NewRequestComponent} from "./components/new-request/new-request.component";
 import {FooterComponent} from "./components/footer/footer.component";
+import {HomeStreetService} from "./components/home-street/home-street.service";
 
 
 @NgModule({
@@ -48,7 +49,9 @@ import {FooterComponent} from "./components/footer/footer.component";
     ReceptionCentersService,
     AuthService,
     AuthGuardService,
-    UserService],
+    UserService,
+    HomeStreetService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
