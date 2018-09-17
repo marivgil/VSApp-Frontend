@@ -1,22 +1,23 @@
 import { Injectable } from '@angular/core';
 import {URL_BACKEND_HOMO} from "../../config";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { Http, RequestOptions, Headers } from '@angular/http';
 
 @Injectable()
 export class HomeStreetService {
 
   extensionUrl: String = "streetService/";
-  url;
 
-  constructor(public http: HttpClient){
-    this.url = URL_BACKEND_HOMO +  this.extensionUrl + "createRequest";
+  constructor(private http: Http){
   }
 
   closedRequest(request){
     console.log("en el service");
     console.log(request);
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(this.url, request, { headers: headers });
+    let url = URL_BACKEND_HOMO +  this.extensionUrl + "createRequest";
+    console.log(url);
+    let header = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions ( { headers: header });
+    return this.http.post(url, request, options);
   }
 
 }

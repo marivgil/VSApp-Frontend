@@ -71,9 +71,9 @@ export class HomeStreetComponent implements OnInit {
       "round": this.round,
       "preparedBy": this.preparedBy,
       "reviewedBy": this.reviewedBy,
-      "clothes": this.clothesRequest
+      //"clothes": this.clothesRequest
     };
-    console.log("en el ts")
+    console.log("en el ts");
     this.service.closedRequest(request);
   }
 

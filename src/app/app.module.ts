@@ -22,7 +22,6 @@ import { HomeStreetComponent } from './components/home-street/home-street.compon
 import {NewRequestComponent} from "./components/new-request/new-request.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {HomeStreetService} from "./components/home-street/home-street.service";
-import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -44,8 +43,7 @@ import {HttpClientModule} from "@angular/common/http";
     APP_ROUTING,
     FormsModule,
     HttpModule,
-    NgxPaginationModule,
-    HttpClientModule
+    NgxPaginationModule
   ],
   providers: [
     ReceptionCentersService,
