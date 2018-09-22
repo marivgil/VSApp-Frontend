@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
 import {URL_BACKEND_HOMO} from "../../config";
-import { Http, RequestOptions, Headers } from '@angular/http';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable()
 export class HomeStreetService {
 
   extensionUrl: String = "streetService/";
 
-  constructor(private http: Http){
+  constructor(private http: HttpClient,){
   }
 
-  closedRequest(request){
-    console.log("en el service");
-    console.log(request);
-    let url = URL_BACKEND_HOMO +  this.extensionUrl + "createRequest";
+  closedRequest(producto): Observable<any>{
+    let url = URL_BACKEND_HOMO + this.extensionUrl + "createRequest";
+    let json = JSON.stringify(producto);
+    let params = "json="+json;
+    let headers = new HttpHeaders().set('Content-Type','application/json');
     console.log(url);
-    let header = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions ( { headers: header });
-    return this.http.post(url, request, options);
+    console.log(json);
+    console.log(params);
+    console.log(headers);
+    return this.http.post(url, params, {headers: headers});
   }
 
 }
