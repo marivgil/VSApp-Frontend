@@ -25,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeSedeComponent } from './components/home-sede/home-sede.component';
 import {RequestStreetComponent} from "./components/request-street/request-street.component";
 import {HomeStreetComponent} from "./components/home-street/home-street.component";
+import { GetRequestsComponent } from './components/get-requests/get-requests.component';
+import {GetRequestsService} from "./components/get-requests/get-requests.service";
 
 
 
@@ -42,7 +44,8 @@ import {HomeStreetComponent} from "./components/home-street/home-street.componen
     NewRequestComponent,
     FooterComponent,
     HomeSedeComponent,
-    RequestStreetComponent
+    RequestStreetComponent,
+    GetRequestsComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import {HomeStreetComponent} from "./components/home-street/home-street.componen
     AuthService,
     AuthGuardService,
     UserService,
-    RequestStreetService
+    RequestStreetService,
+    GetRequestsService
   ],
   bootstrap: [AppComponent],
 })

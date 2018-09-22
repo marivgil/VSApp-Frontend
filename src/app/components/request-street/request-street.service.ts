@@ -8,7 +8,7 @@ export class RequestStreetService {
 
   extensionUrl: String = "streetService/";
 
-  constructor(private http: HttpClient,){
+  constructor(private http: HttpClient){
   }
 
   closedRequest(producto): Observable<any>{
