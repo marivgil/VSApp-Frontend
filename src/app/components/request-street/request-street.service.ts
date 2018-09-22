@@ -4,7 +4,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 @Injectable()
-export class HomeStreetService {
+export class RequestStreetService {
 
   extensionUrl: String = "streetService/";
 

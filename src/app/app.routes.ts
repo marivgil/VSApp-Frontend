@@ -7,6 +7,8 @@ import {HomeEducationComponent} from "./components/home-education/home-education
 import {HomeComponent} from "./components/home/home.component";
 import {AuthGuardService} from "./auth-guard.service";
 import {HomeStreetComponent} from "./components/home-street/home-street.component";
+import {RequestStreetComponent} from "./components/request-street/request-street.component";
+import {HomeSedeComponent} from "./components/home-sede/home-sede.component";
 
 const APP_ROUTES: Routes = [
   { path: 'homeEcology', component: HomeEcologyComponent, canActivate: [AuthGuardService] ,
@@ -17,6 +19,8 @@ const APP_ROUTES: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'homeEcology/education', component: HomeEducationComponent, canActivate: [AuthGuardService]},
   { path: 'homeStreet', component: HomeStreetComponent, canActivate: [AuthGuardService]},
+  { path: 'homeStreet/requestStreet', component: RequestStreetComponent, canActivate: [AuthGuardService]},
+  { path: 'homeSede', component: HomeSedeComponent, canActivate: [AuthGuardService]},
   ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
