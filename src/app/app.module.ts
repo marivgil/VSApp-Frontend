@@ -18,7 +18,6 @@ import { HomeEducationComponent } from './components/home-education/home-educati
 import { HomeComponent } from './components/home/home.component';
 import {AuthGuardService} from "./auth-guard.service";
 import {UserService} from "./user.service";
-import {NewRequestComponent} from "./components/new-request/new-request.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {RequestStreetService} from "./components/request-street/request-street.service";
 import { HttpClientModule } from '@angular/common/http';
@@ -28,6 +27,9 @@ import {HomeStreetComponent} from "./components/home-street/home-street.componen
 import { GetRequestsComponent } from './components/get-requests/get-requests.component';
 import {GetRequestsService} from "./components/get-requests/get-requests.service";
 import { HomeReceptionCentersComponent } from './components/home-reception-centers/home-reception-centers.component';
+import { HomeHospitalsComponent } from './components/home-hospitals/home-hospitals.component';
+import { LoadSuppliesHospitalsComponent } from './components/load-supplies-hospitals/load-supplies-hospitals.component';
+import { GetSuppliesHospitalsComponent } from './components/get-supplies-hospitals/get-supplies-hospitals.component';
 
 
 
@@ -42,12 +44,14 @@ import { HomeReceptionCentersComponent } from './components/home-reception-cente
     HomeEducationComponent,
     HomeComponent,
     HomeStreetComponent,
-    NewRequestComponent,
     FooterComponent,
     HomeSedeComponent,
     RequestStreetComponent,
     GetRequestsComponent,
-    HomeReceptionCentersComponent
+    HomeReceptionCentersComponent,
+    HomeHospitalsComponent,
+    LoadSuppliesHospitalsComponent,
+    GetSuppliesHospitalsComponent
   ],
   imports: [
     BrowserModule,

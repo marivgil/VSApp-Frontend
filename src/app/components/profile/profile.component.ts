@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  perfil;
+  perfiles = ['ADMIN', 'USER'];
+  area;
+  areas = ['ECOLOGÍA', 'HOSPITALES', 'VILLA', 'CALLE', 'DIFUSIÓN', 'PRENSA'];
+
   constructor() { }
 
   ngOnInit() {
