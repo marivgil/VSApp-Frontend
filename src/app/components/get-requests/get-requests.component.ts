@@ -14,17 +14,27 @@ export class GetRequestsComponent implements OnInit {
   clothes = [];
   c;
   rc;
+  firstEntry;
+  preparedBy;
+  reviewedBy;
 
   constructor(private service: GetRequestsService) { }
 
   ngOnInit() {
-
+    this.firstEntry= true;
   }
 
   searchRequest(){
+    this.firstEntry=false;
     this.service.searchRequest(this.round).subscribe(result => {
       this.request = result;
-      this.clothes = this.request.clothes;
+      if(this.request == null){
+        this.clothes = [];
+      }else{
+        this.clothes = this.request.clothes;
+        this.preparedBy = this.request.preparedBy;
+        this.reviewedBy = this.request.reviewedBy;
+      }
         });
   }
 
