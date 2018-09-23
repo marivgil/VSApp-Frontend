@@ -11,7 +11,8 @@ export class GetRequestsComponent implements OnInit {
   rounds = ROUNDS;
   round;
   request;
-  clothers;
+  clothes = [];
+  c;
 
   constructor(private service: GetRequestsService) { }
 
@@ -20,8 +21,10 @@ export class GetRequestsComponent implements OnInit {
   }
 
   searchRequest(){
-    this.request = this.service.searchRequest(this.round);
-    //this.clothers = this.request.
+    this.service.searchRequest(this.round).subscribe(result => {
+      this.request = result;
+      this.clothes = this.request.clothes;
+        });
   }
 
 }

@@ -27,23 +27,24 @@
         </tr>
         </thead>
         <tbody >
-<!--
-        <tr *ngFor="let receptionCenter of listRecepCenters | paginate: { itemsPerPage: 2, currentPage: rc }; let i = index">
-          <td>{{receptionCenter.name}}</td>
-          <td>{{receptionCenter.surname}}</td>
-          <td>{{receptionCenter.phone}}</td>
+
+        <tr *ngFor="let c of clothes | paginate: { itemsPerPage: 5, currentPage: rc }; let i = index">
+          <td>{{c.name}}</td>
+          <td>{{c.gender}}</td>
+          <td>{{c.waist}}</td>
+          <td>{{c.quantity}}</td>
         </tr>
         </tbody>
--->
+
       </table>
-<!--
-      <div *ngIf="listRecepCenters.length === 0" class="alert alert-light text-center" role="alert">
-        <p>No existen centros de recepción para la localidad que estás buscando</p>
+
+      <div *ngIf="clothes.length === 0" class="alert alert-light text-center" role="alert">
+        <p>El pedido de este recorrido no se encuentra cargado</p>
       </div>
 
-      <div *ngIf="listRecepCenters.length > 0" class="d-flex flex-row justify-content-center">
+      <div *ngIf="clothes.length > 0" class="d-flex flex-row justify-content-center">
         <pagination-controls (pageChange)="rc = $event"></pagination-controls>
       </div>
--->
+
     </div>
 </div>

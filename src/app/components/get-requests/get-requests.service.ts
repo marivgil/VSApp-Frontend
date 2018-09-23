@@ -5,7 +5,7 @@ import {URL_BACKEND_HOMO} from "../../config";
 @Injectable()
 export class GetRequestsService {
 
-  extensionUrl: String = "sedeService/";
+  extensionUrl: String = "streetService/";
 
   constructor(private http: HttpClient) { }
 
