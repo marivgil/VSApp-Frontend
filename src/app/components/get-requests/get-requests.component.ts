@@ -13,6 +13,7 @@ export class GetRequestsComponent implements OnInit {
   request;
   clothes = [];
   c;
+  rc;
 
   constructor(private service: GetRequestsService) { }
 
