@@ -18,10 +18,13 @@
       <a class="nav-link" [routerLink]="['homeSede']">Sede</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Villa</a>
+      <a class="nav-link" [routerLink]="['homeHospital']">Hospitales</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['homeHospital']">Hospitales</a>
+      <a class="nav-link" href="#">Comedores</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">DFM</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Admin Usuarios</a>
@@ -30,12 +33,20 @@
       <a class="nav-link" [routerLink]="['profile']">Mi Perfil
         <span class="glyphicon glyphicon-user"></span></a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item right200">
       <a class="nav-link btn" (click)="login()">Login</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item right100">
       <a class="nav-link btn" (click)="onLogout()">Logout</a>
     </li>
   </ul>
+
+  <!--
+      <button class="btn" align="rigth" (click)="login()">Login</button>
+
+    <button class="nav-link btn" (click)="onLogout()">Logout</button>
+
+  -->
+
 
 </nav>
