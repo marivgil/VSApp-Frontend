@@ -30,6 +30,7 @@ import { HomeReceptionCentersComponent } from './components/home-reception-cente
 import { HomeHospitalsComponent } from './components/home-hospitals/home-hospitals.component';
 import { LoadSuppliesHospitalsComponent } from './components/load-supplies-hospitals/load-supplies-hospitals.component';
 import { GetSuppliesHospitalsComponent } from './components/get-supplies-hospitals/get-supplies-hospitals.component';
+import {HospitalsService} from "./components/home-hospitals/hospitals.service";
 
 
 
@@ -67,7 +68,8 @@ import { GetSuppliesHospitalsComponent } from './components/get-supplies-hospita
     AuthGuardService,
     UserService,
     RequestStreetService,
-    GetRequestsService
+    GetRequestsService,
+    HospitalsService
   ],
   bootstrap: [AppComponent],
 })
