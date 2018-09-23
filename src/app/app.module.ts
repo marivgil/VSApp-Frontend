@@ -27,6 +27,7 @@ import {RequestStreetComponent} from "./components/request-street/request-street
 import {HomeStreetComponent} from "./components/home-street/home-street.component";
 import { GetRequestsComponent } from './components/get-requests/get-requests.component';
 import {GetRequestsService} from "./components/get-requests/get-requests.service";
+import { HomeReceptionCentersComponent } from './components/home-reception-centers/home-reception-centers.component';
 
 
 
@@ -45,7 +46,8 @@ import {GetRequestsService} from "./components/get-requests/get-requests.service
     FooterComponent,
     HomeSedeComponent,
     RequestStreetComponent,
-    GetRequestsComponent
+    GetRequestsComponent,
+    HomeReceptionCentersComponent
   ],
   imports: [
     BrowserModule,
