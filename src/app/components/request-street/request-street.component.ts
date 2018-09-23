@@ -27,10 +27,10 @@ export class RequestStreetComponent implements OnInit {
   reviewedBy;
 
   //una ropa
-  nameClothes;
+  name;
   waist;
   gender = '';
-  quantityClothes=1;
+  quantity=1;
 
 
   ngOnInit() {
@@ -46,9 +46,9 @@ export class RequestStreetComponent implements OnInit {
 
   addClothes(){
     let clothes = {
-      "nameClothes": this.nameClothes,
+      "nameClothes": this.name,
       "waist": this.waist,
-      "quantityClothes": this.quantityClothes,
+      "quantityClothes": this.quantity,
       "gender": this.gender
     };
 
@@ -70,7 +70,7 @@ export class RequestStreetComponent implements OnInit {
       "round": this.round,
       "preparedBy": this.preparedBy,
       "reviewedBy": this.reviewedBy,
-      //"clothes": this.clothesRequest
+      "clothes": this.clothesRequest
     };
     console.log("en el ts");
     this.service.closedRequest(request);

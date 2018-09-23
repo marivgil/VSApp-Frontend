@@ -11,15 +11,16 @@ export class RequestStreetService {
   constructor(private http: HttpClient){
   }
 
-  closedRequest(producto): Observable<any>{
+  closedRequest(request): Observable<any>{
     let url = URL_BACKEND_HOMO + this.extensionUrl + "createRequest";
-    let json = JSON.stringify(producto);
-    let params = "json="+json;
+    let json = JSON.stringify(request);
+    let params = json;
     let headers = new HttpHeaders().set('Content-Type','application/json');
     console.log(url);
     console.log(json);
     console.log(params);
     console.log(headers);
+    console.log(this.http.post(url, params, {headers: headers}));
     return this.http.post(url, params, {headers: headers});
   }
 

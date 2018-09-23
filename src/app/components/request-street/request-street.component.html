@@ -1,8 +1,8 @@
 
-<div class="flex container marginLeft50Top30">
+<div class="flex-column container marginLeft50Top30">
 
   <div class="drow">
-    <div class="col-md-5 mb-3">
+    <div class="col-md-5">
       <label>Elegí tu recorrido:</label>
       <form #f="ngForm">
         <select class="custom-select d-block w-100" name="round" required [(ngModel)]="round" (click)="showSelectedRound=true">
@@ -17,13 +17,14 @@
 
 
 
-  <div class="flex container marginLeft50Top30" *ngIf="showSelectedRound">
+  <div class="flex-column" *ngIf="showSelectedRound">
     <div class="col-md-5 mb-3" >
-      <label><h2>Tu Recorrido: {{round}}</h2></label>
+      <label><h2>Tu Recorrido:</h2></label>
+      <label><h2>{{round}}</h2></label>
     </div>
   </div>
 
-  <div class="flex container marginLeft50Top30" *ngIf="showSelectedRound">
+  <div class="flex-column" *ngIf="showSelectedRound">
     <label><h4>Agregar pedido: </h4></label>
     <button class="btn-add-vs" (click)="showAddClothes=true">+</button>
   </div>
@@ -34,7 +35,7 @@
 <div class="flex container marginLeft50Top30" *ngIf="showAddClothes">
 
   <div class="drow">
-    <div class="col-md-5 mb-3">
+    <div class="col-md-4 mb-3">
       <label for="gender">Género</label>
       <select class="custom-select d-block w-100" id="gender" required [(ngModel)]="gender" (click)="selectClothesGender()">
         <option value="">Buscar...</option>
@@ -79,7 +80,7 @@
 
 </div>
 
-<div class="flex container marginLeft50Top30">
+<div class="flex container">
 
   <button class="btn-deep-purple marginLeft50Top30" (click)="addClothes()">Agregar</button>
 
@@ -119,16 +120,17 @@
 
 </div>
 
-<div class="d-flex flex container marginLeft50Top30">
-  <div class="form-group">
+<div class="flex-column container marginLeft50Top30">
+  <div class="form-group  col-md-3">
     <label for="preparedBy">Preparado por: </label>
     <input class="form-control" id="preparedBy" placeholder="Preparado por..." [(ngModel)]="preparedBy">
   </div>
-  <div class="form-group">
-    <label for="reviewedBy">Revisado por...</label>
+  <div class="form-group col-md-3">
+    <label for="reviewedBy">Revisado por:</label>
     <input class="form-control" id="reviewedBy" placeholder="Revisado por..." [(ngModel)]="reviewedBy">
   </div>
-  <button class="btn-deep-purple marginLeft50Top30" (click)="closedRequest()">Cerrar Pedido</button>
+
+  <button class="btn col-md-2 marginTop25" (click)="closedRequest()">Cerrar Pedido</button>
 </div>
 
 
