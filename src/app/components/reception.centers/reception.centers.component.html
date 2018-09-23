@@ -1,51 +1,46 @@
 
-<head>
-  <style>
-    div {
-      margin: 50px;
-    }
-  </style>
-</head>
+<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3 margin50">
 
-<div class="main-container">
-
-    <div class="d-flex flex-column flex-lg-row justify-content-between">
-
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="location">
-      <div class="input-group-append">
-        <button class="btn btn-success" type="submit" (click)=getReceptionCenter()>Buscar</button>
-      </div>
-    </div>
-
-    <div class="table-responsive">
-      <table class="table">
-        <thead>
-          <tr >
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Tel. Contacto</th>
-          </tr>
-        </thead>
-        <tbody >
-        <tr *ngFor="let receptionCenter of listRecepCenters | paginate: { itemsPerPage: 2, currentPage: rc }; let i = index">
-          <td>{{receptionCenter.name}}</td>
-          <td>{{receptionCenter.surname}}</td>
-          <td>{{receptionCenter.phone}}</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-
-        <div *ngIf="listRecepCenters.length === 0" class="alert alert-light text-center" role="alert">
-          <p>No existen centros de recepción para la localidad que estás buscando</p>
+  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 overflow-hidden">
+    <div class="my-3 p-3">
+      <p>Ingresa la localidad </p>
+      <div class="row" size="40">
+        <input type="text" class="col-xs-6" placeholder="Buscar" [(ngModel)]="location" style="width:200px">
+        <div class="input-group-append">
+          <button class="btn" type="submit" (click)=getReceptionCenter()>Buscar</button>
         </div>
-
       </div>
+    </div>
+  </div>
+
+    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <table class="table">
+          <thead>
+            <tr >
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Tel. Contacto</th>
+            </tr>
+          </thead>
+          <tbody >
+          <tr *ngFor="let receptionCenter of listRecepCenters | paginate: { itemsPerPage: 2, currentPage: rc }; let i = index">
+            <td>{{receptionCenter.name}}</td>
+            <td>{{receptionCenter.surname}}</td>
+            <td>{{receptionCenter.phone}}</td>
+          </tr>
+          </tbody>
+        </table>
+
+          <div *ngIf="listRecepCenters.length === 0" class="alert alert-light text-center" role="alert">
+            <p>No existen centros de recepción para la localidad que estás buscando</p>
+          </div>
 
       <div *ngIf="listRecepCenters.length > 0" class="d-flex flex-row justify-content-center">
         <pagination-controls (pageChange)="rc = $event"></pagination-controls>
       </div>
+
+    </div>
+
     <!--
                 <div class="modal fade" id="modalNoCenters" role="dialog">
                   <div class="modal-dialog">
@@ -65,4 +60,5 @@
                   </div>
                 </div>
        -->
+
   </div>

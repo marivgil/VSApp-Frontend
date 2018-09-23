@@ -24,10 +24,6 @@ export class ReceptionCentersComponent implements OnInit {
   getReceptionCenter() {
     this.service.getReceptionCenter(this.location).subscribe(res => {
       this.listRecepCenters = res.json();
-      if(this.listRecepCenters.length===0){
-      //  $('#modalNoCenters').modal('hide');
-      }
-      console.log(this.listRecepCenters);
     });
   }
 

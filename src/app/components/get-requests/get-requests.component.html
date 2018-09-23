@@ -1,0 +1,69 @@
+<div class="flex-column  my-md-3 pl-md-3 margin50">
+
+  <div class="marginLeft50Top30">
+
+  <div class="drow">
+      <label>Elegí el recorrido a consultar:</label>
+      <form #f="ngForm">
+        <select class="custom-select d-block w-100" name="round" required [(ngModel)]="round">
+          <option value="" disabled>Buscar...</option>
+          <option *ngFor="let round of rounds" [ngValue]="round">
+            {{ round }}
+          </option>
+        </select>
+      </form>
+
+
+      <button class="btn" type="submit" (click)=searchRequest()>Buscar</button>
+    </div>
+
+  </div>
+
+    <div class="bg-light marginLeft50Top30">
+
+
+      <div class="flex-column container text-left marginLeft50Top30">
+        <div class="form-group col-md-4">
+          <label for="preparedBy">Preparado por: </label>
+          <input class="form-control" id="preparedBy" disabled [(ngModel)]="preparedBy">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="reviewedBy">Revisado por:</label>
+          <input class="form-control" id="reviewedBy" disabled [(ngModel)]="reviewedBy">
+        </div>
+      </div>
+
+      <div class="flex-column container text-left">
+      <table class="table col-md-4 ">
+        <thead>
+        <tr >
+          <th>Nombre</th>
+          <th>Género</th>
+          <th>Talle</th>
+          <th>Cantidad</th>
+        </tr>
+        </thead>
+        <tbody >
+
+        <tr *ngFor="let c of clothes | paginate: { itemsPerPage: 10, currentPage: rc }; let i = index">
+          <td>{{c.name}}</td>
+          <td>{{c.gender}}</td>
+          <td>{{c.waist}}</td>
+          <td>{{c.quantity}}</td>
+        </tr>
+        </tbody>
+
+      </table>
+
+      <div *ngIf="(firstEntry === false && clothes.length === 0) || request === null" class="alert alert-light text-center" role="alert">
+        <p>El pedido de este recorrido no se encuentra cargado</p>
+      </div>
+
+      </div>
+
+      <div *ngIf="clothes.length > 0" class="d-flex flex-row justify-content-center">
+        <pagination-controls (pageChange)="rc = $event"></pagination-controls>
+      </div>
+
+    </div>
+</div>

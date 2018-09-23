@@ -1,0 +1,136 @@
+
+<div class="flex-column container marginLeft50Top30">
+
+  <div class="drow">
+    <div class="col-md-5">
+      <label>Elegí tu recorrido:</label>
+      <form #f="ngForm">
+        <select class="custom-select d-block w-100" name="round" required [(ngModel)]="round" (click)="showSelectedRound=true">
+          <option value="" disabled>Buscar...</option>
+          <option *ngFor="let round of rounds" [ngValue]="round">
+            {{ round }}
+          </option>
+        </select>
+      </form>
+    </div>
+  </div>
+
+
+
+  <div class="flex-column" *ngIf="showSelectedRound">
+    <div class="col-md-5 mb-3" >
+      <label><h2>Tu Recorrido:</h2></label>
+      <label><h2>{{round}}</h2></label>
+    </div>
+  </div>
+
+  <div class="flex-column" *ngIf="showSelectedRound">
+    <label><h4>Agregar pedido: </h4></label>
+    <button class="btn-add-vs" (click)="showAddClothes=true">+</button>
+  </div>
+
+</div>
+
+
+<div class="flex container marginLeft50Top30" *ngIf="showAddClothes">
+
+  <div class="drow">
+    <div class="col-md-4 mb-3">
+      <label for="gender">Género</label>
+      <select class="custom-select d-block w-100" id="gender" required [(ngModel)]="gender" (click)="selectClothesGender()">
+        <option value="">Buscar...</option>
+        <option *ngFor="let gender of genders" [ngValue]="gender">
+          {{ gender }}
+        </option>
+      </select>
+      <div class="invalid-feedback">
+        Por favor seleccioná una opción.
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="clothe">¿Que ropa se necesita?</label>
+      <select class="custom-select d-block w-100" id="clothe" required [(ngModel)]="nameClothes">
+        <option value="">Buscar...</option>
+        <option *ngFor="let clothe of clothes" [ngValue]="clothe">
+          {{ clothe }}
+        </option>
+      </select>
+      <div class="invalid-feedback">
+        Por favor seleccioná una opción.
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="waist">¿Talle?</label>
+      <select class="custom-select d-block w-100" id="waist" required [(ngModel)]="waist">
+        <option value="">Buscar...</option>
+        <option *ngFor="let waist of waists" [ngValue]="waist">
+          {{ waist }}
+        </option>
+      </select>
+      <div class="invalid-feedback">
+        Por favor seleccioná una opción.
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+<div class="flex container">
+
+  <button class="btn-deep-purple marginLeft50Top30" (click)="addClothes()">Agregar</button>
+
+</div>
+
+
+<div class="d-flex flex container marginLeft50Top30">
+
+  <table class="table">
+    <thead>
+    <tr >
+      <th>Género</th>
+      <th>Ropa</th>
+      <th>Talle</th>
+      <th>Cantidad</th>
+    </tr>
+    </thead>
+    <tbody >
+    <tr *ngFor="let c of clothesRequest">
+      <td>{{c.gender}}</td>
+      <td>{{c.nameClothes}}</td>
+      <td>{{c.waist}}</td>
+      <td>{{c.quantityClothes}}</td>
+      <td>
+        <div class="btn-group">
+          <button type="button" class="btn btn-outline-success" (click)="addQuantity(c)">+</button>
+          <button type="button" class="btn btn-outline-danger" (click)="subQuantity(c)">-</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="clothesRequest.length === 0" class="alert alert-light text-center" role="alert">
+    <p>No se cargó ningún pedido...</p>
+  </div>
+
+</div>
+
+<div class="flex-column container marginLeft50Top30">
+  <div class="form-group  col-md-3">
+    <label for="preparedBy">Preparado por: </label>
+    <input class="form-control" id="preparedBy" placeholder="Preparado por..." [(ngModel)]="preparedBy">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="reviewedBy">Revisado por:</label>
+    <input class="form-control" id="reviewedBy" placeholder="Revisado por..." [(ngModel)]="reviewedBy">
+  </div>
+
+  <button class="btn col-md-2 marginTop25" (click)="closedRequest()">Cerrar Pedido</button>
+</div>
+
+

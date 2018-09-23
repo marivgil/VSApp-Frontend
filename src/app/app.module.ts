@@ -18,6 +18,16 @@ import { HomeEducationComponent } from './components/home-education/home-educati
 import { HomeComponent } from './components/home/home.component';
 import {AuthGuardService} from "./auth-guard.service";
 import {UserService} from "./user.service";
+import {NewRequestComponent} from "./components/new-request/new-request.component";
+import {FooterComponent} from "./components/footer/footer.component";
+import {RequestStreetService} from "./components/request-street/request-street.service";
+import { HttpClientModule } from '@angular/common/http';
+import { HomeSedeComponent } from './components/home-sede/home-sede.component';
+import {RequestStreetComponent} from "./components/request-street/request-street.component";
+import {HomeStreetComponent} from "./components/home-street/home-street.component";
+import { GetRequestsComponent } from './components/get-requests/get-requests.component';
+import {GetRequestsService} from "./components/get-requests/get-requests.service";
+
 
 
 @NgModule({
@@ -29,20 +39,30 @@ import {UserService} from "./user.service";
     ReceptionCentersComponent,
     LoginComponent,
     HomeEducationComponent,
-    HomeComponent
+    HomeComponent,
+    HomeStreetComponent,
+    NewRequestComponent,
+    FooterComponent,
+    HomeSedeComponent,
+    RequestStreetComponent,
+    GetRequestsComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTING,
     FormsModule,
     HttpModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    HttpClientModule,
   ],
   providers: [
     ReceptionCentersService,
     AuthService,
     AuthGuardService,
-    UserService],
+    UserService,
+    RequestStreetService,
+    GetRequestsService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
