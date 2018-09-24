@@ -33,7 +33,7 @@ export const NAMECLOTHESWOMAN = [
 ];
 
 export const GENDER = [
-  'Mujer', 'Hombre', 'Nena', 'Nene'
+  'MUJER', 'HOMBRE', 'NENA', 'NENE'
 ];
 
 export const WAIST = [

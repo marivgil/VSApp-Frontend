@@ -50,7 +50,7 @@
 
     <div class="col-md-4 mb-3">
       <label for="clothe">¿Que ropa se necesita?</label>
-      <select class="custom-select d-block w-100" id="clothe" required [(ngModel)]="nameClothes">
+      <select class="custom-select d-block w-100" id="clothe" required [(ngModel)]="name">
         <option value="">Buscar...</option>
         <option *ngFor="let clothe of clothes" [ngValue]="clothe">
           {{ clothe }}
@@ -101,9 +101,9 @@
     <tbody >
     <tr *ngFor="let c of clothesRequest">
       <td>{{c.gender}}</td>
-      <td>{{c.nameClothes}}</td>
+      <td>{{c.name}}</td>
       <td>{{c.waist}}</td>
-      <td>{{c.quantityClothes}}</td>
+      <td>{{c.quantity}}</td>
       <td>
         <div class="btn-group">
           <button type="button" class="btn btn-outline-success" (click)="addQuantity(c)">+</button>

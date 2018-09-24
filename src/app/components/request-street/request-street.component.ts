@@ -46,9 +46,9 @@ export class RequestStreetComponent implements OnInit {
 
   addClothes(){
     let clothes = {
-      "nameClothes": this.name,
+      "name": this.name,
       "waist": this.waist,
-      "quantityClothes": this.quantity,
+      "quantity": this.quantity,
       "gender": this.gender
     };
 
@@ -57,12 +57,12 @@ export class RequestStreetComponent implements OnInit {
   }
 
   addQuantity(clothes){
-    clothes.quantityClothes ++;
+    clothes.quantity ++;
   }
 
   subQuantity(clothes){
-    if (clothes.quantityClothes > 0)
-      clothes.quantityClothes --;
+    if (clothes.quantity > 0)
+      clothes.quantity --;
   }
 
   closedRequest(){
