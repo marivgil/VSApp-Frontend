@@ -13,7 +13,7 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
   productsType = ['Insumo', 'Existencia'];
   nameProduct;
   quantityProd;
-
+  rc;
 
   constructor(private service: HospitalsService) { }
 
