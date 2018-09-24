@@ -1,0 +1,39 @@
+<div class="flex-column container marginLeft50Top30">
+
+
+  <div class="col-md-4 mb-3">
+    <label for="hospital">Hospital: </label>
+    <select class="custom-select d-block w-100" id="hospital" required [(ngModel)]="hospital">
+      <option value="">Buscar...</option>
+      <option *ngFor="let hospital of hospitals" [ngValue]="hospital">
+        {{ hospital }}
+      </option>
+    </select>
+    <div class="invalid-feedback">
+      Por favor seleccioná una opción.
+    </div>
+  </div>
+
+    <div class="col-md-4">
+      <label for="prodType">Tipo Producto:</label>
+        <select class="custom-select d-block w-100" id="prodType" required [(ngModel)]="prodType">
+          <option disabled>Buscar...</option>
+          <option *ngFor="let prodType of productsType" [ngValue]="prodType">
+            {{ prodType }}
+          </option>
+        </select>
+    </div>
+
+    <div class="form-group  col-md-2">
+      <label for="nameProduct">Nombre: </label>
+      <input class="form-control" id="nameProduct" [(ngModel)]="nameProduct">
+    </div>
+    <div class="form-group col-md-1">
+      <label for="quantityProd">Cantidad:</label>
+      <input class="form-control" id="quantityProd" [(ngModel)]="quantityProd">
+    </div>
+
+    <button class="btn col-md-2 marginTop25" (click)="addProduct()">Agregar</button>
+
+
+</div>

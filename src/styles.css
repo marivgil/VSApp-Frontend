@@ -27,6 +27,10 @@
   margin-top: 25px;
 }
 
+.marginTop10{
+  margin-top: 10px;
+}
+
 .marginLeft150Top10{
   margin-left: 150px;
   margin-top: 10px;
@@ -36,6 +40,19 @@
   background: #ffb3ff;
   color: white;
 }
+
+.right200 {
+  position: absolute;
+  width: 230px;
+  right: 0px;
+}
+
+.right100 {
+  position: absolute;
+  width: 100px;
+  right: 0px;
+}
+
 
 .btn-add-vs {
   width: 50px;

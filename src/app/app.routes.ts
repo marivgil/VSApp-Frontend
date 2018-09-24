@@ -10,12 +10,17 @@ import {HomeStreetComponent} from "./components/home-street/home-street.componen
 import {RequestStreetComponent} from "./components/request-street/request-street.component";
 import {HomeSedeComponent} from "./components/home-sede/home-sede.component";
 import {GetRequestsComponent} from "./components/get-requests/get-requests.component";
+import {HomeReceptionCentersComponent} from "./components/home-reception-centers/home-reception-centers.component";
+import {HomeHospitalsComponent} from "./components/home-hospitals/home-hospitals.component";
+import {LoadSuppliesHospitalsComponent} from "./components/load-supplies-hospitals/load-supplies-hospitals.component";
+import {GetSuppliesHospitalsComponent} from "./components/get-supplies-hospitals/get-supplies-hospitals.component";
 
 const APP_ROUTES: Routes = [
   { path: 'homeEcology', component: HomeEcologyComponent, canActivate: [AuthGuardService] ,
     children: []},
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
-  { path: 'homeEcology/receptionCenters', component: ReceptionCentersComponent, canActivate: [AuthGuardService]},
+  { path: 'homeEcology/homeReceptionCenters/SearchCenter', component: ReceptionCentersComponent, canActivate: [AuthGuardService]},
+  { path: 'homeEcology/homeReceptionCenters', component: HomeReceptionCentersComponent, canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent},
   { path: 'homeEcology/education', component: HomeEducationComponent, canActivate: [AuthGuardService]},
@@ -23,6 +28,10 @@ const APP_ROUTES: Routes = [
   { path: 'homeStreet/requestStreet', component: RequestStreetComponent, canActivate: [AuthGuardService]},
   { path: 'homeSede', component: HomeSedeComponent, canActivate: [AuthGuardService]},
   { path: 'homeSede/getRequests', component: GetRequestsComponent, canActivate: [AuthGuardService]},
+  { path: 'homeHospital', component: HomeHospitalsComponent, canActivate: [AuthGuardService]},
+  { path: '', component: HomeComponent},
+  { path: 'homeHospital/loadSupplies', component: LoadSuppliesHospitalsComponent, canActivate: [AuthGuardService]},
+  { path: 'homeHospital/getSupplies', component: GetSuppliesHospitalsComponent, canActivate: [AuthGuardService]},
   ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

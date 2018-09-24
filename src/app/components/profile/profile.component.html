@@ -37,30 +37,31 @@
       <input class="form-control" id="localidad" placeholder="Ingresar localidad">
     </div>
 
-    <div class="form-group dropdown">
-      <button class="btn btn-primary" type="button" data-toggle="dropdown">Perfil
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">Admin</a></li>
-        <li><a href="#">User</a></li>
-      </ul>
+    <div class="drow">
+      <label>Perfil</label>
+      <form #f="ngForm">
+        <select class="custom-select d-block w-100" name="round" required [(ngModel)]="perfil">
+          <option value="" disabled>Buscar...</option>
+          <option *ngFor="let perfil of perfiles" [ngValue]="perfil">
+            {{ perfil }}
+          </option>
+        </select>
+      </form>
     </div>
 
-    <div class="form-group dropdown">
-      <button class="btn btn-primary" type="button" data-toggle="dropdown">Área
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">Ecología</a></li>
-        <li><a href="#">Hospitales</a></li>
-        <li><a href="#">Villa</a></li>
-        <li><a href="#">Valle</a></li>
-        <li><a href="#">Difusión</a></li>
-      </ul>
+    <div class="drow">
+      <label>Área</label>
+      <form #f="ngForm">
+        <select class="custom-select d-block w-100" name="round" required [(ngModel)]="area">
+          <option value="" disabled>Buscar...</option>
+          <option *ngFor="let area of areas" [ngValue]="area">
+            {{ area }}
+          </option>
+        </select>
+      </form>
     </div>
 
-    <button class="form-group" type="submit" class="btn btn-default">Guardar</button>
+    <button class=" btn form-group" type="submit" >Guardar</button>
 
   </form>
 </div>
