@@ -27,7 +27,7 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
       "name": this.nameProduct,
       "quantity": this.quantityProd
     };
-    this.service.addProduct(product);
+    this.service.addProduct(product).subscribe();
     window.alert("EL producto fue dado de alta");
   }
 
