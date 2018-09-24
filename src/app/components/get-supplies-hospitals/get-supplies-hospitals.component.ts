@@ -13,6 +13,7 @@ export class GetSuppliesHospitalsComponent implements OnInit {
   hospitalProducts = null;
   hp;
   firstEntry = true;
+  rc;
 
   constructor(private service: HospitalsService) { }
 

@@ -72,8 +72,7 @@ export class RequestStreetComponent implements OnInit {
       "reviewedBy": this.reviewedBy,
       "clothes": this.clothesRequest
     };
-    console.log("en el ts");
-    this.service.closedRequest(request);
+    this.service.closedRequest(request).subscribe();
   }
 
 }
