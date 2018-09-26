@@ -1,5 +1,7 @@
 # VsappFrontend - Vida Solidaria Argentina
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6f2366f25db54dd1bd5a15e86dc840ad)](https://app.codacy.com/app/marivgil/VSApp-Frontend?utm_source=github.com&utm_medium=referral&utm_content=marivgil/VSApp-Frontend&utm_campaign=Badge_Grade_Settings)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
 ## Development server
