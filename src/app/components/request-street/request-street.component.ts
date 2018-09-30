@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RequestStreetService} from "./request-street.service";
 import {GENDER, NAMECLOTHESMAN, NAMECLOTHESWOMAN, ROUNDS, WAIST} from "../../app.consts";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -10,7 +11,8 @@ import {GENDER, NAMECLOTHESMAN, NAMECLOTHESWOMAN, ROUNDS, WAIST} from "../../app
 
 export class RequestStreetComponent implements OnInit {
 
-  constructor(private service: RequestStreetService) { }
+  constructor(private service: RequestStreetService,
+              private router: Router ) { }
 
   showSelectedRound = false;
   showAddClothes = false;
@@ -23,8 +25,8 @@ export class RequestStreetComponent implements OnInit {
   round;
   request: Request;
   clothesRequest = [];
-  preparedBy;
-  reviewedBy;
+  preparedBy=null;
+  reviewedBy=null;
 
   //una ropa
   name;
@@ -72,7 +74,17 @@ export class RequestStreetComponent implements OnInit {
       "reviewedBy": this.reviewedBy,
       "clothes": this.clothesRequest
     };
-    this.service.closedRequest(request).subscribe();
+    if(this.preparedBy==null || this.reviewedBy==null || this.clothesRequest==[]){
+      window.alert("Falta cargar información del pedido")
+    }else{
+      this.service.closedRequest(request).subscribe();
+      window.alert("Tu pedido fue cargado");
+      this.router.navigate(['home']);
+    }
+  }
+
+  selectedRound(){
+    this.showSelectedRound = true;
   }
 
 }
