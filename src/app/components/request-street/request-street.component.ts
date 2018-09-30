@@ -29,8 +29,8 @@ export class RequestStreetComponent implements OnInit {
   reviewedBy=null;
 
   //una ropa
-  name;
-  waist;
+  name=null;
+  waist=null;
   gender = '';
   quantity=1;
 
@@ -47,15 +47,17 @@ export class RequestStreetComponent implements OnInit {
   }
 
   addClothes(){
-    let clothes = {
-      "name": this.name,
-      "waist": this.waist,
-      "quantity": this.quantity,
-      "gender": this.gender
-    };
-
-    this.clothesRequest.push(clothes);
-
+    if(this.name==null || this.waist==null || this.gender==''){
+      window.alert("Falta cargar información del pedido")
+    }else {
+      let clothes = {
+        "name": this.name,
+        "waist": this.waist,
+        "quantity": this.quantity,
+        "gender": this.gender
+      };
+      this.clothesRequest.push(clothes);
+    }
   }
 
   addQuantity(clothes){

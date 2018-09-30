@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {HospitalsService} from "../home-hospitals/hospitals.service";
-import {map} from "rxjs/operator/map";
 
 @Component({
   selector: 'app-get-supplies-hospitals',
@@ -10,10 +9,11 @@ export class GetSuppliesHospitalsComponent implements OnInit {
 
   hospital;
   hospitals = ['Durand', 'Posadas', 'Santojanni', 'Rivadavia'];
-  hospitalProducts = null;
+  hospitalProducts;
   hp;
   firstEntry = true;
   rc;
+  viewResult = false;
 
   constructor(private service: HospitalsService) { }
 
@@ -23,11 +23,12 @@ export class GetSuppliesHospitalsComponent implements OnInit {
 
   searchHospitalProduct(){
     this.firstEntry= false;
-    this.hospitalProducts = this.service.searchHospitalProduct(this.hospital).
+    this.viewResult = true;
+
+    this.service.searchHospitalProduct(this.hospital).
       subscribe(res => {
-     this.hospitalProducts = res.toString();
+     this.hospitalProducts = res;
     });
-    console.log(this.hospitalProducts)
   }
 
 }
