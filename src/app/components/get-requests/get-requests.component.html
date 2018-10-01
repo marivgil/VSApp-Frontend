@@ -1,11 +1,12 @@
-<div class="flex-column  my-md-3 pl-md-3 margin50">
+<div class="flex-column  my-md-3 pl-md-3">
 
   <div class="marginLeft50Top30">
 
-  <div class="drow">
+    <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 overflow-hidden">
+      <div class="my-3 p-3">
       <label>Elegí el recorrido a consultar:</label>
       <form #f="ngForm">
-        <select class="custom-select d-block w-100" name="round" required [(ngModel)]="round">
+        <select class="custom-select d-block w-100 col-xs-6" name="round" required [(ngModel)]="round">
           <option value="" disabled>Buscar...</option>
           <option *ngFor="let round of rounds" [ngValue]="round">
             {{ round }}
@@ -15,11 +16,13 @@
 
 
       <button class="btn" type="submit" (click)=searchRequest()>Buscar</button>
+      </div>
     </div>
 
   </div>
 
-    <div class="bg-light marginLeft50Top30">
+
+    <div class="marginLeft50Top30" *ngIf="getRequest">
 
 
       <div class="flex-column container text-left marginLeft50Top30">

@@ -17,6 +17,7 @@ export class GetRequestsComponent implements OnInit {
   firstEntry;
   preparedBy;
   reviewedBy;
+  getRequest = false;
 
   constructor(private service: GetRequestsService) { }
 
@@ -25,6 +26,7 @@ export class GetRequestsComponent implements OnInit {
   }
 
   searchRequest(){
+    this.getRequest = true;
     this.firstEntry=false;
     this.service.searchRequest(this.round).subscribe(result => {
       this.request = result;

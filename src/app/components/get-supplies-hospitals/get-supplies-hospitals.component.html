@@ -19,25 +19,23 @@
 
   </div>
 
-  <div class="bg-light marginLeft50Top30">
+  <div class="bg-light marginLeft50Top30" *ngIf="viewResult">
 
     <div class="flex-column container text-left">
       <table class="table col-md-4 ">
         <thead>
         <tr >
           <th>Nombre</th>
-          <th>Género</th>
-          <th>Talle</th>
+          <th>Tipo</th>
           <th>Cantidad</th>
         </tr>
         </thead>
         <tbody >
 
         <tr *ngFor="let hp of hospitalProducts | paginate: { itemsPerPage: 10, currentPage: rc }; let i = index">
-          <td>{{c.name}}</td>
-          <td>{{c.gender}}</td>
-          <td>{{c.waist}}</td>
-          <td>{{c.quantity}}</td>
+          <td>{{hp.name}}</td>
+          <td>{{hp.type}}</td>
+          <td>{{hp.quantity}}</td>
         </tr>
         </tbody>
 

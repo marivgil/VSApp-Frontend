@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RequestStreetService} from "./request-street.service";
 import {GENDER, NAMECLOTHESMAN, NAMECLOTHESWOMAN, ROUNDS, WAIST} from "../../app.consts";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -10,7 +11,8 @@ import {GENDER, NAMECLOTHESMAN, NAMECLOTHESWOMAN, ROUNDS, WAIST} from "../../app
 
 export class RequestStreetComponent implements OnInit {
 
-  constructor(private service: RequestStreetService) { }
+  constructor(private service: RequestStreetService,
+              private router: Router ) { }
 
   showSelectedRound = false;
   showAddClothes = false;
@@ -20,15 +22,16 @@ export class RequestStreetComponent implements OnInit {
   clothes = [];
 
   //Un pedido
-  round;
+  round='';
   request: Request;
   clothesRequest = [];
-  preparedBy;
-  reviewedBy;
+  preparedBy=null;
+  reviewedBy=null;
+  others=null;
 
   //una ropa
-  name;
-  waist;
+  name='';
+  waist='';
   gender = '';
   quantity=1;
 
@@ -45,15 +48,21 @@ export class RequestStreetComponent implements OnInit {
   }
 
   addClothes(){
-    let clothes = {
-      "name": this.name,
-      "waist": this.waist,
-      "quantity": this.quantity,
-      "gender": this.gender
-    };
-
-    this.clothesRequest.push(clothes);
-
+    if(this.name=='' || this.waist=='' || this.gender==''){
+      window.alert("Falta cargar información del pedido")
+    }else {
+      let clothes = {
+        "name": this.name,
+        "waist": this.waist,
+        "quantity": this.quantity,
+        "gender": this.gender
+      };
+      this.clothesRequest.push(clothes);
+    }
+    this.name='';
+    this.waist='';
+    this.gender = '';
+    this.quantity=1;
   }
 
   addQuantity(clothes){
@@ -70,9 +79,20 @@ export class RequestStreetComponent implements OnInit {
       "round": this.round,
       "preparedBy": this.preparedBy,
       "reviewedBy": this.reviewedBy,
-      "clothes": this.clothesRequest
+      "clothes": this.clothesRequest,
+      "date": Date.now()
     };
-    this.service.closedRequest(request).subscribe();
+    if(this.preparedBy==null || this.reviewedBy==null || this.clothesRequest==[]){
+      window.alert("Falta cargar información del pedido")
+    }else{
+      this.service.closedRequest(request).subscribe();
+      window.alert("Tu pedido fue cargado");
+      this.router.navigate(['home']);
+    }
+  }
+
+  selectedRound(){
+    this.showSelectedRound = true;
   }
 
 }
