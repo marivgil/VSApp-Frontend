@@ -7,7 +7,7 @@ import {HospitalsService} from "../home-hospitals/hospitals.service";
 })
 export class GetSuppliesHospitalsComponent implements OnInit {
 
-  hospital;
+  hospital='';
   hospitals = ['Durand', 'Posadas', 'Santojanni', 'Rivadavia'];
   hospitalProducts;
   hp;

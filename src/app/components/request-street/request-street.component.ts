@@ -22,15 +22,16 @@ export class RequestStreetComponent implements OnInit {
   clothes = [];
 
   //Un pedido
-  round;
+  round='';
   request: Request;
   clothesRequest = [];
   preparedBy=null;
   reviewedBy=null;
+  others=null;
 
   //una ropa
-  name=null;
-  waist=null;
+  name='';
+  waist='';
   gender = '';
   quantity=1;
 
@@ -47,7 +48,7 @@ export class RequestStreetComponent implements OnInit {
   }
 
   addClothes(){
-    if(this.name==null || this.waist==null || this.gender==''){
+    if(this.name=='' || this.waist=='' || this.gender==''){
       window.alert("Falta cargar información del pedido")
     }else {
       let clothes = {
@@ -58,6 +59,10 @@ export class RequestStreetComponent implements OnInit {
       };
       this.clothesRequest.push(clothes);
     }
+    this.name='';
+    this.waist='';
+    this.gender = '';
+    this.quantity=1;
   }
 
   addQuantity(clothes){
@@ -74,7 +79,8 @@ export class RequestStreetComponent implements OnInit {
       "round": this.round,
       "preparedBy": this.preparedBy,
       "reviewedBy": this.reviewedBy,
-      "clothes": this.clothesRequest
+      "clothes": this.clothesRequest,
+      "date": Date.now()
     };
     if(this.preparedBy==null || this.reviewedBy==null || this.clothesRequest==[]){
       window.alert("Falta cargar información del pedido")
