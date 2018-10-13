@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {RequestStreetService} from "./request-street.service";
 import {GENDER, NAMECLOTHESMAN, NAMECLOTHESWOMAN, ROUNDS, WAIST} from "../../app.consts";
 import {Router} from "@angular/router";
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 
 
 @Component({
@@ -12,7 +13,11 @@ import {Router} from "@angular/router";
 export class RequestStreetComponent implements OnInit {
 
   constructor(private service: RequestStreetService,
-              private router: Router ) { }
+              private router: Router,
+              private _vcr: ViewContainerRef,
+              public toastr: ToastsManager) {
+    this.toastr.setRootViewContainerRef(_vcr);
+  }
 
   showSelectedRound = false;
   showAddClothes = false;
@@ -21,36 +26,36 @@ export class RequestStreetComponent implements OnInit {
   waists = WAIST;
   clothes = [];
 
-  //Un pedido
-  round='';
+  // Un pedido
+  round = '';
   request: Request;
   clothesRequest = [];
-  preparedBy=null;
-  reviewedBy=null;
-  others=null;
+  preparedBy = null;
+  reviewedBy = null;
+  others = null;
 
-  //una ropa
-  name='';
-  waist='';
+  // una ropa
+  name = '';
+  waist = '';
   gender = '';
-  quantity=1;
+  quantity = 1;
 
 
   ngOnInit() {
   }
 
   selectClothesGender(){
-    if (this.gender=='Hombre' || this.gender == 'Nene'){
+    if (this.gender == 'Hombre' || this.gender == 'Nene') {
       this.clothes = NAMECLOTHESMAN;
-    }else{
+    } else {
       this.clothes = NAMECLOTHESWOMAN;
     }
   }
 
-  addClothes(){
-    if(this.name=='' || this.waist=='' || this.gender==''){
-      window.alert("Falta cargar información del pedido")
-    }else {
+  addClothes() {
+    if (this.name == '' || this.waist == '' || this.gender == '') {
+      this.toastr.error('Falta cargar información del pedido', 'Ya casi terminas...');
+    } else {
       let clothes = {
         "name": this.name,
         "waist": this.waist,
@@ -59,10 +64,10 @@ export class RequestStreetComponent implements OnInit {
       };
       this.clothesRequest.push(clothes);
     }
-    this.name='';
-    this.waist='';
+    this.name = '';
+    this.waist = '';
     this.gender = '';
-    this.quantity=1;
+    this.quantity = 1;
   }
 
   addQuantity(clothes){
@@ -82,11 +87,11 @@ export class RequestStreetComponent implements OnInit {
       "clothes": this.clothesRequest,
       "date": Date.now()
     };
-    if(this.preparedBy==null || this.reviewedBy==null || this.clothesRequest==[]){
-      window.alert("Falta cargar información del pedido")
-    }else{
+    if (this.preparedBy == null || this.reviewedBy == null || this.clothesRequest == []) {
+      this.toastr.error('Falta cargar información del pedido');
+    } else {
       this.service.closedRequest(request).subscribe();
-      window.alert("Tu pedido fue cargado");
+      this.toastr.success('Tu pedido fue cargado');
       this.router.navigate(['home']);
     }
   }

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {HospitalsService} from "../home-hospitals/hospitals.service";
 import {Router} from "@angular/router";
+import {ToastsManager} from "ng2-toastr";
 
 @Component({
   selector: 'app-load-supplies-hospitals',
@@ -8,15 +9,19 @@ import {Router} from "@angular/router";
 })
 export class LoadSuppliesHospitalsComponent implements OnInit {
 
-  hospital='';
+  hospital = '';
   hospitals = ['Durand', 'Posadas', 'Santojanni', 'Rivadavia'];
-  prodType='';
+  prodType = '';
   productsType = ['Insumo', 'Existencia'];
   nameProduct;
   quantityProd;
   rc;
 
-  constructor(private service: HospitalsService, private router: Router) { }
+  constructor(private service: HospitalsService, private router: Router,
+              private _vcr: ViewContainerRef,
+              public toastr: ToastsManager) {
+    this.toastr.setRootViewContainerRef(_vcr);
+  }
 
   ngOnInit() {
   }
@@ -29,8 +34,7 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
       "quantity": this.quantityProd
     };
     this.service.addProduct(product).subscribe();
-    window.alert("EL producto fue dado de alta");
-    this.router.navigate(['home']);
+    this.toastr.success('El producto fue dado de alta');
   }
 
 }

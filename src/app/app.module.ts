@@ -31,6 +31,8 @@ import { HomeHospitalsComponent } from './components/home-hospitals/home-hospita
 import { LoadSuppliesHospitalsComponent } from './components/load-supplies-hospitals/load-supplies-hospitals.component';
 import { GetSuppliesHospitalsComponent } from './components/get-supplies-hospitals/get-supplies-hospitals.component';
 import {HospitalsService} from "./components/home-hospitals/hospitals.service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastModule} from "ng2-toastr";
 
 
 
@@ -61,6 +63,9 @@ import {HospitalsService} from "./components/home-hospitals/hospitals.service";
     HttpModule,
     NgxPaginationModule,
     HttpClientModule,
+    BrowserModule,
+    ToastModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [
     ReceptionCentersService,
