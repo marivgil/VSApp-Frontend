@@ -13,8 +13,8 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
   hospitals = ['Durand', 'Posadas', 'Santojanni', 'Rivadavia'];
   prodType = '';
   productsType = ['Insumo', 'Existencia'];
-  nameProduct;
-  quantityProd;
+  nameProduct = '';
+  quantityProd = 0;
   rc;
 
   constructor(private service: HospitalsService, private router: Router,
@@ -27,14 +27,18 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
   }
 
   addProduct(){
-    let product = {
-      "hospital": this.hospital,
-      "type": this.prodType,
-      "name": this.nameProduct,
-      "quantity": this.quantityProd
-    };
-    this.service.addProduct(product).subscribe();
-    this.toastr.success('El producto fue dado de alta');
+    if(this.hospital=='' || this.prodType==''||this.nameProduct=='' || this.quantityProd==0){
+      this.toastr.error('Se faltan completar datos para dar de alta el producto');
+    }else{
+      let product = {
+        "hospital": this.hospital,
+        "type": this.prodType,
+        "name": this.nameProduct,
+        "quantity": this.quantityProd
+      };
+      this.service.addProduct(product).subscribe();
+      this.toastr.success('El producto fue dado de alta');
+    }
   }
 
 }
