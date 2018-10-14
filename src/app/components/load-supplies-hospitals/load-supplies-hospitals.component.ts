@@ -10,7 +10,7 @@ import {ToastsManager} from "ng2-toastr";
 export class LoadSuppliesHospitalsComponent implements OnInit {
 
   hospital = '';
-  hospitals = ['Durand', 'Posadas', 'Santojanni', 'Rivadavia'];
+  hospitals;
   prodType = '';
   productsType = ['Insumo', 'Existencia'];
   nameProduct = '';
@@ -24,6 +24,10 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.service.allNameHospitals().
+    subscribe(res => {
+      this.hospitals = res;
+    });
   }
 
   addProduct(){

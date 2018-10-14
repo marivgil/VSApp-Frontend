@@ -8,7 +8,7 @@ import {HospitalsService} from "../home-hospitals/hospitals.service";
 export class GetSuppliesHospitalsComponent implements OnInit {
 
   hospital='';
-  hospitals = ['Durand', 'Posadas', 'Santojanni', 'Rivadavia'];
+  hospitals;
   hospitalProducts;
   hp;
   firstEntry = true;
@@ -19,6 +19,10 @@ export class GetSuppliesHospitalsComponent implements OnInit {
 
   ngOnInit() {
     this.hospitalProducts = [];
+    this.service.allNameHospitals().
+    subscribe(res => {
+      this.hospitals = res;
+    });
   }
 
   searchHospitalProduct(){
