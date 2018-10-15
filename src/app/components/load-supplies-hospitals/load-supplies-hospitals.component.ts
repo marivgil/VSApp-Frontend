@@ -24,14 +24,14 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.allNameHospitals().
+    this.service.allHospitals().
     subscribe(res => {
       this.hospitals = res;
     });
   }
 
   addProduct(){
-    if(this.hospital=='' || this.prodType==''||this.nameProduct=='' || this.quantityProd==0){
+    if(this.hospital=='' || this.prodType==''||this.nameProduct=='' || this.quantityProd==0 || this.quantityProd==null){
       this.toastr.error('Se faltan completar datos para dar de alta el producto');
     }else{
       let product = {

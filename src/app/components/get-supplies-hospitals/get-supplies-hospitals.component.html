@@ -8,7 +8,7 @@
         <select class="custom-select d-block col-xs-4" name="round" required [(ngModel)]="hospital">
           <option value="" disabled>Buscar...</option>
           <option *ngFor="let hospital of hospitals" [ngValue]="hospital">
-            {{ hospital }}
+            {{ hospital.name }}
           </option>
         </select>
       </form>

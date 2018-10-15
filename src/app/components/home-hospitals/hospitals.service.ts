@@ -22,8 +22,8 @@ export class HospitalsService {
       "findProductsByHospital/" + hospital);
   }
 
-  allNameHospitals() {
+  allHospitals() {
     return this.http.get(URL_BACKEND_HOMO + this.extensionUrl +
-      "getAllNamesHospitals/");
+      "getAllHospitals/");
   }
 }

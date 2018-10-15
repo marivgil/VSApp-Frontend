@@ -6,7 +6,7 @@
     <select class="custom-select d-block w-100" id="hospital" required [(ngModel)]="hospital">
       <option value="">Buscar...</option>
       <option *ngFor="let hospital of hospitals" [ngValue]="hospital">
-        {{ hospital }}
+        {{ hospital.name }}
       </option>
     </select>
     <div class="invalid-feedback">
