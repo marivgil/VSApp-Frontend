@@ -1,11 +1,11 @@
-<div class="flex-column  my-md-3 pl-md-3 margin50">
+<div class="margin50">
 
   <div class="marginLeft50Top30">
 
     <div class="drow">
       <label>Elegí el Hospital a consultar:</label>
       <form #f="ngForm">
-        <select class="custom-select d-block w-100" name="round" required [(ngModel)]="hospital">
+        <select class="custom-select d-block col-xs-4" name="round" required [(ngModel)]="hospital">
           <option value="" disabled>Buscar...</option>
           <option *ngFor="let hospital of hospitals" [ngValue]="hospital">
             {{ hospital }}
@@ -14,14 +14,14 @@
       </form>
 
 
-      <button class="btn" type="submit" (click)=searchHospitalProduct()>Buscar</button>
+      <button class="btn violetVS textVioletVS marginLeft10" type="submit" (click)=searchHospitalProduct()>Buscar</button>
     </div>
 
   </div>
 
-  <div class="bg-light marginLeft50Top30" *ngIf="viewResult">
+  <div class="yellowVS marginLeft50Top30" *ngIf="viewResult">
 
-    <div class="flex-column container text-left">
+    <div class="container text-left">
       <table class="table col-md-4 ">
         <thead>
         <tr >

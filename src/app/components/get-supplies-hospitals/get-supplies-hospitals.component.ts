@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {HospitalsService} from "../home-hospitals/hospitals.service";
+import {ToastsManager} from "ng2-toastr";
 
 @Component({
   selector: 'app-get-supplies-hospitals',
@@ -15,7 +16,11 @@ export class GetSuppliesHospitalsComponent implements OnInit {
   rc;
   viewResult = false;
 
-  constructor(private service: HospitalsService) { }
+  constructor(private service: HospitalsService,
+  private _vcr: ViewContainerRef,
+  public toastr: ToastsManager) {
+    this.toastr.setRootViewContainerRef(_vcr);
+  }
 
   ngOnInit() {
     this.hospitalProducts = [];
@@ -26,13 +31,17 @@ export class GetSuppliesHospitalsComponent implements OnInit {
   }
 
   searchHospitalProduct(){
-    this.firstEntry= false;
-    this.viewResult = true;
+    if(this.hospital==''){
+      this.toastr.error('Te falto seleccionar el hospital');
+    }else{
+      this.firstEntry= false;
+      this.viewResult = true;
 
-    this.service.searchHospitalProduct(this.hospital).
-      subscribe(res => {
-     this.hospitalProducts = res;
-    });
+      this.service.searchHospitalProduct(this.hospital).
+        subscribe(res => {
+       this.hospitalProducts = res;
+      });
+    }
   }
 
 }

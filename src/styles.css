@@ -27,6 +27,11 @@
   margin-top: 25px;
 }
 
+.marginLeft10Top25{
+  margin-left: 10px;
+  margin-top: 25px;
+}
+
 .marginTop10{
   margin-top: 10px;
 }
@@ -73,4 +78,24 @@
   text-align: center;
   font-size: 12px;
   line-height: 1.42857;
+}
+
+.violetVS {
+  background-color: #B404AE !important;
+}
+
+.navbar-custom a {
+  color: #f7e4ff;
+}
+
+.yellowVS {
+  background-color: #fffecc;
+}
+
+.textVioletVS {
+  color: #f7e4ff;
+}
+
+.marginLeft10{
+  margin-left: 10px;
 }
