@@ -16,6 +16,7 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
   nameProduct = '';
   quantityProd = 0;
   rc;
+  viewResult = false;
 
   hospitalProducts;
   firstEntry = false;
