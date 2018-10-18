@@ -26,4 +26,9 @@ export class HospitalsService {
     return this.http.get(URL_BACKEND_HOMO + this.extensionUrl +
       "getAllHospitals/");
   }
+
+  getProductsHospitalByDay(day) {
+    return this.http.get(URL_BACKEND_HOMO + this.extensionUrl +
+      "getProductsHospitalByDay/" + day);
+  }
 }

@@ -17,6 +17,9 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
   quantityProd = 0;
   rc;
 
+  hospitalProducts;
+  firstEntry = false;
+
   constructor(private service: HospitalsService, private router: Router,
               private _vcr: ViewContainerRef,
               public toastr: ToastsManager) {
@@ -31,8 +34,8 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
   }
 
   addProduct(){
-    if(this.hospital=='' || this.prodType==''||this.nameProduct=='' || this.quantityProd==0 || this.quantityProd==null){
-      this.toastr.error('Se faltan completar datos para dar de alta el producto');
+    if(this.hospital=='' || this.prodType==''||this.nameProduct=='' || this.quantityProd<=0 || this.quantityProd==null){
+      this.toastr.error('Faltan completar datos para dar de alta el producto');
     }else{
       let product = {
         "hospital": this.hospital,
@@ -43,6 +46,19 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
       this.service.addProduct(product).subscribe();
       this.toastr.success('El producto fue dado de alta');
     }
+    this.firstEntry = true;
+    this.nameProduct = '';
+    this.quantityProd = 0;
+
+    let date = new Date();
+    let month:number = date.getMonth()+1; // WTF????
+
+    this.service.getProductsHospitalByDay(
+      date.getFullYear()+""+month+""+date.getDate()).
+    subscribe(res => {
+      this.hospitalProducts = res;
+    });
+
   }
 
 }

@@ -36,4 +36,39 @@
     <button class="btn marginLeft10Top25 violetVS textVioletVS" (click)="addProduct()">Agregar</button>
 
 
+
+  <div class="yellowVS marginLeft50Top30" *ngIf="viewResult">
+
+    <div class="container text-left">
+      <table class="table col-md-4 ">
+        <thead>
+        <tr >
+          <th>Hospital</th>
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>Cantidad</th>
+        </tr>
+        </thead>
+        <tbody >
+
+        <tr *ngFor="let hp of hospitalProducts | paginate: { itemsPerPage: 10, currentPage: rc }; let i = index">
+          <td>{{hp.name}}</td>
+          <td>{{hp.type}}</td>
+          <td>{{hp.quantity}}</td>
+        </tr>
+        </tbody>
+
+      </table>
+
+      <div *ngIf="firstEntry === false && hospitalProducts.length === 0" class="alert alert-light text-center" role="alert">
+        <p>El hospital no tiene asignados productos.</p>
+      </div>
+
+    </div>
+
+    <div *ngIf="hospitalProducts.length > 0" class="d-flex flex-row justify-content-center">
+      <pagination-controls (pageChange)="rc = $event"></pagination-controls>
+    </div>
+
+  </div>
 </div>
