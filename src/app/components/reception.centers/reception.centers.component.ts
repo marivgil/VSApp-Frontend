@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ReceptionCentersService} from "./reception.centers.service";
 
-//declare var $;
-
-
 @Component({
   selector: 'app-reception.centers',
   templateUrl: './reception.centers.component.html'
@@ -14,6 +11,7 @@ export class ReceptionCentersComponent implements OnInit {
   listRecepCenters = [];
   location = '';
   rc;
+  viewResult = false;
 
   constructor(private service: ReceptionCentersService) { }
 
@@ -25,6 +23,7 @@ export class ReceptionCentersComponent implements OnInit {
     this.service.getReceptionCenter(this.location).subscribe(res => {
       this.listRecepCenters = res.json();
     });
+    this.viewResult = true;
   }
 
 }

@@ -1,23 +1,18 @@
-<div class="margin50">
+<div class="container marginLeft50Top30">
 
-  <div class="marginLeft50Top30">
-
-    <div class="drow">
-      <label>Elegí el Hospital a consultar:</label>
-      <form #f="ngForm">
-        <select class="custom-select d-block col-xs-4" name="round" required [(ngModel)]="hospital">
-          <option value="" disabled>Buscar...</option>
-          <option *ngFor="let hospital of hospitals" [ngValue]="hospital">
-            {{ hospital.name }}
-          </option>
-        </select>
-      </form>
-
-
-      <button class="btn violetVS textVioletVS marginLeft10" type="submit" (click)=searchHospitalProduct()>Buscar</button>
-    </div>
-
+  <div class="col-md-4">
+    <label>Elegí el Hospital a consultar:</label>
+    <select class="custom-select d-block w-100" id="hospital" required [(ngModel)]="hospital">
+      <option value="" disabled>Buscar...</option>
+      <option *ngFor="let hospital of hospitals" [ngValue]="hospital">
+        {{ hospital.name }}
+      </option>
+    </select>
   </div>
+
+
+  <button class="btn marginLeft10Top25 violetVS textVioletVS" (click)="searchHospitalProduct()">Buscar</button>
+
 
   <div class="yellowVS marginLeft50Top30" *ngIf="viewResult">
 
