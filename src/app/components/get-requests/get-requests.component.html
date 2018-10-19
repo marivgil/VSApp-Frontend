@@ -1,28 +1,20 @@
-<div class="my-md-3 pl-md-3">
+<div class="container marginLeft50Top30">
 
-  <div class="marginLeft50Top30">
-
-    <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 overflow-hidden">
-      <div class="my-3 p-3">
-        <label>Elegí el recorrido a consultar:</label>
-        <form #f="ngForm">
-          <select class="custom-select d-block col-xs-4" name="round" required [(ngModel)]="round">
-            <option value="" disabled>Buscar...</option>
-            <option *ngFor="let round of rounds" [ngValue]="round">
-              {{ round }}
-            </option>
-          </select>
-        </form>
-
-        <button class="btn violetVS textVioletVS marginLeft10" type="submit" (click)=searchRequest()>Buscar</button>
-      </div>
-    </div>
-
+  <div class="col-md-4">
+    <label>Elegí el recorrido a consultar:</label>
+    <select class="custom-select d-block w-100" id="round" required [(ngModel)]="round">
+      <option value="" disabled>Buscar...</option>
+      <option *ngFor="let round of rounds" [ngValue]="round">
+        {{ round }}
+      </option>
+    </select>
   </div>
 
 
-    <div *ngIf="getRequest">
+  <button class="btn marginLeft10Top25 violetVS textVioletVS" (click)="searchRequest()">Buscar</button>
 
+
+  <div class="yellowVS marginLeft50Top30" *ngIf="getRequest">
 
       <div class="container text-left">
         <div class="form-group col-md-3">
