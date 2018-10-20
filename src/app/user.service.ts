@@ -11,7 +11,6 @@ export class UserService {
   constructor(private http: Http) { }
 
   getUser(mail: string){
-    console.log("estoy en getUser");
     return this.http.get(
       URL_BACKEND_HOMO +  this.extensionUrl + "findUserByMail/" + mail);
   }

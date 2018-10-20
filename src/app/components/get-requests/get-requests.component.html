@@ -2,10 +2,10 @@
 
   <div class="col-md-4">
     <label>Elegí el recorrido a consultar:</label>
-    <select class="custom-select d-block w-100" id="round" required [(ngModel)]="round">
+    <select class="custom-select d-block w-100" id="round" required [(ngModel)]="weeklyRound">
       <option value="" disabled>Buscar...</option>
-      <option *ngFor="let round of rounds" [ngValue]="round">
-        {{ round }}
+      <option *ngFor="let weeklyRound of rounds" [ngValue]="weeklyRound">
+        {{ weeklyRound.round.code }} - {{weeklyRound.round.name}}
       </option>
     </select>
   </div>

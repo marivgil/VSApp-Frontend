@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
-import {ROUNDS} from "../../app.consts";
 import {GetRequestsService} from "./get-requests.service";
 import {ToastsManager} from "ng2-toastr";
+import {WeeklyRound} from "../../interfaces/WeeklyRound";
 
 @Component({
   selector: 'app-get-requests',
@@ -9,9 +9,8 @@ import {ToastsManager} from "ng2-toastr";
 })
 export class GetRequestsComponent implements OnInit {
 
-  rounds = ROUNDS;
-  round = '';
-  request;
+  rounds;
+  weeklyRound: WeeklyRound = null;
   clothes = [];
   c;
   rc;
@@ -28,24 +27,29 @@ export class GetRequestsComponent implements OnInit {
 
   ngOnInit() {
     this.firstEntry= true;
+    this.service.findAllRequests().subscribe(result => {
+      this.rounds = result;
+    });
   }
 
   searchRequest(){
-    if (this.round == ''){
+    if (this.weeklyRound == null){
       this.toastr.error('Debe seleccionar un recorrido');
     } else {
       this.getRequest = true;
       this.firstEntry=false;
-      this.service.searchRequest(this.round).subscribe(result => {
+      /*
+      this.service.searchRequest(this.weeklyRound).subscribe(result => {
         this.request = result;
         if(this.request == null){
           this.clothes = [];
         }else{
-          this.clothes = this.request.clothes;
-          this.preparedBy = this.request.preparedBy;
-          this.reviewedBy = this.request.reviewedBy;
-        }
-          });
+        */
+          this.clothes = this.weeklyRound.request.clothes;
+          this.preparedBy = this.weeklyRound.request.preparedBy;
+          this.reviewedBy = this.weeklyRound.request.reviewedBy;
+       // }
+       //   });
     }
   }
 
