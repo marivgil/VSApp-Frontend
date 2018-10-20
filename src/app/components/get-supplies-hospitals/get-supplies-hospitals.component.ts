@@ -12,7 +12,6 @@ export class GetSuppliesHospitalsComponent implements OnInit {
   hospital: hospital = null;
   hospitals;
   hospitalProducts;
-  hp;
   firstEntry = true;
   rc;
   viewResult = false;
