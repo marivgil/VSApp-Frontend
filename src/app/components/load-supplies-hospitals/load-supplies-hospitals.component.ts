@@ -27,11 +27,8 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
     this.toastr.setRootViewContainerRef(_vcr);
   }
 
-  ngOnInit() {
-    this.service.allHospitals().
-    subscribe(res => {
-      this.hospitals = res;
-    });
+  async ngOnInit() {
+    this.hospitals = await this.service.allHospitals()
   }
 
   addProduct(){
