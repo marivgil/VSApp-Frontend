@@ -42,7 +42,7 @@
 }
 
 .panel-footer.panel-custom {
-  background: #B404AE;
+  background: #753D8B;
   color: white;
 }
 
@@ -66,7 +66,7 @@
   border-radius: 35px;
   font-size: 24px;
   line-height: 1.33;
-  background: #B404AE;
+  background: #753D8B;
   color: white;
 }
 
@@ -81,7 +81,8 @@
 }
 
 .violetVS {
-  background-color: #B404AE !important;
+  background-color: #753D8B !important;
+
 }
 
 .navbar-custom a {
@@ -93,7 +94,7 @@
 }
 
 .textVioletVS {
-  color: #f7e4ff;
+  color: #fffecc;
 }
 
 .marginLeft10{

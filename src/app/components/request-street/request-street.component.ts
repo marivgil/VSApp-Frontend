@@ -3,6 +3,7 @@ import {RequestStreetService} from "./request-street.service";
 import {GENDER, NAMECLOTHESMAN, NAMECLOTHESWOMAN, ROUNDS, WAIST} from "../../app.consts";
 import {Router} from "@angular/router";
 import {ToastsManager} from 'ng2-toastr/ng2-toastr';
+import {GetRequestsService} from "../get-requests/get-requests.service";
 
 
 @Component({
@@ -12,27 +13,24 @@ import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 
 export class RequestStreetComponent implements OnInit {
 
-  constructor(private service: RequestStreetService,
+  constructor(private serviceStreet: RequestStreetService,
               private router: Router,
               private _vcr: ViewContainerRef,
-              public toastr: ToastsManager) {
+              public toastr: ToastsManager,
+              public serviceRequest: GetRequestsService
+              ) {
     this.toastr.setRootViewContainerRef(_vcr);
   }
 
   showSelectedRound = false;
-  showAddClothes = false;
-  rounds = ROUNDS;
-  genders = GENDER;
-  waists = WAIST;
   clothes = [];
 
   // Un pedido
   round = '';
-  request: Request;
-  clothesRequest = [];
+  rounds : any = [];
+  clothesRequest;
   preparedBy = null;
   reviewedBy = null;
-  others = null;
 
   // una ropa
   name = '';
@@ -41,7 +39,13 @@ export class RequestStreetComponent implements OnInit {
   quantity = 1;
 
 
-  ngOnInit() {
+  async ngOnInit() {
+    //this.clothesRequest = await this.serviceRequest.findAllRequests();
+    //this.rounds = await this.serviceStreet.getAllRounds();
+    this.serviceStreet.getAllRounds().
+    subscribe(res => {
+      this.rounds = res;
+    });
   }
 
   selectClothesGender(){
@@ -90,7 +94,7 @@ export class RequestStreetComponent implements OnInit {
     if (this.preparedBy == null || this.reviewedBy == null || this.clothesRequest == []) {
       this.toastr.error('Falta cargar información del pedido');
     } else {
-      this.service.closedRequest(request).subscribe();
+      this.serviceStreet.closedRequest(request).subscribe();
       this.toastr.success('Tu pedido fue cargado');
       this.router.navigate(['home']);
     }
