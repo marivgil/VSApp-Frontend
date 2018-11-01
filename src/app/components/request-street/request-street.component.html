@@ -54,12 +54,11 @@
     </div>
 
  -->
-  <div class="col-3">
-  <ul  class="list-unstyled row">
-    <li class="list-group-item btn col-6" *ngFor="let round of rounds">
-      {{ round.name }}
-    </li>
-  </ul>
+  <label>Seleccioná tu recorrído / base: </label>
+  <div class="row">
+    <button class="btn btn-add-vs col-2 marginTop10 marginLeft10" *ngFor="let round of rounds">
+      {{ round.code }} - {{ round.name }}
+    </button>
   </div>
 
 
