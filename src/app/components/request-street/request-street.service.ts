@@ -23,9 +23,8 @@ export class RequestStreetService {
 
   //traigo la lista de ropas
   findAllClothingsUp(): Observable<any>{
-    let headers = new HttpHeaders().set('Content-Type','application/json');
     return this.http.get(
-      URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothingsUp/", {headers: headers});
+      URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothingsUp/");
   }
 
   // trae todos los recorridos

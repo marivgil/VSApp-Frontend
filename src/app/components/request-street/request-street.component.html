@@ -54,12 +54,34 @@
     </div>
 
  -->
-  <label>Seleccioná tu recorrído / base: </label>
+  <label>Seleccioná tu recorrido / base: </label>
+  <!-- flex-column -->
   <div class="row">
-    <button class="btn btn-add-vs col-2 marginTop10 marginLeft10" *ngFor="let round of rounds">
-      {{ round.code }} - {{ round.name }}
+    <button class=" btn btn-add-vs col-2 marginTop10 button_vs marginLeft10 yellowVS textYellowVS "
+            *ngFor="let round of rounds"
+            (click)="addClothes()">
+      <span>
+        <div class="textButtonVs">
+          {{ round.code }} - {{ round.name }}
+        </div>
+      </span>
     </button>
   </div>
+
+
+  <div *ngIf="viewClothing">
+    <div class="row">
+      <button class=" btn btn-add-vs col-2 marginTop10 button_vs marginLeft10 yellowVS textYellowVS "
+              *ngFor="let clothing of clothes">
+        <span>
+          <div class="textButtonVs">
+            {{ clothing.name }}
+          </div>
+        </span>
+      </button>
+    </div>
+  </div>
+
 
 
 </div>

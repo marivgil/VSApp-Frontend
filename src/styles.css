@@ -93,12 +93,33 @@
   background-color: #fffecc;
 }
 
+.textYellowVS {
+  color: #753D8B;
+}
+
 .textVioletVS {
   color: #fffecc;
 }
 
 .marginLeft10{
   margin-left: 10px;
+}
+
+.button_vs{
+  height: 80px;
+}
+
+.textButtonVs{
+  font-size: 17px;
+}
+
+button > span, p {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 .content {
