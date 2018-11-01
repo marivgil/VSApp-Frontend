@@ -27,6 +27,7 @@ export class RequestStreetComponent implements OnInit {
 
   // Un pedido
   round = '';
+  rc;
   rounds : any = [];
   clothesRequest;
   preparedBy = null;
