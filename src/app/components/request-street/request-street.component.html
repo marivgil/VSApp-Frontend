@@ -68,6 +68,7 @@
   </div>
 </div>
 
+<!--
 <div class="flex-column container ">
   <div class="flex-lg-row-reverse" *ngIf="viewClothing col">
     <div class="row">
@@ -83,6 +84,32 @@
       </button>
     </div>
   </div>
+-->
+
+
+  <div class="flex-lg-row-reverse" *ngIf="viewClothing col">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="card marginLeft50Top30 text-center" style="width: 18rem;" *ngFor="let clothing of clothes">
+        <div class="card-body">
+          <p class="card-text textYellowVS">{{ clothing.name }}</p>
+          <p class="card-text textYellowVS">{{ clothing.gender }}</p>
+          <p class="card-text textYellowVS">Talle: {{ clothing.size }}</p>
+          <p class="card-text textYellowVS">Cantidad: {{ clothing.quantity }}</p>
+          <a type="btn btn-primary" class="btn btn-outline-success" (click)="addQuantity(c)">+</a>
+          <a type="btn btn-primary" class="btn btn-outline-danger" (click)="subQuantity(c)">-</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
 
 </div>
 
