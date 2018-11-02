@@ -38,7 +38,7 @@ export class RequestStreetComponent implements OnInit {
     subscribe(res => {
       this.clothes = res;
     });
-    this.clothes.subscribe(res => console.log(res));
+    //this.clothes.subscribe(res => console.log(res));
     //this.rounds = await this.serviceStreet.getAllRounds();
     this.serviceStreet.getAllRounds().
     subscribe(res => {
@@ -47,9 +47,10 @@ export class RequestStreetComponent implements OnInit {
   }
 
 
-  addClothes() {
+  addClothes(round) {
+    this.round = round;
+    console.log(this.round);
     this.viewClothing = true;
-    console.log(this.viewClothing)
     /*
     if (this.name == '' || this.waist == '' || this.gender == '') {
       this.toastr.error('Falta cargar información del pedido', 'Ya casi terminas...');
