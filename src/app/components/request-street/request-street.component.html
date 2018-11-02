@@ -55,7 +55,7 @@
 
  -->
   <label>Seleccioná tu recorrido / base: </label>
-  <div class="flex-lg-row-reverse">
+  <div class="d-flex flex-wrap">
     <button class=" btn marginLeft10 yellowVS textYellowVS marginTop10 col-md-2 button_vs"
             *ngFor="let round of rounds"
             (click)="addClothes(round)">
@@ -66,31 +66,14 @@
       </span>
     </button>
   </div>
+
 </div>
 
-<!--
 <div class="flex-column container ">
-  <div class="flex-lg-row-reverse" *ngIf="viewClothing col">
-    <div class="row">
-      <button class=" btn marginLeft10 yellowVS textYellowVS marginTop10 col-md-2 button_vs"
-              *ngFor="let clothing of clothes">
-        <span>
-          <div class="textButtonVs">
-            <p>{{ clothing.name }}</p>
-            {{ clothing.gender }}
-            {{ clothing.size }}
-          </div>
-        </span>
-      </button>
-    </div>
-  </div>
--->
-
-
-  <div class="flex-lg-row-reverse" *ngIf="viewClothing col">
-  <div class="row">
-    <div class="col-sm-2">
-      <div class="card marginLeft50Top30 text-center" style="width: 18rem;" *ngFor="let clothing of clothes">
+  <div class="d-flex flex-wrap-reverse" *ngIf="viewClothing">
+      <div class="card marginLeft50Top30 text-center"
+           style="width: 18rem;"
+           *ngFor="let clothing of clothes">
         <div class="card-body">
           <p class="card-text textYellowVS">{{ clothing.name }}</p>
           <p class="card-text textYellowVS">{{ clothing.gender }}</p>
@@ -100,18 +83,7 @@
           <a type="btn btn-primary" class="btn btn-outline-danger" (click)="subQuantity(c)">-</a>
         </div>
       </div>
-    </div>
   </div>
-
-
-
-
-
-
-
-
-
 </div>
-
 
 
