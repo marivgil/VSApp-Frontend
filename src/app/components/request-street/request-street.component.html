@@ -73,7 +73,8 @@
   <div class="d-flex flex-wrap-reverse" *ngIf="viewClothing">
       <div class="card marginLeft50Top30 text-center"
            style="width: 18rem;"
-           *ngFor="let clothing of clothes">
+           *ngFor="let clothing of clothes
+           | paginate: { itemsPerPage: 4, currentPage: rc }; let i = index">
         <div class="card-body">
           <p class="card-text textYellowVS">{{ clothing.name }}</p>
           <p class="card-text textYellowVS">{{ clothing.gender }}</p>
@@ -84,6 +85,13 @@
         </div>
       </div>
   </div>
+
+  <div class="d-flex flex-row marginTop25 justify-content-center">
+    <div *ngIf="clothes.length > 0">
+      <pagination-controls (pageChange)="rc = $event" class=" textYellowVS"></pagination-controls>
+    </div>
+  </div>
+
 </div>
 
 
