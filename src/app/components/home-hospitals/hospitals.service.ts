@@ -19,12 +19,12 @@ export class HospitalsService {
 
   searchHospitalProduct(hospital){
     return this.http.get(URL_BACKEND_HOMO + this.extensionUrl +
-      "findProductsByHospital/" + hospital);
+      "findProductsByHospital/" + hospital).toPromise();
   }
 
   allHospitals() {
     return this.http.get(URL_BACKEND_HOMO + this.extensionUrl +
-      "getAllHospitals/");
+      "getAllHospitals/").toPromise();
   }
 
   getProductsHospitalByDay(day) {

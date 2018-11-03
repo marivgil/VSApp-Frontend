@@ -33,8 +33,8 @@ import { GetSuppliesHospitalsComponent } from './components/get-supplies-hospita
 import {HospitalsService} from "./components/home-hospitals/hospitals.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastModule} from "ng2-toastr";
-
-
+import 'hammerjs';
+import {NgxHmCarouselModule} from "ngx-hm-carousel";
 
 @NgModule({
   declarations: [
@@ -66,6 +66,7 @@ import {ToastModule} from "ng2-toastr";
     BrowserModule,
     ToastModule.forRoot(),
     BrowserAnimationsModule,
+    NgxHmCarouselModule,
   ],
   providers: [
     ReceptionCentersService,

@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {RequestStreetService} from "./request-street.service";
-import {GENDER, NAMECLOTHESMAN, NAMECLOTHESWOMAN, ROUNDS, WAIST} from "../../app.consts";
 import {Router} from "@angular/router";
 import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 
@@ -12,47 +11,47 @@ import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 
 export class RequestStreetComponent implements OnInit {
 
-  constructor(private service: RequestStreetService,
+  constructor(private serviceStreet: RequestStreetService,
               private router: Router,
               private _vcr: ViewContainerRef,
-              public toastr: ToastsManager) {
+              public toastr: ToastsManager
+              ) {
     this.toastr.setRootViewContainerRef(_vcr);
   }
 
-  showSelectedRound = false;
-  showAddClothes = false;
-  rounds = ROUNDS;
-  genders = GENDER;
-  waists = WAIST;
-  clothes = [];
 
   // Un pedido
   round = '';
-  request: Request;
-  clothesRequest = [];
+  rc;
+  clothing;
+  clothes : any = [];
+  rounds : any = [];
+  clothesRequest;
   preparedBy = null;
   reviewedBy = null;
-  others = null;
-
-  // una ropa
-  name = '';
-  waist = '';
-  gender = '';
-  quantity = 1;
+  viewClothing = false;
 
 
-  ngOnInit() {
+  async ngOnInit() {
+    //this.clothes = await this.serviceStreet.findAllClothingsUp();
+    this.serviceStreet.findAllClothingsUp().
+    subscribe(res => {
+      this.clothes = res;
+    });
+    //this.clothes.subscribe(res => console.log(res));
+    //this.rounds = await this.serviceStreet.getAllRounds();
+    this.serviceStreet.getAllRounds().
+    subscribe(res => {
+      this.rounds = res;
+    });
   }
 
-  selectClothesGender(){
-    if (this.gender == 'Hombre' || this.gender == 'Nene') {
-      this.clothes = NAMECLOTHESMAN;
-    } else {
-      this.clothes = NAMECLOTHESWOMAN;
-    }
-  }
 
-  addClothes() {
+  addClothes(round) {
+    this.round = round;
+    console.log(this.round);
+    this.viewClothing = true;
+    /*
     if (this.name == '' || this.waist == '' || this.gender == '') {
       this.toastr.error('Falta cargar información del pedido', 'Ya casi terminas...');
     } else {
@@ -68,6 +67,7 @@ export class RequestStreetComponent implements OnInit {
     this.waist = '';
     this.gender = '';
     this.quantity = 1;
+    */
   }
 
   addQuantity(clothes){
@@ -90,14 +90,10 @@ export class RequestStreetComponent implements OnInit {
     if (this.preparedBy == null || this.reviewedBy == null || this.clothesRequest == []) {
       this.toastr.error('Falta cargar información del pedido');
     } else {
-      this.service.closedRequest(request).subscribe();
+      this.serviceStreet.closedRequest(request).subscribe();
       this.toastr.success('Tu pedido fue cargado');
       this.router.navigate(['home']);
     }
-  }
-
-  selectedRound(){
-    this.showSelectedRound = true;
   }
 
 }

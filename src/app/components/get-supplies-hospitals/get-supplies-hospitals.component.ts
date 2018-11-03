@@ -11,40 +11,33 @@ export class GetSuppliesHospitalsComponent implements OnInit {
 
   hospital: hospital = null;
   hospitals;
-  hospitalProducts;
-  hp;
+  hospitalProducts : any = [];
   firstEntry = true;
-  rc;
-  viewResult = false;
 
   constructor(private service: HospitalsService,
-  private _vcr: ViewContainerRef,
-  public toastr: ToastsManager) {
+    private _vcr: ViewContainerRef,
+    public toastr: ToastsManager) {
     this.toastr.setRootViewContainerRef(_vcr);
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.hospitalProducts = [];
-    this.service.allHospitals().
-    subscribe(res => {
-      this.hospitals = res;
-    });
+    this.hospitals = await this.service.allHospitals()
+
   }
 
-  searchHospitalProduct(){
-    if(this.hospital.name==''){
+  async searchHospitalProduct(){
+    if(!this.hospital){
       this.toastr.error('Te falto seleccionar el hospital');
 
     }else{
-
       this.firstEntry= false;
-      this.viewResult = true;
-
-      this.service.searchHospitalProduct(this.hospital.name).
-        subscribe(res => {
-       this.hospitalProducts = res;
-      });
+      this.hospitalProducts = await this.service.searchHospitalProduct(this.hospital.name)
     }
+  }
+
+  viewResult() {
+    return this.hospitalProducts.length > 0
   }
 
 }

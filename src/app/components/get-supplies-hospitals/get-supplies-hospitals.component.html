@@ -36,13 +36,13 @@
 
       </table>
 
-      <div *ngIf="firstEntry === false && hospitalProducts.length === 0" class="alert alert-light text-center" role="alert">
+      <div *ngIf="!firstEntry && !viewResult()" class="alert alert-light text-center" role="alert">
         <p>El hospital no tiene asignados productos.</p>
       </div>
 
     </div>
 
-    <div *ngIf="hospitalProducts.length > 0" class="d-flex flex-row justify-content-center">
+    <div *ngIf="viewResult()" class="d-flex flex-row justify-content-center">
       <pagination-controls (pageChange)="rc = $event"></pagination-controls>
     </div>
 
