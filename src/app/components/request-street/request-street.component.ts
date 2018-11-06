@@ -22,14 +22,13 @@ export class RequestStreetComponent implements OnInit {
 
   // Un pedido
   round = '';
-  rc;
-  clothing;
   clothes : any = [];
   rounds : any = [];
   clothesRequest;
   preparedBy = null;
   reviewedBy = null;
   viewClothing = false;
+  sizes = ['XS', 'S', 'M', 'L'];
 
 
   async ngOnInit() {
@@ -39,9 +38,9 @@ export class RequestStreetComponent implements OnInit {
 
 
   addClothes(round) {
-    this.round = round;
-    console.log(this.round);
     this.viewClothing = true;
+    this.round = round;
+    console.log(this.round)
     /*
     if (this.name == '' || this.waist == '' || this.gender == '') {
       this.toastr.error('Falta cargar información del pedido', 'Ya casi terminas...');
