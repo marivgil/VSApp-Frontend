@@ -22,15 +22,15 @@ export class RequestStreetService {
   }
 
   //traigo la lista de ropas
-  findAllClothingsUp(): Observable<any>{
+  findAllClothingsUp(): Promise<any>{
     return this.http.get(
-      URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothingsUp/");
+      URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothingsUp/").toPromise();
   }
 
   // trae todos los recorridos
-  getAllRounds(): Observable<any>{
+  getAllRounds(): Promise<any>{
     return this.http.get(
-      URL_BACKEND_HOMO +  this.extensionUrl + "getAllRounds/");
+      URL_BACKEND_HOMO +  this.extensionUrl + "getAllRounds/").toPromise();
   }
 
 }

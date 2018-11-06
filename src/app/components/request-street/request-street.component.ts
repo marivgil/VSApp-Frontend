@@ -33,17 +33,8 @@ export class RequestStreetComponent implements OnInit {
 
 
   async ngOnInit() {
-    //this.clothes = await this.serviceStreet.findAllClothingsUp();
-    this.serviceStreet.findAllClothingsUp().
-    subscribe(res => {
-      this.clothes = res;
-    });
-    //this.clothes.subscribe(res => console.log(res));
-    //this.rounds = await this.serviceStreet.getAllRounds();
-    this.serviceStreet.getAllRounds().
-    subscribe(res => {
-      this.rounds = res;
-    });
+    this.clothes = await this.serviceStreet.findAllClothingsUp();
+    this.rounds = await this.serviceStreet.getAllRounds();
   }
 
 
@@ -87,6 +78,7 @@ export class RequestStreetComponent implements OnInit {
       "clothes": this.clothesRequest,
       "date": Date.now()
     };
+    //FIXME validaciones separadas para mejor feedback al usuario
     if (this.preparedBy == null || this.reviewedBy == null || this.clothesRequest == []) {
       this.toastr.error('Falta cargar información del pedido');
     } else {
