@@ -1,43 +1,15 @@
 
-<div id="accordion">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h5 class="mb-0">
-        <button class="btn btn-purple" data-toggle="collapse" data-target="#collapseOne"
-                aria-expanded="false" aria-controls="collapseOne"
+<label>Seleccioná tu recorrido / base: </label>
+<div class="d-flex flex-wrap">
+  <button class=" btn marginLeft10 yellowVS textYellowVS marginTop10 col-md-2 button_vs"
           *ngFor="let round of rounds"
-          (click)="addClothes(round)">
+          (click)="addClothes(round)"
+          [routerLink]="['clothingMatrixComponent']">
+      <span>
+        <div class="textButtonVs">
           {{ round.code }} - {{ round.name }}
-        </button>
-      </h5>
-    </div>
-
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-5 col-md-5 col-sm-8 col-xs-9 bhoechie-tab-container">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
-              <div class="list-group" *ngFor="let clothe of clothes">
-                <a href="#" class="list-group-item active text-center">
-                  <h4 class="glyphicon"></h4><br/>{{clothe}}
-                </a>
-
-              </div>
-            </div>
-
-            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
-              <div class="bhoechie-tab-content active">
-                <app-clothing></app-clothing>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-
-
-    </div>
-  </div>
+      </span>
+  </button>
 </div>
-
 

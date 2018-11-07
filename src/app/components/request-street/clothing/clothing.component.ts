@@ -6,16 +6,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClothingComponent implements OnInit {
 
-
-  round = '';
-  clothes : any = ['Remera', 'Camisa', 'Pantalon'];
-  rounds : any = [];
-  clothesRequest;
   quantity = 0;
   sizes = ['XS', 'S', 'M', 'L'];
   gender;
-
-
 
   constructor() { }
 

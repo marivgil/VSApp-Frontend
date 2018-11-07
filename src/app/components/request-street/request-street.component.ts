@@ -2,7 +2,6 @@ import {Component, Input, OnInit, ViewContainerRef} from '@angular/core';
 import {RequestStreetService} from "./request-street.service";
 import {Router} from "@angular/router";
 import {ToastsManager} from 'ng2-toastr/ng2-toastr';
-import {ClothingComponent} from "./clothing/clothing.component";
 
 
 @Component({
@@ -20,20 +19,13 @@ export class RequestStreetComponent implements OnInit {
     this.toastr.setRootViewContainerRef(_vcr);
   }
 
-  @Input() clothingComponent: ClothingComponent;
 
   // Un pedido
   round = '';
-  clothes : any = ['Remera', 'Camisa', 'Pantalon'];
   rounds : any = [];
   clothesRequest;
   preparedBy = null;
   reviewedBy = null;
-  viewClothing = false;
-  quantity = 0;
-  sizes = ['XS', 'S', 'M', 'L'];
-  gender;
-
 
   async ngOnInit() {
     //this.clothes = await this.serviceStreet.findAllClothingsUp();
@@ -42,7 +34,6 @@ export class RequestStreetComponent implements OnInit {
 
 
   addClothes(round) {
-    this.viewClothing = true;
     this.round = round;
     console.log(this.round);
   }
