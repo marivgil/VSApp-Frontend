@@ -1,7 +1,8 @@
-import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, Input, OnInit, ViewContainerRef} from '@angular/core';
 import {RequestStreetService} from "./request-street.service";
 import {Router} from "@angular/router";
 import {ToastsManager} from 'ng2-toastr/ng2-toastr';
+import {ClothingComponent} from "./clothing/clothing.component";
 
 
 @Component({
@@ -19,20 +20,23 @@ export class RequestStreetComponent implements OnInit {
     this.toastr.setRootViewContainerRef(_vcr);
   }
 
+  @Input() clothingComponent: ClothingComponent;
 
   // Un pedido
   round = '';
-  clothes : any = [];
+  clothes : any = ['Remera', 'Camisa', 'Pantalon'];
   rounds : any = [];
   clothesRequest;
   preparedBy = null;
   reviewedBy = null;
   viewClothing = false;
+  quantity = 0;
   sizes = ['XS', 'S', 'M', 'L'];
+  gender;
 
 
   async ngOnInit() {
-    this.clothes = await this.serviceStreet.findAllClothingsUp();
+    //this.clothes = await this.serviceStreet.findAllClothingsUp();
     this.rounds = await this.serviceStreet.getAllRounds();
   }
 
@@ -40,34 +44,9 @@ export class RequestStreetComponent implements OnInit {
   addClothes(round) {
     this.viewClothing = true;
     this.round = round;
-    console.log(this.round)
-    /*
-    if (this.name == '' || this.waist == '' || this.gender == '') {
-      this.toastr.error('Falta cargar información del pedido', 'Ya casi terminas...');
-    } else {
-      let clothes = {
-        "name": this.name,
-        "waist": this.waist,
-        "quantity": this.quantity,
-        "gender": this.gender
-      };
-      this.clothesRequest.push(clothes);
-    }
-    this.name = '';
-    this.waist = '';
-    this.gender = '';
-    this.quantity = 1;
-    */
+    console.log(this.round);
   }
 
-  addQuantity(clothes){
-    clothes.quantity ++;
-  }
-
-  subQuantity(clothes){
-    if (clothes.quantity > 0)
-      clothes.quantity --;
-  }
 
   closedRequest(){
     let request = {

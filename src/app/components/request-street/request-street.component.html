@@ -13,54 +13,37 @@
     </div>
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
 
-        <div class="flex-column container ">
-          <div class="d-flex flex-wrap-reverse" *ngIf="viewClothing">
-            <div class="card marginLeft50Top30 text-center"
-                 style="width: 18rem;"
-                 *ngFor="let clothing of clothes
-             | paginate: { itemsPerPage: 4, currentPage: rc }; let i = index">
-              <div class="card-body">
+      <app-clothing></app-clothing>
 
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                  <label class="btn btn-secondary active">
-                    <input type="radio" name="options" id="option1" autocomplete="off">Mujer
-                  </label>
-                  <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option2" autocomplete="off" checked> Hombre
-                  </label>
-                </div>
-
-                <select class="custom-select d-block w-100 marginTop10" id="sizes" required [(ngModel)]="sizes">
-                  <option value="">Buscar...</option>
-                  <option *ngFor="let size of sizes" [ngValue]="sizes">
-                    {{ size }}
-                  </option>
-                </select>
-
-                <p class="card-text textYellowVS marginTop10">Cantidad: {{ clothing.quantity }}</p>
-
-                <a type="btn btn-primary" class="btn btn-outline-success" (click)="addQuantity(c)">+</a>
-                <a type="btn btn-primary" class="btn btn-outline-danger" (click)="subQuantity(c)">-</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="d-flex flex-row marginTop25 justify-content-center">
-            <div *ngIf="clothes.length > 0">
-              <pagination-controls (pageChange)="rc = $event" class=" textYellowVS"></pagination-controls>
-            </div>
-          </div>
-
-        </div>
-
-
-
-      </div>
     </div>
   </div>
 </div>
 
 
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 col-md-5 col-sm-8 col-xs-9 bhoechie-tab-container">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+        <div class="list-group" *ngFor="let clothe of clothes">
+          <a href="#" class="list-group-item active text-center">
+            <h4 class="glyphicon glyphicon-education"></h4><br/>{{clothe}}
+          </a>
+
+        </div>
+      </div>
+
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+
+        <div class="bhoechie-tab-content active">
+            <h1 class="glyphicon glyphicon-plane" style="font-size:14em;color:#753D8B"></h1>
+            <h2 style="margin-top: 0;color:#753D8B">Cooming Soon</h2>
+            <h3 style="margin-top: 0;color:#753D8B">Flight Reservation</h3>
+        </div>
+
+      </div>
+      </div>
+    </div>
+  </div>
 
