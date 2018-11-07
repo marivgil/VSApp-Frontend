@@ -2,9 +2,7 @@
 <div class="flex-column container ">
   <div class="d-flex flex-wrap-reverse">
     <div class="card marginLeft50Top30 text-center"
-         style="width: 18rem;"
-         *ngFor="let clothing of clothes
-             | paginate: { itemsPerPage: 4, currentPage: rc }; let i = index">
+         style="width: 18rem;">
       <div class="card-body">
 
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -28,12 +26,6 @@
         <a type="btn btn-primary" class="btn btn-outline-success" (click)="addQuantity()">+</a>
         <a type="btn btn-primary" class="btn btn-outline-danger" (click)="subQuantity()">-</a>
       </div>
-    </div>
-  </div>
-
-  <div class="d-flex flex-row marginTop25 justify-content-center">
-    <div *ngIf="clothes.length > 0">
-      <pagination-controls (pageChange)="rc = $event" class=" textYellowVS"></pagination-controls>
     </div>
   </div>
 
