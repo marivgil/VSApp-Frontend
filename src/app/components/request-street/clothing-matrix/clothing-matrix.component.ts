@@ -16,8 +16,9 @@ export class ClothingMatrixComponent implements OnInit {
 
   constructor(private serviceStreet: RequestStreetService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.round = this.serviceStreet.getRound();
+    //this.clothes = await this.serviceStreet.findAllClothingsUp();
   }
 
 

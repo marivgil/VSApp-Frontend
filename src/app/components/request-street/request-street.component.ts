@@ -30,7 +30,6 @@ export class RequestStreetComponent implements OnInit {
   }
 
   async ngOnInit() {
-    //this.clothes = await this.serviceStreet.findAllClothingsUp();
     this.rounds = await this.serviceStreet.getAllRounds();
   }
 
