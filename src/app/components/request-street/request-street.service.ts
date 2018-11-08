@@ -8,8 +8,17 @@ export class RequestStreetService {
 
   extensionUrl: String = "streetService/";
   extensionClothingUrl: String = "clothingService/";
+  round;
 
   constructor(private http: HttpClient){
+  }
+
+  getRound(){
+    return this.round;
+  }
+
+  setRound(round){
+    this.round = round;
   }
 
   //armo el pedido y lo persisto

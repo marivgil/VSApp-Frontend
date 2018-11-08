@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ClothingComponent} from "../clothing/clothing.component";
+import {Round} from "../../../interfaces/Round";
+import {RequestStreetService} from "../request-street.service";
 
 @Component({
   selector: 'app-clothing-matrix',
@@ -8,12 +10,15 @@ import {ClothingComponent} from "../clothing/clothing.component";
 export class ClothingMatrixComponent implements OnInit {
 
   clothes : any = ['Remera', 'Camisa', 'Pantalon'];
+  round:Round;
 
   @Input() clothingComponent: ClothingComponent;
 
-  constructor() { }
+  constructor(private serviceStreet: RequestStreetService) { }
 
   ngOnInit() {
+    this.round = this.serviceStreet.getRound();
   }
+
 
 }
