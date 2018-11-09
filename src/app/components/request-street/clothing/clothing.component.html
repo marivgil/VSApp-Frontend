@@ -1,21 +1,20 @@
-<div class="card-body">
 <div class="flex-column container ">
+  <div class="card-body">
   <div class="d-flex flex-wrap-reverse">
-    <div class="card text-center"
-         style="width: 40rem;">
+    <div class="card text-center">
 
       <div class="card-body row">
 
-        <div class="btn-group btn-group-toggle col-xs-1 col-md-3" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="mujer" autocomplete="off">Mujer
+        <div class="btn-group btn-group-toggle col-md-3" data-toggle="buttons">
+          <label class="btn">
+            <img width="100" type="radio" class="btn" src="../../../assets/img/mujer.png">
           </label>
-          <label class="btn btn-secondary marginTop10">
-            <input type="radio" name="options" id="hombre" autocomplete="off">Hombre
+          <label class="btn marginLeft10">
+            <img width="100" type="radio" class="btn" src="../../../assets/img/hombre.png">
           </label>
         </div>
 
-        <div class=" col-xs-1 col-md-3">
+        <div class="col-md-3">
           <select class="custom-select d-block w-100 marginTop10" id="sizes" required [(ngModel)]="sizes">
             <option value="">Buscar...</option>
             <option *ngFor="let size of sizes" [ngValue]="sizes">
@@ -23,14 +22,14 @@
             </option>
           </select>
         </div>
-         <div class=" col-xs-1 col-md-3">
+         <div class="col-md-3">
           <p class="card-text textYellowVS marginTop10">Cantidad: {{ quantity }}</p>
 
           <a type="btn btn-primary" class="btn btn-outline-success" (click)="addQuantity()">+</a>
           <a type="btn btn-primary" class="btn btn-outline-danger" (click)="subQuantity()">-</a>
         </div>
 
-        <div class=" col-xs-1 col-md-3">
+        <div class="col-md-3">
           <a type="btn btn-primary" class="btn btn-add-vs btn-circle textVioletVS textButtonVs " (click)="addQuantity()">+</a>
         </div>
 
