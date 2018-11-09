@@ -1,7 +1,7 @@
 
 <label>Seleccioná tu recorrido / base: </label>
 <div class="d-flex flex-wrap">
-  <button class=" btn marginLeft10 yellowVS textYellowVS marginTop10 col-md-2 button_vs"
+  <button class=" btn border border-info marginLeft10 yellowVS textYellowVS marginTop10 col-md-2 button_vs"
           *ngFor="let round of rounds"
           (click)="setRound(round)"
           [routerLink]="['clothingMatrixComponent']">
