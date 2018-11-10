@@ -5,6 +5,7 @@
     <div class="card text-center">
 
       <div class="card-body row ">
+
         <div class="col-md-3">
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn" (click)="setWomanGender()" style="position: center">
@@ -15,25 +16,24 @@
           </label>
         </div>
         </div>
-        <div class="col-md-3">
 
-          <label class="textYellowVS"><h4>TALLE</h4></label>
-          <input class="marginLeft10 textYellowVS" [(ngModel)]="size" style="width: 50px; height: 50px; font-size: x-large">
-        </div>
-         <div class="col-md-3">
-          <h3 class="card-text textYellowVS marginTop10">Cantidad: {{ quantity }}</h3>
-
-           <a type="btn btn-primary" class="btn btn-outline-success" (click)="addQuantity()">
-             <h3>+</h3></a>
-          <a type="btn btn-primary" class="btn btn-outline-danger" (click)="subQuantity()">
+        <div class="col-md-3 row align-items-center">
+          <h3 class="card-text textYellowVS marginTop10 col-6">CANTIDAD {{ quantity }}</h3>
+          <a type="btn" class="btn btn-outline-success col-2" (click)="addQuantity()">
+            <h3>+</h3></a>
+          <a type="btn" class="btn btn-outline-danger col-2" (click)="subQuantity()">
             <h3>-</h3></a>
-         <!--</div>
+        </div>
 
-        <div class="col-md-3 marginTop10">-->
-          <a type="btn" class="btn textYellowVS btn-add-vs float-right" style="color: #fffecc; font-size: xx-large" (click)="addClothing()">
+        <div class="col-md-3 marginLeft10">
+          <label class="textYellowVS"><h3>TALLE</h3></label>
+          <input class="marginLeft10 textYellowVS" [(ngModel)]="size" style="width: 50px; height: 50px; font-size: x-large">
+          <a type="btn" class="btn textYellowVS btn-add-vs float-right"
+             style="color: #fffecc; font-size: xx-large" (click)="addClothing()">
             <span class="glyphicon glyphicon-ok"></span>
           </a>
         </div>
+
 
       </div>
     </div>

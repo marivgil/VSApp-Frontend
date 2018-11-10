@@ -19,7 +19,11 @@ export class ClothingMatrixComponent implements OnInit {
     this.clothings = await this.serviceStreet.getAllClothings();
   }
 
-    setClothing(clothing){
-      this.serviceStreet.setClothing(clothing);
-    }
+  setClothing(clothing){
+    this.serviceStreet.setClothing(clothing);
+  }
+
+  addOther(){
+
+  }
 }
