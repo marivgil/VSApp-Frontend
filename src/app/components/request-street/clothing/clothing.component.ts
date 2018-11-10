@@ -17,7 +17,7 @@ export class ClothingComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.sizes = await this.serviceStreet.getAllSizeClothings();
+    //this.sizes = await this.serviceStreet.getAllSizeClothings();
   }
 
 

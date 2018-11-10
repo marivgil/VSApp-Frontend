@@ -1,48 +1,44 @@
-<div class="flex-column container  align-content-center">
+
+<div class="flex-column container">
   <div class="card-body">
   <div class="d-flex flex-wrap-reverse">
     <div class="card text-center">
 
-      <div class="card-body row align-items-center ">
-
-        <div class="btn-group btn-group-toggle col-md-3 align-items-center" data-toggle="buttons">
-          <label class="btn" (click)="setWomanGender()">
+      <div class="card-body row ">
+        <div class="col-md-3">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn" (click)="setWomanGender()" style="position: center">
             <img width="100" type="radio" class="btn" src="../../../assets/img/mujer.png">
           </label>
-          <label class="btn marginLeft10" (click)="setManGender()">
+          <label class="btn marginLeft10" (click)="setManGender()" style="position: center">
             <img width="100" type="radio" class="btn" src="../../../assets/img/hombre.png">
           </label>
         </div>
+        </div>
+        <div class="col-md-3">
 
-        <div class="col-md-2">
-
-          <button class=" btn border border-info marginLeft10 yellowVS textYellowVS marginTop10 col-md-3 button_vs"
-                  *ngFor="let size of sizes"
-                  (click)="setSize(size)">
-              <span>
-                <div class="textButtonVs">
-                  {{ size.size }}
-                </div>
-              </span>
-          </button>
-
-
-
+          <label class="textYellowVS"><h4>TALLE</h4></label>
+          <input class="marginLeft10 textYellowVS" [(ngModel)]="size" style="width: 50px; height: 50px; font-size: x-large">
         </div>
          <div class="col-md-3">
           <h3 class="card-text textYellowVS marginTop10">Cantidad: {{ quantity }}</h3>
 
-           <a type="btn btn-primary" class="btn btn-outline-success" (click)="addQuantity()"><h3>+</h3></a>
-          <a type="btn btn-primary" class="btn btn-outline-danger" (click)="subQuantity()"><h3>-</h3></a>
-        </div>
+           <a type="btn btn-primary" class="btn btn-outline-success" (click)="addQuantity()">
+             <h3>+</h3></a>
+          <a type="btn btn-primary" class="btn btn-outline-danger" (click)="subQuantity()">
+            <h3>-</h3></a>
+         <!--</div>
 
-        <div class="col-md-3 marginTop10">
-          <a type="btn" class="btn textYellowVS btn-add-vs " style="color: #fffecc;" (click)="addClothing()"><h3>+</h3></a>
+        <div class="col-md-3 marginTop10">-->
+          <a type="btn" class="btn textYellowVS btn-add-vs float-right" style="color: #fffecc; font-size: xx-large" (click)="addClothing()">
+            <span class="glyphicon glyphicon-ok"></span>
+          </a>
         </div>
 
       </div>
     </div>
   </div>
 
-</div>
+
+  </div>
 </div>
