@@ -1,7 +1,5 @@
-import {Component, Input, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RequestStreetService} from "./request-street.service";
-import {Router} from "@angular/router";
-import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {Round} from "../../interfaces/Round";
 
 
@@ -13,21 +11,11 @@ import {Round} from "../../interfaces/Round";
 export class RequestStreetComponent implements OnInit {
 
 
-  // Un pedido
   round : Round;
   rounds : any = [];
-  clothesRequest;
-  preparedBy = null;
-  reviewedBy = null;
-  localStorage = localStorage;
 
   constructor(private serviceStreet: RequestStreetService,
-              private router: Router,
-              private _vcr: ViewContainerRef,
-              public toastr: ToastsManager
-              ) {
-    this.toastr.setRootViewContainerRef(_vcr);
-  }
+              ) {}
 
   async ngOnInit() {
     this.rounds = await this.serviceStreet.getAllRounds();
@@ -38,7 +26,7 @@ export class RequestStreetComponent implements OnInit {
     this.serviceStreet.setRound(round);
   }
 
-
+/*
   closedRequest(){
     let request = {
       "round": this.round,
@@ -56,5 +44,5 @@ export class RequestStreetComponent implements OnInit {
       this.router.navigate(['home']);
     }
   }
-
+*/
 }

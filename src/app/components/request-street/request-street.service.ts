@@ -20,7 +20,7 @@ export class RequestStreetService {
   setRound(round){
     this.round = round;
   }
-
+/*
   //armo el pedido y lo persisto
   closedRequest(request): Observable<any>{
     let url = URL_BACKEND_HOMO + this.extensionUrl + "createRequest";
@@ -35,11 +35,16 @@ export class RequestStreetService {
     return this.http.get(
       URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothingsUp/").toPromise();
   }
-
+*/
   // trae todos los recorridos
   getAllRounds(): Promise<any>{
     return this.http.get(
       URL_BACKEND_HOMO +  this.extensionUrl + "getAllRounds/").toPromise();
+  }
+
+  getAllClothings(): Promise<any>{
+    return this.http.get(
+      URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothings/").toPromise();
   }
 
 }

@@ -9,8 +9,9 @@ import {RequestStreetService} from "../request-street.service";
 })
 export class ClothingMatrixComponent implements OnInit {
 
-  clothes : any = ['Remera', 'Camisa', 'Pantalon'];
+  clothes : any;
   round:Round;
+  clothe;
 
   @Input() clothingComponent: ClothingComponent;
 
@@ -18,7 +19,7 @@ export class ClothingMatrixComponent implements OnInit {
 
   async ngOnInit() {
     this.round = this.serviceStreet.getRound();
-    //this.clothes = await this.serviceStreet.findAllClothingsUp();
+    this.clothes = await this.serviceStreet.getAllClothings();
   }
 
 
