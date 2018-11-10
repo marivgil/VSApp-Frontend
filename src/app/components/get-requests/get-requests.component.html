@@ -42,7 +42,7 @@
         <tr *ngFor="let c of clothes | paginate: { itemsPerPage: 10, currentPage: rc }; let i = index">
           <td>{{c.name}}</td>
           <td>{{c.gender}}</td>
-          <td>{{c.waist}}</td>
+          <td>{{c.size}}</td>
           <td>{{c.quantity}}</td>
         </tr>
         </tbody>

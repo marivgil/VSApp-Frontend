@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {URL_BACKEND_HOMO} from "../../config";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Clothes} from "../../interfaces/clothes";
 
 @Injectable()
 export class RequestStreetService {
@@ -9,6 +10,8 @@ export class RequestStreetService {
   extensionUrl: String = "streetService/";
   extensionClothingUrl: String = "clothingService/";
   round;
+  clothing;
+  clothings: Clothes[] = [];
 
   constructor(private http: HttpClient){
   }
@@ -20,7 +23,16 @@ export class RequestStreetService {
   setRound(round){
     this.round = round;
   }
-/*
+
+  setClothing(clothing){
+    this.clothing = clothing;
+  }
+
+  getClothing(){
+    return this.clothing;
+  }
+
+  /*
   //armo el pedido y lo persisto
   closedRequest(request): Observable<any>{
     let url = URL_BACKEND_HOMO + this.extensionUrl + "createRequest";
@@ -29,12 +41,6 @@ export class RequestStreetService {
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this.http.post(url, params, {headers: headers});
   }
-
-  //traigo la lista de ropas
-  findAllClothingsUp(): Promise<any>{
-    return this.http.get(
-      URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothingsUp/").toPromise();
-  }
 */
   // trae todos los recorridos
   getAllRounds(): Promise<any>{
@@ -42,9 +48,14 @@ export class RequestStreetService {
       URL_BACKEND_HOMO +  this.extensionUrl + "getAllRounds/").toPromise();
   }
 
+  //trae todas los tipos de prendas
   getAllClothings(): Promise<any>{
     return this.http.get(
       URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothings/").toPromise();
+  }
+
+  addClothing(clothe){
+    this.clothings.push(clothe);
   }
 
 }

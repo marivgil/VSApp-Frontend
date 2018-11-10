@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RequestStreetService} from "../request-street.service";
 
 @Component({
   selector: 'app-clothing',
@@ -9,8 +10,11 @@ export class ClothingComponent implements OnInit {
   quantity = 0;
   sizes = ['XS', 'S', 'M', 'L'];
   gender;
+  size;
 
-  constructor() { }
+  constructor(
+    private serviceStreet: RequestStreetService
+  ) { }
 
   ngOnInit() {
   }
@@ -25,8 +29,35 @@ export class ClothingComponent implements OnInit {
       this.quantity --;
   }
 
-  setGender(gender){
-    this.gender = gender;
-    console.log(this.gender);
+  setWomanGender(){
+    this.gender = 'MUJER';
+  }
+
+  setManGender(){
+    this.gender = 'HOMBRE';
+  }
+
+  setSize(size){
+    this.size = size;
+  }
+
+  addClothing(){
+
+    //FIXME agregar validaciones
+
+    let clothe = {
+      "name": this.serviceStreet.getClothing(),
+      "size": this.size,
+      "quantity": this.quantity,
+      "gender": this.gender
+    };
+
+    this.serviceStreet.addClothing(clothe);
+
+    //limpio las variables
+    this.size=null;
+    this.quantity=0;
+    this.gender=null;
+    this.serviceStreet.setClothing(null);
   }
 }

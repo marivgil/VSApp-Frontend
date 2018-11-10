@@ -1,6 +1,6 @@
 export interface Clothes {
   name: String;
-  waist: String;
+  size: String;
   quantity: Number;
   gender: String;
 }

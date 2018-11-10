@@ -1,4 +1,4 @@
-<div class="flex-column container ">
+<div class="flex-column container  align-content-center">
   <div class="card-body">
   <div class="d-flex flex-wrap-reverse">
     <div class="card text-center">
@@ -6,10 +6,10 @@
       <div class="card-body row align-items-center ">
 
         <div class="btn-group btn-group-toggle col-md-3 align-items-center" data-toggle="buttons">
-          <label class="btn">
+          <label class="btn" (click)="setWomanGender()">
             <img width="100" type="radio" class="btn" src="../../../assets/img/mujer.png">
           </label>
-          <label class="btn marginLeft10">
+          <label class="btn marginLeft10" (click)="setManGender()">
             <img width="100" type="radio" class="btn" src="../../../assets/img/hombre.png">
           </label>
         </div>
@@ -17,7 +17,8 @@
         <div class="col-md-3">
 
           <button class=" btn border border-info marginLeft10 yellowVS textYellowVS marginTop10 col-md-4 button_vs"
-                  *ngFor="let size of sizes">
+                  *ngFor="let size of sizes"
+                  (click)="setSize(size)">
               <span>
                 <div class="textButtonVs">
                   {{ size }}
@@ -36,7 +37,7 @@
         </div>
 
         <div class="col-md-3 marginTop10">
-          <a type="btn" class="btn textYellowVS btn-add-vs " style="color: #fffecc;" (click)="addQuantity()"><h3>+</h3></a>
+          <a type="btn" class="btn textYellowVS btn-add-vs " style="color: #fffecc;" (click)="addClothing()"><h3>+</h3></a>
         </div>
 
       </div>

@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ClothingComponent} from "../clothing/clothing.component";
 import {Round} from "../../../interfaces/Round";
 import {RequestStreetService} from "../request-street.service";
 
@@ -9,18 +8,17 @@ import {RequestStreetService} from "../request-street.service";
 })
 export class ClothingMatrixComponent implements OnInit {
 
-  clothes : any;
+  clothings : any;
   round:Round;
-  clothe;
-
-  @Input() clothingComponent: ClothingComponent;
 
   constructor(private serviceStreet: RequestStreetService) { }
 
   async ngOnInit() {
     this.round = this.serviceStreet.getRound();
-    this.clothes = await this.serviceStreet.getAllClothings();
+    this.clothings = await this.serviceStreet.getAllClothings();
   }
 
-
+    setClothing(clothing){
+      this.serviceStreet.setClothing(clothing);
+    }
 }
