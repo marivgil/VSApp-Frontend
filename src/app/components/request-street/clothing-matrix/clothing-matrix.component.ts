@@ -10,6 +10,7 @@ export class ClothingMatrixComponent implements OnInit {
 
   clothings : any;
   round:Round;
+  otro;
 
   constructor(private serviceStreet: RequestStreetService) { }
 
