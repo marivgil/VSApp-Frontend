@@ -14,14 +14,14 @@
           </label>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
 
-          <button class=" btn border border-info marginLeft10 yellowVS textYellowVS marginTop10 col-md-4 button_vs"
+          <button class=" btn border border-info marginLeft10 yellowVS textYellowVS marginTop10 col-md-3 button_vs"
                   *ngFor="let size of sizes"
                   (click)="setSize(size)">
               <span>
                 <div class="textButtonVs">
-                  {{ size }}
+                  {{ size.size }}
                 </div>
               </span>
           </button>

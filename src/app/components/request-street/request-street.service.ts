@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {URL_BACKEND_HOMO} from "../../config";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 import {Clothes} from "../../interfaces/clothes";
 
 @Injectable()
@@ -57,5 +56,12 @@ export class RequestStreetService {
   addClothing(clothe){
     this.clothings.push(clothe);
   }
+
+  //trae todas los tamaños de las prendas
+  getAllSizeClothings(): Promise<any>{
+    return this.http.get(
+      URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllSizeClothings/").toPromise();
+  }
+
 
 }

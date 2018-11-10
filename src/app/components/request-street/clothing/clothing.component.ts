@@ -8,7 +8,7 @@ import {RequestStreetService} from "../request-street.service";
 export class ClothingComponent implements OnInit {
 
   quantity = 0;
-  sizes = ['XS', 'S', 'M', 'L'];
+  sizes;
   gender;
   size;
 
@@ -16,7 +16,8 @@ export class ClothingComponent implements OnInit {
     private serviceStreet: RequestStreetService
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.sizes = await this.serviceStreet.getAllSizeClothings();
   }
 
 
