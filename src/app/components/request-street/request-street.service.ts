@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {URL_BACKEND_HOMO} from "../../config";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Clothes} from "../../interfaces/clothes";
+import {WeeklyRound} from "../../interfaces/WeeklyRound";
 
 @Injectable()
 export class RequestStreetService {
@@ -11,6 +12,7 @@ export class RequestStreetService {
   round;
   clothing;
   clothings: Clothes[] = [];
+  weeklyRound: WeeklyRound;
 
   constructor(private http: HttpClient){
   }
@@ -31,16 +33,39 @@ export class RequestStreetService {
     return this.clothing;
   }
 
-  /*
-  //armo el pedido y lo persisto
-  closedRequest(request): Observable<any>{
-    let url = URL_BACKEND_HOMO + this.extensionUrl + "createRequest";
-    let json = JSON.stringify(request);
-    let params = json;
-    let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this.http.post(url, params, {headers: headers});
+  getClothings(){
+    return this.clothings;
   }
-*/
+
+  //armo el pedido y lo persisto
+  closedRequest(request): Promise<any>{
+
+    let coord = {
+      "lat": 0,
+      "lng": 0
+    };
+
+    let weeklyRound = {
+      "description": 'Esto es un prueba',
+      "sinceHour": Date.now(),
+      "untilHour": Date.now(),
+      "currentCoords": coord,
+      "request": request,
+      "round": this.getRound(),
+    };
+
+
+    let url = URL_BACKEND_HOMO + this.extensionUrl + "createRequest";
+    let json = JSON.stringify(weeklyRound);
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this.http.post(url, json, {headers: headers}).toPromise();
+    /*
+    this.round= null;
+    this.clothing= null;
+    this.clothings = [];
+    */
+  }
+
   // trae todos los recorridos
   getAllRounds(): Promise<any>{
     return this.http.get(
@@ -48,7 +73,7 @@ export class RequestStreetService {
   }
 
   //trae todas los tipos de prendas
-  getAllClothings(): Promise<any>{
+  findAllClothings(): Promise<any>{
     return this.http.get(
       URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothings/").toPromise();
   }
@@ -56,12 +81,5 @@ export class RequestStreetService {
   addClothing(clothe){
     this.clothings.push(clothe);
   }
-
-  //trae todas los tamaños de las prendas
-  getAllSizeClothings(): Promise<any>{
-    return this.http.get(
-      URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllSizeClothings/").toPromise();
-  }
-
 
 }

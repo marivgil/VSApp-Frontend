@@ -37,6 +37,7 @@ import 'hammerjs';
 import {NgxHmCarouselModule} from "ngx-hm-carousel";
 import { ClothingComponent } from './components/request-street/clothing/clothing.component';
 import { ClothingMatrixComponent } from './components/request-street/clothing-matrix/clothing-matrix.component';
+import { CloseRequestComponent } from './components/request-street/close-request/close-request.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ClothingMatrixComponent } from './components/request-street/clothing-ma
     LoadSuppliesHospitalsComponent,
     GetSuppliesHospitalsComponent,
     ClothingComponent,
-    ClothingMatrixComponent
+    ClothingMatrixComponent,
+    CloseRequestComponent
   ],
   imports: [
     BrowserModule,

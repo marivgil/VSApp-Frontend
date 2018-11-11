@@ -26,23 +26,4 @@ export class RequestStreetComponent implements OnInit {
     this.serviceStreet.setRound(round);
   }
 
-/*
-  closedRequest(){
-    let request = {
-      "round": this.round,
-      "preparedBy": this.preparedBy,
-      "reviewedBy": this.reviewedBy,
-      "clothes": this.clothesRequest,
-      "date": Date.now()
-    };
-    //FIXME validaciones separadas para mejor feedback al usuario
-    if (this.preparedBy == null || this.reviewedBy == null || this.clothesRequest == []) {
-      this.toastr.error('Falta cargar información del pedido');
-    } else {
-      this.serviceStreet.closedRequest(request).subscribe();
-      this.toastr.success('Tu pedido fue cargado');
-      this.router.navigate(['home']);
-    }
-  }
-*/
 }
