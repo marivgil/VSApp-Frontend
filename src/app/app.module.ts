@@ -35,6 +35,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastModule} from "ng2-toastr";
 import 'hammerjs';
 import {NgxHmCarouselModule} from "ngx-hm-carousel";
+import { ClothingComponent } from './components/request-street/clothing/clothing.component';
+import { ClothingMatrixComponent } from './components/request-street/clothing-matrix/clothing-matrix.component';
+import { CloseRequestComponent } from './components/request-street/close-request/close-request.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import {NgxHmCarouselModule} from "ngx-hm-carousel";
     HomeReceptionCentersComponent,
     HomeHospitalsComponent,
     LoadSuppliesHospitalsComponent,
-    GetSuppliesHospitalsComponent
+    GetSuppliesHospitalsComponent,
+    ClothingComponent,
+    ClothingMatrixComponent,
+    CloseRequestComponent
   ],
   imports: [
     BrowserModule,

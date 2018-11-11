@@ -1,0 +1,51 @@
+<div class="container marginLeft50Top30">
+  <div class="container text-left ">
+    <table class="table col-md-4">
+      <thead>
+      <tr >
+        <th>Prenda</th>
+        <th>Talle</th>
+        <th>Genero</th>
+        <th>Cantidad</th>
+      </tr>
+      </thead>
+      <tbody >
+
+      <tr *ngFor="let clothing of clothings">
+        <td>{{clothing.name}}</td>
+        <td>{{clothing.size}}</td>
+        <td>{{clothing.gender}}</td>
+        <td>{{clothing.quantity}}</td>
+        <a type="btn" class="btn btn-vs"
+           style="color: #fffecc; font-size: x-large" (click)="subQuantity(clothing)">
+          <span class="glyphicon glyphicon-remove"></span>
+        </a>
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <div class="input-group">
+    <label class="textYellowVS">
+      <h3>Preparado por:</h3>
+    </label>
+    <textarea class="form-control" [(ngModel)]="preparedBy"
+              style="font-size: medium"></textarea>
+  </div>
+  <div class="input-group">
+    <label class="textYellowVS">
+      <h3>Revisado por:</h3>
+    </label>
+    <textarea class="form-control" [(ngModel)]="reviewedBy"
+              style="font-size: medium"></textarea>
+
+  </div>
+
+  <a type="btn" class="btn marginTop10 textYellowVS violetVS float-right"
+     style="color: #fffecc;" (click)="closeRequest()">
+    <h4>Confirmar Pedido</h4>
+  </a>
+
+</div>

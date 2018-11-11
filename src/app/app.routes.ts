@@ -14,6 +14,8 @@ import {HomeReceptionCentersComponent} from "./components/home-reception-centers
 import {HomeHospitalsComponent} from "./components/home-hospitals/home-hospitals.component";
 import {LoadSuppliesHospitalsComponent} from "./components/load-supplies-hospitals/load-supplies-hospitals.component";
 import {GetSuppliesHospitalsComponent} from "./components/get-supplies-hospitals/get-supplies-hospitals.component";
+import {ClothingMatrixComponent} from "./components/request-street/clothing-matrix/clothing-matrix.component";
+import {CloseRequestComponent} from "./components/request-street/close-request/close-request.component";
 
 const APP_ROUTES: Routes = [
   { path: 'homeEcology', component: HomeEcologyComponent, canActivate: [AuthGuardService] ,
@@ -32,6 +34,8 @@ const APP_ROUTES: Routes = [
   { path: '', component: HomeComponent},
   { path: 'homeHospital/loadSupplies', component: LoadSuppliesHospitalsComponent, canActivate: [AuthGuardService]},
   { path: 'homeHospital/getSupplies', component: GetSuppliesHospitalsComponent, canActivate: [AuthGuardService]},
+  { path: 'homeStreet/requestStreet/clothingMatrixComponent', component: ClothingMatrixComponent, canActivate: [AuthGuardService]},
+  { path: 'homeStreet/requestStreet/clothingMatrixComponent/closeRequestComponent', component: CloseRequestComponent, canActivate: [AuthGuardService]},
   ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
