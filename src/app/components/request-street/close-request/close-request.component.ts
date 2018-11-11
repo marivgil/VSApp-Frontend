@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {RequestStreetService} from "../request-street.service";
 import {ToastsManager} from "ng2-toastr";
+import {Clothes} from "../../../interfaces/clothes";
 
 @Component({
   selector: 'app-close-request',
@@ -8,7 +9,7 @@ import {ToastsManager} from "ng2-toastr";
 })
 export class CloseRequestComponent implements OnInit {
 
-  clothings;
+  clothings: Clothes[] = [];
   preparedBy;
   reviewedBy;
 
@@ -42,6 +43,11 @@ export class CloseRequestComponent implements OnInit {
       this.toastr.success('Tu pedido fue cargado');
     }
 
+  }
+
+  subQuantity(clothing){
+    const index = this.clothings.indexOf(clothing);
+    this.clothings.splice(index, 1);
   }
 
 }
