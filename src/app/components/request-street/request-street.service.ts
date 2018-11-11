@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {URL_BACKEND_HOMO} from "../../config";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Clothes} from "../../interfaces/clothes";
-import {WeeklyRound} from "../../interfaces/WeeklyRound";
 
 @Injectable()
 export class RequestStreetService {
@@ -12,9 +11,13 @@ export class RequestStreetService {
   round;
   clothing;
   clothings: Clothes[] = [];
-  weeklyRound: WeeklyRound;
+  others: String[] = [];
 
   constructor(private http: HttpClient){
+  }
+
+  getOthers(){
+    return this.others;
   }
 
   getRound(){
@@ -80,6 +83,10 @@ export class RequestStreetService {
 
   addClothing(clothe){
     this.clothings.push(clothe);
+  }
+
+  addOther(other){
+    this.others.push(other)
   }
 
 }

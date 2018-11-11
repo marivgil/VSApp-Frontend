@@ -28,7 +28,8 @@ export class CloseRequestComponent implements OnInit {
       "preparedBy": this.preparedBy,
       "reviewedBy": this.reviewedBy,
       "clothes": this.clothings,
-      "date": Date.now()
+      "date": Date.now(),
+      //"others":this.serviceStreet.getOthers()
     };
     if (this.preparedBy == null || this.preparedBy == '')
       this.toastr.error('Te falta ingresar la persona que armo el pedido');

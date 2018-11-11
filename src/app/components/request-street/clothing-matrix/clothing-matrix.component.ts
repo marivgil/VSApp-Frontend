@@ -10,7 +10,7 @@ export class ClothingMatrixComponent implements OnInit {
 
   clothings : any;
   round:Round;
-  otro;
+  other;
 
   constructor(private serviceStreet: RequestStreetService) { }
 
@@ -24,6 +24,7 @@ export class ClothingMatrixComponent implements OnInit {
   }
 
   addOther(){
+    this.serviceStreet.addOther(this.other);
   }
 
 }
