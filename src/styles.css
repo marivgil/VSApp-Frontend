@@ -152,3 +152,26 @@ body {
   grid-row-start: 2;
   grid-row-end: 3;
 }
+
+
+.btn-vs
+{
+
+  background-color: #753D8B !important;
+  background-repeat: repeat-x;
+  background-image: -o-linear-gradient(top, #753D8B, #2f080e);
+  background-image: linear-gradient(#753D8B, #2f080e);
+  border-color: #2f080e #2f080e hsl(351, 68%, 1.5%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.62);
+}
+.btn-vs:hover, .btn-vs:focus, .btn-vs:active, .btn-vs.active, .open .dropdown-toggle.btn-vs {
+
+  background-color:#AC48C5 !important;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(#fbeded, #AC48C5);
+  border-color: #AC48C5 #AC48C5 #753D8B;
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.59);
+}
+
