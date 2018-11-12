@@ -16,7 +16,7 @@ export class ClothingMatrixComponent implements OnInit {
 
   async ngOnInit() {
     this.round = this.serviceStreet.getRound();
-    this.clothings = await this.serviceStreet.findAllClothings();
+    //this.clothings = await this.serviceStreet.findAllClothings();
   }
 
   setClothing(clothing){
@@ -27,4 +27,19 @@ export class ClothingMatrixComponent implements OnInit {
     this.serviceStreet.addOther(this.other);
   }
 
+  async setClothingWoman(){
+    this.clothings = await this.serviceStreet.findAllClothings([0,1]);
+  }
+
+  async setClothingMan(){
+    this.clothings = await this.serviceStreet.findAllClothings([0,2]);
+  }
+
+  async setClothingBoy(){
+    this.clothings = await this.serviceStreet.findAllClothings([0,2,3]);
+  }
+
+  async setClothingGirl(){
+    this.clothings = await this.serviceStreet.findAllClothings([0,1,3]);
+  }
 }

@@ -76,9 +76,19 @@ export class RequestStreetService {
   }
 
   //trae todas los tipos de prendas
-  findAllClothings(): Promise<any>{
+  findAllClothings(genders): Promise<any>{
+    let json=[];
+    genders.forEach(function (value) {
+      json.push(JSON.stringify(value));
+      console.log(value)
+    });
+
+    json.forEach(function (value) {
+      console.log(value)
+    });
+
     return this.http.get(
-      URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothings/").toPromise();
+      URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothings/"+json).toPromise();
   }
 
   addClothing(clothe){
