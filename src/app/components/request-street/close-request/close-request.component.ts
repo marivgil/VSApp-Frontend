@@ -2,6 +2,7 @@ import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {RequestStreetService} from "../request-street.service";
 import {ToastsManager} from "ng2-toastr";
 import {Clothes} from "../../../interfaces/clothes";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-close-request',
@@ -15,7 +16,8 @@ export class CloseRequestComponent implements OnInit {
 
   constructor(private serviceStreet: RequestStreetService,
               private _vcr: ViewContainerRef,
-              public toastr: ToastsManager
+              public toastr: ToastsManager,
+              private router: Router
               ) {
                   this.toastr.setRootViewContainerRef(_vcr);
                 }
@@ -40,7 +42,9 @@ export class CloseRequestComponent implements OnInit {
       this.toastr.error('No hay prendas cargadas para este pedido');
     else {
       await this.serviceStreet.closedRequest(request);
+      this.serviceStreet.setClothings([]);
       this.toastr.success('Tu pedido fue cargado');
+      this.router.navigate(['homeStreet/requestStreet']);
     }
 
   }

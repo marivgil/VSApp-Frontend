@@ -12,6 +12,7 @@ export class RequestStreetService {
   clothing;
   clothings: Clothes[] = [];
   others: String[] = [];
+  gender;
 
   constructor(private http: HttpClient){
   }
@@ -30,6 +31,10 @@ export class RequestStreetService {
 
   setClothing(clothing){
     this.clothing = clothing;
+  }
+
+  setClothings(clothing){
+    this.clothings = clothing;
   }
 
   getClothing(){
@@ -80,11 +85,6 @@ export class RequestStreetService {
     let json=[];
     genders.forEach(function (value) {
       json.push(JSON.stringify(value));
-      console.log(value)
-    });
-
-    json.forEach(function (value) {
-      console.log(value)
     });
 
     return this.http.get(
@@ -93,10 +93,19 @@ export class RequestStreetService {
 
   addClothing(clothe){
     this.clothings.push(clothe);
+    console.log(this.clothings)
   }
 
   addOther(other){
     this.others.push(other)
   }
 
+  setGender(gender) {
+    this.gender = gender;
+
+  }
+
+  getGender(){
+    return this.gender;
+  }
 }

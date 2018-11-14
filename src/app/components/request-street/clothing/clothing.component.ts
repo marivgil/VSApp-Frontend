@@ -47,15 +47,15 @@ export class ClothingComponent implements OnInit {
       "name": this.serviceStreet.getClothing().name,
       "size": this.size,
       "quantity": this.quantity,
-      "gender": this.gender
+      "gender": this.serviceStreet.getGender()
     };
 
     if(clothe.name=='') {
       console.log("en name")
       this.toastr.error('Falta seleccionar la prenda');
-    }else if (clothe.gender=='') {
-      console.log("en gender")
-      this.toastr.error('Te falta seleccionar si es para Hombre o mujer');
+    //}else if (clothe.gender=='') {
+    //  console.log("en gender")
+    //  this.toastr.error('Te falta seleccionar si es para Hombre o mujer');
     }else if (clothe.size=='') {
       console.log("en size")
       this.toastr.error('Te falta ingresar el talle de la prenda');
@@ -66,11 +66,11 @@ export class ClothingComponent implements OnInit {
       this.serviceStreet.addClothing(clothe);
       console.log("en addClothing")
       this.toastr.success('¡Se dió de alta la prenda!');
-
+      console.log(clothe);
       //limpio las variables
       this.size=null;
       this.quantity=0;
-      this.gender=null;
+      //this.serviceStreet.setGender(null);
       this.serviceStreet.setClothing(null);
       //FIXME cerra acordeon
     }
