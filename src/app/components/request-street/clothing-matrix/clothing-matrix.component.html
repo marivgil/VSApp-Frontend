@@ -8,14 +8,20 @@
   <div id="flex-column container">
 
 
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <ul class="nav nav-tabs" id="myTab" role="tablist" style="border-color: #753D8B">
       <li class="nav-item">
         <a class="nav-link active textYellowVS" id="woman-tab" data-toggle="tab" href="#woman" (click)="setClothingWoman()"
-           role="tab" aria-controls="home" aria-selected="true"><h3>Mujer</h3></a>
+           role="tab" aria-controls="home" aria-selected="true">
+          <img src="../../../assets/img/mujer.png" style="width: 50px; height: 50px; align-items: center">
+          <h3>Mujer</h3>
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link textYellowVS" id="man-tab" data-toggle="tab" href="#man"  (click)="setClothingMan()"
-           role="tab" aria-controls="profile" aria-selected="false"><h3>Hombre</h3></a>
+        <a class="nav-link textYellowVS" id="man-tab" data-toggle="tab" href="#man" (click)="setClothingMan()"
+           role="tab" aria-controls="profile" aria-selected="false">
+          <img src="../../../assets/img/hombre.png" style="width: 50px; height: 50px; align-items: center">
+          <h3>Hombre</h3>
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link textYellowVS" id="boy-tab" data-toggle="tab" href="#boy"  (click)="setClothingBoy()"
@@ -28,7 +34,7 @@
     </ul>
 
 
-    <div class="tab-content" id="myTabContent">
+    <div class="tab-content marginTop25" id="myTabContent">
 
       <div class="tab-pane" id="woman" role="tabpanel" aria-labelledby="woman-tab">
         <div id="accordionWoman">
@@ -40,7 +46,7 @@
                 </a>
               </div>
               <div id="{{clothing.name}}" class="collapse" data-parent="#accordionWoman">
-                <div class="card-body text-left">
+                <div class="card-body" align="center">
                   <app-clothing></app-clothing>
                 </div>
               </div>
@@ -60,7 +66,7 @@
                 </a>
               </div>
               <div id="{{clothing.name}}w" class="collapse" data-parent="#accordionMan">
-                <div class="card-body text-left">
+                <div class="card-body" align="center">
                   <app-clothing></app-clothing>
                 </div>
               </div>
@@ -80,7 +86,7 @@
                 </a>
               </div>
               <div id="{{clothing.name}}e" class="collapse" data-parent="#accordionGirl">
-                <div class="card-body text-left">
+                <div class="card-body" align="center">
                   <app-clothing></app-clothing>
                 </div>
               </div>
@@ -99,7 +105,7 @@
                 </a>
               </div>
               <div id="{{clothing.name}}r" class="collapse" data-parent="#accordionBoy">
-                <div class="card-body text-left">
+                <div class="card-body" align="center">
                   <app-clothing></app-clothing>
                 </div>
               </div>
