@@ -89,6 +89,26 @@
               </div>
               <div id="{{clothing.name}}w" class="collapse" data-parent="#accordionMan">
                 <div class="card-body" align="center">
+                  <table class="table">
+                    <thead>
+                    <tr >
+                      <th>Prenda</th>
+                      <th>Talle</th>
+                      <th>Genero</th>
+                      <th>Cantidad</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+
+                    <tr *ngFor="let clothe of clothes">
+                      <td>{{clothe.name}}</td>
+                      <td>{{clothe.size}}</td>
+                      <td>{{clothe.gender}}</td>
+                      <td>{{clothe.quantity}}</td>
+                    </tr>
+                    </tbody>
+
+                  </table>
                   <app-clothing></app-clothing>
                 </div>
               </div>
@@ -109,6 +129,26 @@
               </div>
               <div id="{{clothing.name}}e" class="collapse" data-parent="#accordionGirl">
                 <div class="card-body" align="center">
+                  <table class="table">
+                    <thead>
+                    <tr >
+                      <th>Prenda</th>
+                      <th>Talle</th>
+                      <th>Genero</th>
+                      <th>Cantidad</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+
+                    <tr *ngFor="let clothe of clothes">
+                      <td>{{clothe.name}}</td>
+                      <td>{{clothe.size}}</td>
+                      <td>{{clothe.gender}}</td>
+                      <td>{{clothe.quantity}}</td>
+                    </tr>
+                    </tbody>
+
+                  </table>
                   <app-clothing></app-clothing>
                 </div>
               </div>
@@ -128,6 +168,26 @@
               </div>
               <div id="{{clothing.name}}r" class="collapse" data-parent="#accordionBoy">
                 <div class="card-body" align="center">
+                  <table class="table">
+                    <thead>
+                    <tr >
+                      <th>Prenda</th>
+                      <th>Talle</th>
+                      <th>Genero</th>
+                      <th>Cantidad</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+
+                    <tr *ngFor="let clothe of clothes">
+                      <td>{{clothe.name}}</td>
+                      <td>{{clothe.size}}</td>
+                      <td>{{clothe.gender}}</td>
+                      <td>{{clothe.quantity}}</td>
+                    </tr>
+                    </tbody>
+
+                  </table>
                   <app-clothing></app-clothing>
                 </div>
               </div>

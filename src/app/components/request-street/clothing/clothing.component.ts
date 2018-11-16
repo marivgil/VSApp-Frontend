@@ -2,6 +2,7 @@ import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {RequestStreetService} from "../request-street.service";
 import {ToastsManager} from "ng2-toastr";
 
+declare var $;
 @Component({
   selector: 'app-clothing',
   templateUrl: './clothing.component.html'
@@ -72,7 +73,7 @@ export class ClothingComponent implements OnInit {
       this.quantity=0;
       //this.serviceStreet.setGender(null);
       this.serviceStreet.setClothing(null);
-      //FIXME cerra acordeon
+      $('.collapse').collapse('hide')
     }
 
   }
