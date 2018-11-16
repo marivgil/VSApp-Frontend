@@ -1,6 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {Round} from "../../../interfaces/Round";
 import {RequestStreetService} from "../request-street.service";
+import {ToastsManager} from "ng2-toastr";
 //import {ClothingComponent} from "../clothing/clothing.component";
 
 @Component({
@@ -14,7 +15,11 @@ export class ClothingMatrixComponent implements OnInit {
   other;
   clothes;
 
-  constructor(private serviceStreet: RequestStreetService) { }
+  constructor(private serviceStreet: RequestStreetService,
+              private _vcr: ViewContainerRef,
+              public toastr: ToastsManager,) {
+    this.toastr.setRootViewContainerRef(_vcr);
+  }
 
   async ngOnInit() {
     this.round = this.serviceStreet.getRound();
@@ -33,6 +38,8 @@ export class ClothingMatrixComponent implements OnInit {
 
   addOther(){
     this.serviceStreet.addOther(this.other);
+    this.other=null;
+    this.toastr.success('Se cargó tu pedido');
   }
 
   async setClothingWoman(){

@@ -54,7 +54,7 @@ export class RequestStreetService {
     };
 
     let weeklyRound = {
-      "description": 'Esto es un prueba',
+      "description": '',
       "sinceHour": Date.now(),
       "untilHour": Date.now(),
       "currentCoords": coord,
@@ -71,6 +71,7 @@ export class RequestStreetService {
     this.round= null;
     this.clothing= null;
     this.clothings = [];
+    this.others = [];
     */
   }
 
@@ -117,5 +118,9 @@ export class RequestStreetService {
         }
     });
     return listc;
+  }
+
+  setOthers(others: any[]) {
+    this.others=others;
   }
 }

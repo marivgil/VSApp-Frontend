@@ -14,9 +14,9 @@
   <button class="btn btn-vs marginLeft10Top25" (click)="searchRequest()">Buscar</button>
 
 
-  <div class="yellowVS marginLeft50Top30" *ngIf="getRequest">
+  <div class=" container yellowVS marginLeft50Top30" *ngIf="getRequest">
 
-      <div class="container text-left">
+      <div class="text-left">
         <div class="form-group col-md-3">
           <label for="preparedBy">Preparado por: </label>
           <input class="form-control" id="preparedBy" disabled [(ngModel)]="preparedBy">
@@ -27,10 +27,10 @@
         </div>
       </div>
 
-      <div class="container text-left">
-      <table class="table col-md-3">
+      <div class="text-left">
+      <table class="table">
         <thead>
-        <tr >
+        <tr>
           <th>Nombre</th>
           <th>Género</th>
           <th>Talle</th>
@@ -39,24 +39,34 @@
         </thead>
         <tbody >
 
-        <tr *ngFor="let c of clothes | paginate: { itemsPerPage: 10, currentPage: rc }; let i = index">
+        <tr *ngFor="let c of clothes">
           <td>{{c.name}}</td>
           <td>{{c.gender}}</td>
           <td>{{c.size}}</td>
           <td>{{c.quantity}}</td>
         </tr>
         </tbody>
+      </table>
 
+
+        <table class="table">
+          <thead>
+          <tr >
+            <th>OTROS</th>
+          </tr>
+          </thead>
+          <tbody >
+
+          <tr *ngFor="let other of others">
+            <td>{{other}}</td>
+          </tr>
+          </tbody>
       </table>
 
       <div *ngIf="(firstEntry === false && clothes.length === 0) || request === null" class="alert alert-light text-center" role="alert">
         <p>El pedido de este recorrido no se encuentra cargado</p>
       </div>
 
-      </div>
-
-      <div *ngIf="clothes.length > 0" class="d-flex flex-row justify-content-center">
-        <pagination-controls (pageChange)="rc = $event"></pagination-controls>
       </div>
 
     </div>

@@ -12,12 +12,11 @@ export class GetRequestsComponent implements OnInit {
   rounds;
   weeklyRound: WeeklyRound = null;
   clothes = [];
-  c;
-  rc;
   firstEntry;
   preparedBy;
   reviewedBy;
   getRequest = false;
+  others;
 
   constructor(private service: GetRequestsService,
               private _vcr: ViewContainerRef,
@@ -25,11 +24,9 @@ export class GetRequestsComponent implements OnInit {
     this.toastr.setRootViewContainerRef(_vcr);
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.firstEntry= true;
-    this.service.findAllRequests().subscribe(result => {
-      this.rounds = result;
-    });
+    this.rounds = await this.service.findAllRequests();
   }
 
   searchRequest(){
@@ -38,18 +35,10 @@ export class GetRequestsComponent implements OnInit {
     } else {
       this.getRequest = true;
       this.firstEntry=false;
-      /*
-      this.service.searchRequest(this.weeklyRound).subscribe(result => {
-        this.request = result;
-        if(this.request == null){
-          this.clothes = [];
-        }else{
-        */
-          this.clothes = this.weeklyRound.request.clothes;
-          this.preparedBy = this.weeklyRound.request.preparedBy;
-          this.reviewedBy = this.weeklyRound.request.reviewedBy;
-       // }
-       //   });
+      this.clothes = this.weeklyRound.request.clothes;
+      this.preparedBy = this.weeklyRound.request.preparedBy;
+      this.reviewedBy = this.weeklyRound.request.reviewedBy;
+      this.others = this.weeklyRound.request.others;
     }
   }
 
