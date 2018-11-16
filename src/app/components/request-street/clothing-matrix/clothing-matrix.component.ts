@@ -14,13 +14,10 @@ export class ClothingMatrixComponent implements OnInit {
   other;
   clothes;
 
-  //@ViewChild(ClothingComponent) clothingCard: ClothingComponent;
-
   constructor(private serviceStreet: RequestStreetService) { }
 
   async ngOnInit() {
     this.round = this.serviceStreet.getRound();
-    //this.clothings = await this.serviceStreet.findAllClothings();
   }
 
   getClothes(clothing, gender){
