@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Round} from "../../../interfaces/Round";
 import {RequestStreetService} from "../request-street.service";
+//import {ClothingComponent} from "../clothing/clothing.component";
 
 @Component({
   selector: 'app-clothing-matrix',
@@ -11,6 +12,9 @@ export class ClothingMatrixComponent implements OnInit {
   clothings : any;
   round:Round;
   other;
+  clothes;
+
+  //@ViewChild(ClothingComponent) clothingCard: ClothingComponent;
 
   constructor(private serviceStreet: RequestStreetService) { }
 
@@ -19,8 +23,15 @@ export class ClothingMatrixComponent implements OnInit {
     //this.clothings = await this.serviceStreet.findAllClothings();
   }
 
+  getClothes(clothing, gender){
+    this.serviceStreet.getClothe(
+      this.serviceStreet.getClothing().name,
+      this.serviceStreet.getGender())
+  }
+
   setClothing(clothing){
     this.serviceStreet.setClothing(clothing);
+    this.clothes = this.serviceStreet.getClothe(clothing, this.serviceStreet.getGender());
   }
 
   addOther(){

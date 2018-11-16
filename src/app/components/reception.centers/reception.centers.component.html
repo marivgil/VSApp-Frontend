@@ -9,9 +9,9 @@
   <button class="btn btn-vs marginLeft10Top25" (click)="getReceptionCenter()">Buscar</button>
 
 
-  <div class="yellowVS marginLeft50Top30" *ngIf="viewResult">
-    <div class="container text-left">
-      <table class="table col-md-4">
+  <div class="container yellowVS marginLeft50Top30" *ngIf="viewResult">
+    <div class="text-left">
+      <table class="table">
           <thead>
             <tr >
               <th>Nombre</th>
@@ -20,7 +20,7 @@
             </tr>
           </thead>
           <tbody >
-          <tr *ngFor="let receptionCenter of listRecepCenters | paginate: { itemsPerPage: 2, currentPage: rc }; let i = index">
+          <tr *ngFor="let receptionCenter of listRecepCenters | paginate: { itemsPerPage: 5, currentPage: rc }; let i = index">
             <td>{{receptionCenter.name}}</td>
             <td>{{receptionCenter.surname}}</td>
             <td>{{receptionCenter.phone}}</td>
@@ -38,6 +38,6 @@
         <pagination-controls (pageChange)="rc = $event"></pagination-controls>
       </div>
 
-    </div>
+  </div>
 
   </div>

@@ -93,7 +93,6 @@ export class RequestStreetService {
 
   addClothing(clothe){
     this.clothings.push(clothe);
-    console.log(this.clothings)
   }
 
   addOther(other){
@@ -107,5 +106,16 @@ export class RequestStreetService {
 
   getGender(){
     return this.gender;
+  }
+
+  getClothe(name: any, gender: any) {
+    let listc: Clothes[] = [];
+    this.clothings.forEach(function (value) {
+      if(value.gender==gender)
+        if(value.name==name.name){
+          listc.push(value)
+        }
+    });
+    return listc;
   }
 }
