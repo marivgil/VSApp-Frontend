@@ -9,15 +9,15 @@ export class GetRequestsService {
 
   constructor(private http: HttpClient) { }
 
-  searchRequest(round){
+  searchRequest(round): Promise<any>{
     return this.http.get(
-      URL_BACKEND_HOMO +  this.extensionUrl + "findRequestByRound/" + round);
+      URL_BACKEND_HOMO +  this.extensionUrl + "findRequestByRound/" + round).toPromise();
   }
 
-  findAllRequests(){
+  findAllRequests(): Promise<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this.http.get(
-      URL_BACKEND_HOMO +  this.extensionUrl + "findAllRequests/", {headers: headers});
+      URL_BACKEND_HOMO +  this.extensionUrl + "findAllRequests/", {headers: headers}).toPromise();
   }
 
 }

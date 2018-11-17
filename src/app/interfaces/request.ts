@@ -5,5 +5,5 @@ export interface Request {
   preparedBy: String;
   reviewedBy: String;
   clothes: Clothes[] ;
-  //others: String[];
+  others: String[];
 }

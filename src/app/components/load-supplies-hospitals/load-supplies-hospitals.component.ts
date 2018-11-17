@@ -33,7 +33,7 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
 
   addProduct(){
     if(this.hospital=='')
-      this.toastr.error('Te falta seleccionar el nombre del hospita');
+      this.toastr.error('Te falta seleccionar el nombre del hospital');
       else if(this.prodType=='')
             this.toastr.error('Te faltan completar el tipo de producto');
             else if(this.nameProduct=='')

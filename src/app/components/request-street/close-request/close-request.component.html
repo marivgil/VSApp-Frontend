@@ -25,6 +25,25 @@
 
     </table>
 
+    <table class="table">
+      <thead>
+      <tr >
+        <th>Descripción OTROS</th>
+      </tr>
+      </thead>
+      <tbody >
+
+      <tr *ngFor="let other of others">
+        <td>{{other}}</td>
+        <a type="btn" class="btn btn-vs"
+           style="color: #fffecc; font-size: x-large" (click)="subQuantity(clothing)">
+          <span class="glyphicon glyphicon-remove"></span>
+        </a>
+      </tr>
+      </tbody>
+
+    </table>
+
   </div>
 
   <div class="input-group">
@@ -43,7 +62,7 @@
 
   </div>
 
-  <a type="btn" class="btn marginTop10 textYellowVS violetVS float-right"
+  <a type="btn" class="btn marginTop10 textYellowVS violetVS float-right btn-vs"
      style="color: #fffecc;" (click)="closeRequest()">
     <h4>Confirmar Pedido</h4>
   </a>

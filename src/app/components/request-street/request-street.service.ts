@@ -12,6 +12,7 @@ export class RequestStreetService {
   clothing;
   clothings: Clothes[] = [];
   others: String[] = [];
+  gender;
 
   constructor(private http: HttpClient){
   }
@@ -32,6 +33,10 @@ export class RequestStreetService {
     this.clothing = clothing;
   }
 
+  setClothings(clothing){
+    this.clothings = clothing;
+  }
+
   getClothing(){
     return this.clothing;
   }
@@ -49,7 +54,7 @@ export class RequestStreetService {
     };
 
     let weeklyRound = {
-      "description": 'Esto es un prueba',
+      "description": '',
       "sinceHour": Date.now(),
       "untilHour": Date.now(),
       "currentCoords": coord,
@@ -66,6 +71,7 @@ export class RequestStreetService {
     this.round= null;
     this.clothing= null;
     this.clothings = [];
+    this.others = [];
     */
   }
 
@@ -76,9 +82,14 @@ export class RequestStreetService {
   }
 
   //trae todas los tipos de prendas
-  findAllClothings(): Promise<any>{
+  findAllClothings(genders): Promise<any>{
+    let json=[];
+    genders.forEach(function (value) {
+      json.push(JSON.stringify(value));
+    });
+
     return this.http.get(
-      URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothings/").toPromise();
+      URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothings/"+json).toPromise();
   }
 
   addClothing(clothe){
@@ -89,4 +100,27 @@ export class RequestStreetService {
     this.others.push(other)
   }
 
+  setGender(gender) {
+    this.gender = gender;
+
+  }
+
+  getGender(){
+    return this.gender;
+  }
+
+  getClothe(name: any, gender: any) {
+    let listc: Clothes[] = [];
+    this.clothings.forEach(function (value) {
+      if(value.gender==gender)
+        if(value.name==name.name){
+          listc.push(value)
+        }
+    });
+    return listc;
+  }
+
+  setOthers(others: any[]) {
+    this.others=others;
+  }
 }
