@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {HospitalsService} from "../home-hospitals/hospitals.service";
 import {Router} from "@angular/router";
-import {ToastsManager} from "ng2-toastr";
+import {ToastsManager} from "ng5-toastr";
 
 @Component({
   selector: 'app-load-supplies-hospitals',

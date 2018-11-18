@@ -32,7 +32,7 @@ import { LoadSuppliesHospitalsComponent } from './components/load-supplies-hospi
 import { GetSuppliesHospitalsComponent } from './components/get-supplies-hospitals/get-supplies-hospitals.component';
 import {HospitalsService} from "./components/home-hospitals/hospitals.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {ToastModule} from "ng2-toastr";
+import {ToastModule} from "ng5-toastr";
 import 'hammerjs';
 import {NgxHmCarouselModule} from "ngx-hm-carousel";
 import { ClothingComponent } from './components/request-street/clothing/clothing.component';

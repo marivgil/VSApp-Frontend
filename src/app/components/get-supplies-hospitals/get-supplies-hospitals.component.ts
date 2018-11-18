@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {HospitalsService} from "../home-hospitals/hospitals.service";
-import {ToastsManager} from "ng2-toastr";
+import {ToastsManager} from "ng5-toastr";
 import {hospital} from "../../interfaces/hospital";
 
 @Component({

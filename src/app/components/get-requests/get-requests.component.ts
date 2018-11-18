@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {GetRequestsService} from "./get-requests.service";
-import {ToastsManager} from "ng2-toastr";
+import {ToastsManager} from "ng5-toastr";
 import {WeeklyRound} from "../../interfaces/WeeklyRound";
 
 @Component({

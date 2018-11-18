@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {RequestStreetService} from "../request-street.service";
-import {ToastsManager} from "ng2-toastr";
+import {ToastsManager} from "ng5-toastr";
 import {Clothes} from "../../../interfaces/clothes";
 import {Router} from "@angular/router";
 
