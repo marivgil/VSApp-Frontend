@@ -13,7 +13,7 @@ export class ClothingMatrixComponent implements OnInit {
   round:Round;
   other;
   clothings : any;
-
+  private others: String[];
   @ViewChild('clothingCompw') clothingComponentw:ClothingComponent;
   @ViewChild('clothingCompm') clothingComponentm:ClothingComponent;
   @ViewChild('clothingCompg') clothingComponentg:ClothingComponent;
@@ -30,6 +30,7 @@ export class ClothingMatrixComponent implements OnInit {
     this.toastr.success('Se cargó tu pedido');
     this.serviceStreet.addOther(this.other);
     this.other=null;
+    this.others = this.serviceStreet.getOthers()
   }
 
 
