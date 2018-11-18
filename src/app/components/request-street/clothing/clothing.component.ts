@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewContainerRef} from '@angular/core';
 import {RequestStreetService} from "../request-street.service";
 import {ToastsManager} from "ng5-toastr";
 
@@ -10,8 +10,9 @@ declare var $;
 export class ClothingComponent implements OnInit {
 
   quantity = 0;
-  gender='';
   size='';
+  clothes;
+  @Input() clothings;
 
   constructor(
     private serviceStreet: RequestStreetService,
@@ -34,13 +35,6 @@ export class ClothingComponent implements OnInit {
       this.quantity --;
   }
 
-  setWomanGender(){
-    this.gender = 'MUJER';
-  }
-
-  setManGender(){
-    this.gender = 'HOMBRE';
-  }
 
   addClothing(){
 
@@ -54,15 +48,12 @@ export class ClothingComponent implements OnInit {
     if(clothe.name=='') {
       console.log("en name")
       this.toastr.error('Falta seleccionar la prenda');
-    //}else if (clothe.gender=='') {
-    //  console.log("en gender")
-    //  this.toastr.error('Te falta seleccionar si es para Hombre o mujer');
     }else if (clothe.size=='') {
       console.log("en size")
       this.toastr.error('Te falta ingresar el talle de la prenda');
     }else if (clothe.quantity==0){
       console.log("en quantity")
-      this.toastr.error('Te falta ingresar la cantidad de prensas');
+      this.toastr.error('Te falta ingresar la cantidad de prendas');
     }else {
       this.serviceStreet.addClothing(clothe);
       console.log("en addClothing")
@@ -71,10 +62,15 @@ export class ClothingComponent implements OnInit {
       //limpio las variables
       this.size=null;
       this.quantity=0;
-      //this.serviceStreet.setGender(null);
       this.serviceStreet.setClothing(null);
       $('.collapse').collapse('hide')
     }
 
   }
+
+  setClothes(clothing){
+    this.serviceStreet.setClothing(clothing);
+    this.clothes = this.serviceStreet.getClothe(clothing, this.serviceStreet.getGender());
+  }
+
 }

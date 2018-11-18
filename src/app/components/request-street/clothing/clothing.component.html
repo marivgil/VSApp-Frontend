@@ -1,39 +1,68 @@
 
-<div class="d-flex flex-column container">
 
-    <div class="card text-center col-md-9">
-
-      <div class="card-body row">
-<!--
-        <div class="col-md-3">
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn" (click)="setWomanGender()" style="position: center">
-            <img width="100" type="radio" class="btn" src="../../../assets/img/mujer.png">
-          </label>
-          <label class="btn marginLeft10" (click)="setManGender()" style="position: center">
-            <img width="100" type="radio" class="btn" src="../../../assets/img/hombre.png">
-          </label>
-        </div>
-        </div>
--->
-        <div class="col-md-7 row align-items-center">
-          <h3 class="card-text textYellowVS marginTop10 col-6">CANTIDAD </h3>
-          <h1>{{ quantity }}</h1>
-          <a type="btn" class="btn btn-outline-success col-2 marginLeft20" (click)="addQuantity()">
-            <h3>+</h3></a>
-          <a type="btn" class="btn btn-outline-danger col-2 marginLeft10" (click)="subQuantity()">
-            <h3>-</h3></a>
-        </div>
-
-        <div class="col-md-5 marginLeft10 align-items-center">
-          <label class="textYellowVS"><h3>TALLE</h3></label>
-          <input class="marginLeft10 textYellowVS" [(ngModel)]="size" style="width: 50px; height: 50px; font-size: x-large">
-          <a type="btn" class="btn marginTop25 btn-vs float-right"
-             style="color: #fffecc; font-size: xx-large" (click)="addClothing()">
-            <span class="glyphicon glyphicon-ok"></span>
+  <div id="accordion">
+    <div class="list-group" *ngFor="let clothing of clothings">
+      <div class="card text-center">
+        <div class="card-header violetVS" (click)="setClothes(clothing)">
+          <a class="collapsed card-link text-First Foldcenter" data-toggle="collapse" href="#{{clothing.name}}">
+            <h5 class="card-title textVioletVS "><h3>{{clothing.name}}</h3></h5>
           </a>
+        </div>
+        <div id="{{clothing.name}}" class="collapse" data-parent="#accordion">
+          <div class="card-body" align="center">
+
+            <table class="table">
+              <thead>
+              <tr >
+                <th>Prenda</th>
+                <th>Talle</th>
+                <th>Genero</th>
+                <th>Cantidad</th>
+              </tr>
+              </thead>
+              <tbody >
+
+              <tr *ngFor="let clothe of clothes">
+                <td>{{clothe.name}}</td>
+                <td>{{clothe.size}}</td>
+                <td>{{clothe.gender}}</td>
+                <td>{{clothe.quantity}}</td>
+              </tr>
+              </tbody>
+
+            </table>
+
+
+            <div class="d-flex flex-column container">
+
+              <div class="card text-center col-md-9">
+
+                <div class="card-body row">
+
+                  <div class="col-md-7 row align-items-center">
+                    <h3 class="card-text textYellowVS marginTop10 col-6">CANTIDAD </h3>
+                    <h1>{{ quantity }}</h1>
+                    <a type="btn" class="btn btn-outline-success col-2 marginLeft20" (click)="addQuantity()">
+                      <h3>+</h3></a>
+                    <a type="btn" class="btn btn-outline-danger col-2 marginLeft10" (click)="subQuantity()">
+                      <h3>-</h3></a>
+                  </div>
+
+                  <div class="col-md-5 marginLeft10 align-items-center">
+                    <label class="textYellowVS"><h3>TALLE</h3></label>
+                    <input class="marginLeft10 textYellowVS" [(ngModel)]="size" style="width: 50px; height: 50px; font-size: x-large">
+                    <a type="btn" class="btn marginTop25 btn-vs float-right"
+                       style="color: #fffecc; font-size: xx-large" (click)="addClothing()">
+                      <span class="glyphicon glyphicon-ok"></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
-</div>

@@ -4,32 +4,30 @@
   <label><h1>{{ round.code }} - {{ round.name }}</h1></label>
 </div>
 
-<small>
+<div>
   <div id="flex-column container">
 
 
     <ul class="nav nav-tabs" id="myTab" role="tablist" style="border-color: #753D8B">
       <li class="nav-item">
         <a class="nav-link textYellowVS tab-vs" id="woman-tab" data-toggle="tab" href="#woman" (click)="setClothingWoman()"
-           role="tab" aria-controls="home" aria-selected="true">
-          <!--<img src="../../../assets/img/mujer.png" style="width: 50px; height: 50px; align-items: center">-->
+           role="tab" aria-selected="false">
           <h3>Mujer</h3>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link textYellowVS tab-vs" id="man-tab" data-toggle="tab" href="#man" (click)="setClothingMan()"
-           role="tab" aria-controls="profile" aria-selected="false">
-          <!--<img src="../../../assets/img/hombre.png" style="width: 50px; height: 50px; align-items: center">-->
+           role="tab" aria-selected="false">
           <h3>Hombre</h3>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link textYellowVS tab-vs" id="boy-tab" data-toggle="tab" href="#boy"  (click)="setClothingBoy()"
-           role="tab" aria-controls="contact" aria-selected="false"><h3>Nene</h3></a>
+           role="tab" aria-selected="false"><h3>Nene</h3></a>
       </li>
       <li class="nav-item">
         <a class="nav-link textYellowVS tab-vs" id="girl-tab" data-toggle="tab" href="#girl" (click)="setClothingGirl()"
-           role="tab" aria-controls="contact" aria-selected="false"><h3>Nena</h3></a>
+           role="tab" aria-selected="false"><h3>Nena</h3></a>
       </li>
     </ul>
 
@@ -37,170 +35,26 @@
     <div class="tab-content marginTop25" id="myTabContent">
 
       <div class="tab-pane" id="woman" role="tabpanel" aria-labelledby="woman-tab">
-        <div id="accordionWoman">
-          <div class="list-group" *ngFor="let clothing of clothings">
-            <div class="card text-center">
-              <div class="card-header violetVS" (click)="setClothing(clothing)">
-                <a class="collapsed card-link text-First Foldcenter" data-toggle="collapse" href="#{{clothing.name}}">
-                  <h5 class="card-title textVioletVS "><h3>{{clothing.name}}</h3></h5>
-                </a>
-              </div>
-              <div id="{{clothing.name}}" class="collapse" data-parent="#accordionWoman">
-                <div class="card-body" align="center">
-
-                  <table class="table">
-                    <thead>
-                    <tr >
-                      <th>Prenda</th>
-                      <th>Talle</th>
-                      <th>Genero</th>
-                      <th>Cantidad</th>
-                    </tr>
-                    </thead>
-                    <tbody >
-
-                    <tr *ngFor="let clothe of clothes">
-                      <td>{{clothe.name}}</td>
-                      <td>{{clothe.size}}</td>
-                      <td>{{clothe.gender}}</td>
-                      <td>{{clothe.quantity}}</td>
-                    </tr>
-                    </tbody>
-
-                  </table>
-
-                  <app-clothing id="woman"></app-clothing>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-clothing #clothingCompw></app-clothing>
       </div>
-
 
       <div class="tab-pane" id="man" role="tabpanel" aria-labelledby="man-tab">
-        <div id="accordionMan">
-          <div class="list-group" *ngFor="let clothing of clothings">
-            <div class="card text-center">
-              <div class="card-header violetVS" (click)="setClothing(clothing)">
-                <a class="collapsed card-link text-First Foldcenter" data-toggle="collapse" href="#{{clothing.name}}w">
-                  <h5 class="card-title textVioletVS "><h3>{{clothing.name}}</h3></h5>
-                </a>
-              </div>
-              <div id="{{clothing.name}}w" class="collapse" data-parent="#accordionMan">
-                <div class="card-body" align="center">
-                  <table class="table">
-                    <thead>
-                    <tr >
-                      <th>Prenda</th>
-                      <th>Talle</th>
-                      <th>Genero</th>
-                      <th>Cantidad</th>
-                    </tr>
-                    </thead>
-                    <tbody >
-
-                    <tr *ngFor="let clothe of clothes">
-                      <td>{{clothe.name}}</td>
-                      <td>{{clothe.size}}</td>
-                      <td>{{clothe.gender}}</td>
-                      <td>{{clothe.quantity}}</td>
-                    </tr>
-                    </tbody>
-
-                  </table>
-                  <app-clothing id="man"></app-clothing>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-clothing #clothingCompm></app-clothing>
       </div>
 
-
       <div class="tab-pane" id="girl" role="tabpanel" aria-labelledby="girl-tab">
-        <div id="accordionGirl">
-          <div class="list-group" *ngFor="let clothing of clothings">
-            <div class="card text-center">
-              <div class="card-header violetVS" (click)="setClothing(clothing)">
-                <a class="collapsed card-link text-First Foldcenter" data-toggle="collapse" href="#{{clothing.name}}e">
-                  <h5 class="card-title textVioletVS "><h3>{{clothing.name}}</h3></h5>
-                </a>
-              </div>
-              <div id="{{clothing.name}}e" class="collapse" data-parent="#accordionGirl">
-                <div class="card-body" align="center">
-                  <table class="table">
-                    <thead>
-                    <tr >
-                      <th>Prenda</th>
-                      <th>Talle</th>
-                      <th>Genero</th>
-                      <th>Cantidad</th>
-                    </tr>
-                    </thead>
-                    <tbody >
-
-                    <tr *ngFor="let clothe of clothes">
-                      <td>{{clothe.name}}</td>
-                      <td>{{clothe.size}}</td>
-                      <td>{{clothe.gender}}</td>
-                      <td>{{clothe.quantity}}</td>
-                    </tr>
-                    </tbody>
-
-                  </table>
-                  <app-clothing id="girl"></app-clothing>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-clothing #clothingCompg></app-clothing>
       </div>
 
       <div class="tab-pane" id="boy" role="tabpanel" aria-labelledby="boy-tab">
-        <div id="accordionBoy">
-          <div class="list-group" *ngFor="let clothing of clothings">
-            <div class="card text-center">
-              <div class="card-header violetVS" (click)="setClothing(clothing)">
-                <a class="collapsed card-link text-First Foldcenter" data-toggle="collapse" href="#{{clothing.name}}r">
-                  <h5 class="card-title textVioletVS "><h3>{{clothing.name}}</h3></h5>
-                </a>
-              </div>
-              <div id="{{clothing.name}}r" class="collapse" data-parent="#accordionBoy">
-                <div class="card-body" align="center">
-                  <table class="table">
-                    <thead>
-                    <tr >
-                      <th>Prenda</th>
-                      <th>Talle</th>
-                      <th>Genero</th>
-                      <th>Cantidad</th>
-                    </tr>
-                    </thead>
-                    <tbody >
-
-                    <tr *ngFor="let clothe of clothes">
-                      <td>{{clothe.name}}</td>
-                      <td>{{clothe.size}}</td>
-                      <td>{{clothe.gender}}</td>
-                      <td>{{clothe.quantity}}</td>
-                    </tr>
-                    </tbody>
-
-                  </table>
-                  <app-clothing id="boy"></app-clothing>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-clothing #clothingCompb></app-clothing>
       </div>
 
-    </div>
-
 
     </div>
-</small>
+
+    </div>
+</div>
 
 <div class="flex-column container">
 
