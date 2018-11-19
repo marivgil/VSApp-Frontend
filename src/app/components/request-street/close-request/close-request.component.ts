@@ -58,4 +58,9 @@ export class CloseRequestComponent implements OnInit {
     this.clothings.splice(index, 1);
   }
 
+  deleteOther(other){
+    const index = this.others.indexOf(other);
+    this.others.splice(index, 1);
+  }
+
 }

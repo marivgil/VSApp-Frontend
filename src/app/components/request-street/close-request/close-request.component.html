@@ -36,7 +36,7 @@
       <tr *ngFor="let other of others">
         <td>{{other}}</td>
         <a type="btn" class="btn btn-vs"
-           style="color: #fffecc; font-size: x-large" (click)="subQuantity(clothing)">
+           style="color: #fffecc; font-size: x-large" (click)="deleteOther(other)">
           <span class="glyphicon glyphicon-remove"></span>
         </a>
       </tr>

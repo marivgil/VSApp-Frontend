@@ -68,7 +68,7 @@ export class ClothingComponent implements OnInit {
       console.log("en addClothing")
       this.toastr.success('¡Se dió de alta la prenda!');
       //limpio las variables
-      this.size=null;
+      this.size='';
       this.quantity=0;
       this.serviceStreet.setClothing(null);
       $('.collapse').collapse('hide')
