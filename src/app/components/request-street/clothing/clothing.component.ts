@@ -35,6 +35,15 @@ export class ClothingComponent implements OnInit {
       this.quantity --;
   }
 
+  addQuantityTable(clothe){
+    clothe.quantity ++
+  }
+
+  subQuantityTable(clothe){
+    if (clothe.quantity > 0)
+      clothe.quantity --;
+  }
+
 
   addClothing(){
 
@@ -58,7 +67,6 @@ export class ClothingComponent implements OnInit {
       this.serviceStreet.addClothing(clothe);
       console.log("en addClothing")
       this.toastr.success('¡Se dió de alta la prenda!');
-      console.log(clothe);
       //limpio las variables
       this.size=null;
       this.quantity=0;

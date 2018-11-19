@@ -13,7 +13,7 @@ export class ClothingMatrixComponent implements OnInit {
   round:Round;
   other;
   clothings : any;
-  private others: String[];
+  others: String[];
   @ViewChild('clothingCompw') clothingComponentw:ClothingComponent;
   @ViewChild('clothingCompm') clothingComponentm:ClothingComponent;
   @ViewChild('clothingCompg') clothingComponentg:ClothingComponent;

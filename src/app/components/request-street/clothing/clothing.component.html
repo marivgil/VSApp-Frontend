@@ -27,11 +27,13 @@
                 <td>{{clothe.size}}</td>
                 <td>{{clothe.gender}}</td>
                 <td>{{clothe.quantity}}</td>
+                <a type="btn" class="btn btn-outline-success" (click)="addQuantityTable(clothe)">
+                  <h3>+</h3></a>
+                <a type="btn" class="btn btn-outline-danger" (click)="subQuantityTable(clothe)">
+                  <h3>-</h3></a>
               </tr>
               </tbody>
-
             </table>
-
 
             <div class="d-flex flex-column container">
 
