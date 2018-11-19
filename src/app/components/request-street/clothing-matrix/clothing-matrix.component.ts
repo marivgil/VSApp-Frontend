@@ -27,9 +27,13 @@ export class ClothingMatrixComponent implements OnInit {
 
 
   addOther(){
-    this.toastr.success('Se cargó tu pedido');
-    this.serviceStreet.addOther(this.other);
-    this.other=null;
+    if(this.other=='' || this.other==null)
+      this.toastr.error('La descripción se encuentra vacia');
+      else {
+        this.serviceStreet.addOther(this.other);
+        this.toastr.success('Se cargó tu pedido');
+        this.other=null;
+      }
     this.others = this.serviceStreet.getOthers()
   }
 
