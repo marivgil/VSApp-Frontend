@@ -1,70 +1,83 @@
 
 
-  <div id="accordion">
-    <div class="list-group" *ngFor="let clothing of clothings">
-      <div class="card text-center">
-        <div class="card-header violetVS" (click)="setClothes(clothing)">
-          <a class="collapsed card-link text-First Foldcenter" data-toggle="collapse" href="#{{clothing.name}}">
-            <h5 class="card-title textVioletVS "><h3>{{clothing.name}}</h3></h5>
-          </a>
-        </div>
-        <div id="{{clothing.name}}" class="collapse" data-parent="#accordion">
-          <div class="card-body" align="center">
+<div id="accordion">
+  <div class="list-group" *ngFor="let clothing of clothings">
+    <div class="card text-center">
 
-            <table class="table">
-              <thead>
-              <tr >
-                <th>Prenda</th>
-                <th>Talle</th>
-                <th>Genero</th>
-                <th>Cantidad</th>
-              </tr>
-              </thead>
-              <tbody >
+      <div class="card-header violetVS" (click)="setClothes(clothing)">
+        <a class="collapsed card-link text-First Foldcenter" data-toggle="collapse" href="#{{clothing.name}}">
+          <h5 class="card-title textVioletVS "><h3>{{clothing.name}}</h3></h5>
+        </a>
+      </div>
 
-              <tr *ngFor="let clothe of clothes">
-                <td>{{clothe.name}}</td>
-                <td>{{clothe.size}}</td>
-                <td>{{clothe.gender}}</td>
-                <td>{{clothe.quantity}}</td>
-                <a type="btn" class="btn btn-outline-success" (click)="addQuantityTable(clothe)">
-                  <h3>+</h3></a>
-                <a type="btn" class="btn btn-outline-danger" (click)="subQuantityTable(clothe)">
-                  <h3>-</h3></a>
-              </tr>
-              </tbody>
-            </table>
+      <div id="{{clothing.name}}" class="collapse" data-parent="#accordion">
+        <div class="card-body" align="center">
 
-            <div class="d-flex flex-column container">
+          <table class="table">
+            <thead>
+            <tr >
+              <th>Prenda</th>
+              <th>Talle</th>
+              <th>Genero</th>
+              <th>Cantidad</th>
+            </tr>
+            </thead>
+            <tbody >
 
-              <div class="card text-center col-md-9">
+            <tr *ngFor="let clothe of clothes">
+              <td>{{clothe.name}}</td>
+              <td>{{clothe.size}}</td>
+              <td>{{clothe.gender}}</td>
+              <td>{{clothe.quantity}}</td>
+              <a type="btn" class="btn btn-vs"
+                 style="color: #fffecc; font-size: xx-large" (click)="subQuantityTable(clothe)">
+                <span class="glyphicon glyphicon-minus"></span>
+              </a>
+              <a type="btn" class="btn btn-vs marginLeft10"
+                 style="color: #fffecc; font-size: xx-large" (click)="addQuantityTable(clothe)">
+                <span class="glyphicon glyphicon-plus"></span>
+              </a>
 
-                <div class="card-body row">
+            </tbody>
+          </table>
 
-                  <div class="col-md-7 row align-items-center">
-                    <h3 class="card-text textYellowVS marginTop10 col-6">CANTIDAD </h3>
-                    <h1>{{ quantity }}</h1>
-                    <a type="btn" class="btn btn-outline-success col-2 marginLeft20" (click)="addQuantity()">
-                      <h3>+</h3></a>
-                    <a type="btn" class="btn btn-outline-danger col-2 marginLeft10" (click)="subQuantity()">
-                      <h3>-</h3></a>
-                  </div>
+          <div class="d-flex flex-column container">
 
-                  <div class="col-md-5 marginLeft10 align-items-center">
-                    <label class="textYellowVS"><h3>TALLE</h3></label>
-                    <input class="marginLeft10 textYellowVS" [(ngModel)]="size" style="width: 50px; height: 50px; font-size: x-large">
-                    <a type="btn" class="btn marginTop25 btn-vs float-right"
-                       style="color: #fffecc; font-size: xx-large" (click)="addClothing()">
-                      <span class="glyphicon glyphicon-ok"></span>
-                    </a>
-                  </div>
+            <div class="card text-center col-md-9">
+
+              <div class="card-body row">
+
+                <div class="col-md-7 row align-items-center">
+                  <h3 class="card-text textYellowVS marginTop10 col-6">CANTIDAD </h3>
+                  <h1>{{ quantity }}</h1>
+
+                  <a type="btn" class="btn btn-vs marginLeft20"
+                     style="color: #fffecc; font-size: xx-large" (click)="subQuantity()">
+                    <span class="glyphicon glyphicon-minus"></span>
+                  </a>
+
+                  <a type="btn" class="btn btn-vs marginLeft10"
+                     style="color: #fffecc; font-size: xx-large" (click)="addQuantity()">
+                    <span class="glyphicon glyphicon-plus"></span>
+                  </a>
+
+                </div>
+
+                <div class="col-md-5 marginLeft10 align-items-center">
+                  <label class="textYellowVS"><h3>TALLE</h3></label>
+                  <input class="marginLeft10 textYellowVS" [(ngModel)]="size" style="width: 50px; height: 50px; font-size: x-large">
+                  <a type="btn" class="btn marginTop25 btn-vs float-right"
+                     style="color: #fffecc; font-size: xx-large" (click)="addClothing()">
+                    <span class="glyphicon glyphicon-ok"></span>
+                  </a>
                 </div>
               </div>
-
             </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
