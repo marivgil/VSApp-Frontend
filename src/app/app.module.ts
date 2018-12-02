@@ -33,8 +33,6 @@ import { GetSuppliesHospitalsComponent } from './components/get-supplies-hospita
 import {HospitalsService} from "./components/home-hospitals/hospitals.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastModule} from "ng5-toastr";
-import 'hammerjs';
-import {NgxHmCarouselModule} from "ngx-hm-carousel";
 import { ClothingComponent } from './components/request-street/clothing/clothing.component';
 import { ClothingMatrixComponent } from './components/request-street/clothing-matrix/clothing-matrix.component';
 import { CloseRequestComponent } from './components/request-street/close-request/close-request.component';
@@ -72,7 +70,6 @@ import { CloseRequestComponent } from './components/request-street/close-request
     BrowserModule,
     ToastModule.forRoot(),
     BrowserAnimationsModule,
-    NgxHmCarouselModule,
   ],
   providers: [
     ReceptionCentersService,
