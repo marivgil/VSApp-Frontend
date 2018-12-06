@@ -1,7 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {URL_BACKEND_HOMO} from "../../config";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Clothes} from "../../interfaces/clothes";
+import {WeeklyRound} from "../../interfaces/WeeklyRound";
+import {Observable} from "rxjs";
+import 'rxjs/add/operator/map'
 
 @Injectable()
 export class RequestStreetService {
@@ -13,6 +16,11 @@ export class RequestStreetService {
   clothings: Clothes[] = [];
   others: String[] = [];
   gender;
+  weeklyRound: WeeklyRound;
+  firstRequest = true;
+  preparedBy;
+  reviewedBy;
+
 
   constructor(private http: HttpClient){
   }
@@ -44,35 +52,71 @@ export class RequestStreetService {
   getClothings(){
     return this.clothings;
   }
-
-  //armo el pedido y lo persisto
-  closedRequest(request): Promise<any>{
-
-    let coord = {
-      "lat": 0,
-      "lng": 0
-    };
-
-    let weeklyRound = {
-      "description": '',
-      "sinceHour": Date.now(),
-      "untilHour": Date.now(),
-      "currentCoords": coord,
-      "request": request,
-      "round": this.getRound(),
-    };
-
-
-    let url = URL_BACKEND_HOMO + this.extensionUrl + "createRequest";
-    let json = JSON.stringify(weeklyRound);
+/*
+  updateRequest(request: any) {
+    let url = URL_BACKEND_HOMO + this.extensionUrl + "updateRequest";
+    this.weeklyRound.request = request;
+    let json = JSON.stringify(this.weeklyRound);
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this.http.post(url, json, {headers: headers}).toPromise();
-    /*
-    this.round= null;
-    this.clothing= null;
-    this.clothings = [];
-    this.others = [];
-    */
+    return this.http.put(url, json, {headers: headers}).toPromise();
+  }
+*/
+  //armo el pedido y lo persisto
+  closedRequest(): Observable<any> {
+
+    let request = {
+      "preparedBy": this.preparedBy,
+      "reviewedBy": this.reviewedBy,
+      "clothes": this.clothings,
+      "date": Date.now(),
+      "others":this.getOthers()
+    };
+
+    if(this.firstRequest){
+      this.firstRequest = false;
+
+      let coord = {
+        "lat": 0,
+        "lng": 0
+      };
+
+      this.weeklyRound = {
+        "id": null,
+        "description": '',
+        "sinceHour": Date.now(),
+        "untilHour": Date.now(),
+        "currentCoords": coord,
+        "request": request,
+        "round": this.getRound(),
+      };
+
+      let url = URL_BACKEND_HOMO + this.extensionUrl + "createRequest";
+      let json = JSON.stringify(this.weeklyRound);
+      let headers = new HttpHeaders().set('Content-Type','application/json');
+
+
+      return this.http.post(url, json, {headers: headers})
+        .map((res: any) => {
+          let body = res;
+          this.weeklyRound.id = body.id;
+          return;
+        });
+
+
+    }else{
+      console.log(this.weeklyRound);
+      let url = URL_BACKEND_HOMO + this.extensionUrl + "updateRequest";
+      this.weeklyRound.request = request;
+      let json = JSON.stringify(this.weeklyRound);
+      let headers = new HttpHeaders().set('Content-Type','application/json');
+      //return this.http.put(url, json, {headers: headers});
+
+      return this.http.put(url, json, {headers: headers})
+        .map((res: any) => {
+          return res;
+        });
+    }
+
   }
 
   // trae todos los recorridos
@@ -122,5 +166,17 @@ export class RequestStreetService {
 
   setOthers(others: any[]) {
     this.others=others;
+  }
+
+  setPreparedBy(preparedBy: any) {
+    this.preparedBy = preparedBy;
+  }
+
+  setReviewedBy(reviewedBy: any) {
+    this.reviewedBy = reviewedBy;
+  }
+
+  setClosed() {
+    this.firstRequest = true;
   }
 }

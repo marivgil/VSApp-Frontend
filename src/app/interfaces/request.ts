@@ -1,7 +1,7 @@
 import {Clothes} from "./clothes";
 
 export interface Request {
-  date: String;
+  date: number;
   preparedBy: String;
   reviewedBy: String;
   clothes: Clothes[] ;

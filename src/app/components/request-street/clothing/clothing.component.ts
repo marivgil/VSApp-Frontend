@@ -55,17 +55,22 @@ export class ClothingComponent implements OnInit {
     };
 
     if(clothe.name=='') {
-      console.log("en name")
       this.toastr.error('Falta seleccionar la prenda');
     }else if (clothe.size=='') {
-      console.log("en size")
       this.toastr.error('Te falta ingresar el talle de la prenda');
     }else if (clothe.quantity==0){
-      console.log("en quantity")
       this.toastr.error('Te falta ingresar la cantidad de prendas');
     }else {
       this.serviceStreet.addClothing(clothe);
-      console.log("en addClothing")
+      //this.serviceStreet.closedRequest();
+
+
+      this.serviceStreet.closedRequest().subscribe(res => {
+        return res;
+      });
+
+
+
       this.toastr.success('¡Se dió de alta la prenda!');
       //limpio las variables
       this.size='';

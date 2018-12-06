@@ -28,14 +28,10 @@ export class CloseRequestComponent implements OnInit {
     this.others = this.serviceStreet.getOthers();
   }
 
-  async closeRequest(){
-    let request = {
-      "preparedBy": this.preparedBy,
-      "reviewedBy": this.reviewedBy,
-      "clothes": this.clothings,
-      "date": Date.now(),
-      "others":this.serviceStreet.getOthers()
-    };
+  closeRequest(){
+    this.serviceStreet.setPreparedBy(this.preparedBy);
+    this.serviceStreet.setReviewedBy(this.reviewedBy);
+
     if (this.preparedBy == null || this.preparedBy == '')
       this.toastr.error('Te falta ingresar la persona que armo el pedido');
       else if (this.reviewedBy == null || this.reviewedBy == '')
@@ -44,11 +40,18 @@ export class CloseRequestComponent implements OnInit {
                   && (this.others == [] || this.others == null))
               this.toastr.error('No hay prendas cargadas para este pedido');
     else {
-      await this.serviceStreet.closedRequest(request);
+      //this.serviceStreet.closedRequest();
+
+      this.serviceStreet.closedRequest().subscribe(res => {
+        return res;
+      });
+
+
       this.serviceStreet.setClothings([]);
       this.serviceStreet.setOthers([]);
+      this.serviceStreet.setClosed();
       this.toastr.success('Tu pedido fue cargado');
-      this.router.navigate(['homeStreet/requestStreet']);
+      this.router.navigate(['home']);
     }
 
   }

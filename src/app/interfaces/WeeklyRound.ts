@@ -4,9 +4,10 @@ import {Coord} from "./Coord";
 
 export interface WeeklyRound {
 
+  id: number;
   description: String;
-  sinceHour: String;
-  untilHour: String;
+  sinceHour: number;
+  untilHour: number;
   currentCoords: Coord;
   request: Request;
   round: Round;
