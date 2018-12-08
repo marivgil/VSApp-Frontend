@@ -104,7 +104,6 @@ export class RequestStreetService {
 
 
     }else{
-      console.log(this.weeklyRound);
       let url = URL_BACKEND_HOMO + this.extensionUrl + "updateRequest";
       this.weeklyRound.request = request;
       let json = JSON.stringify(this.weeklyRound);
@@ -178,5 +177,9 @@ export class RequestStreetService {
 
   setClosed() {
     this.firstRequest = true;
+  }
+
+  async delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 }

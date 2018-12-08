@@ -8,9 +8,8 @@ import {ReceptionCentersService} from "./reception.centers.service";
 
 export class ReceptionCentersComponent implements OnInit {
 
-  listRecepCenters = [];
+  listRecepCenters: any = [];
   location = '';
-  rc;
   viewResult = false;
 
   constructor(private service: ReceptionCentersService) { }
