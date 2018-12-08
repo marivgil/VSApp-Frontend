@@ -2,7 +2,7 @@
 
   <div class="col-md-4">
     <label>Elegí el Hospital a consultar:</label>
-    <select class="custom-select d-block w-100" id="hospital" required [(ngModel)]="hospital">
+    <select class="custom-select d-block w-100" id="hospital" required [(ngModel)]="hospital" style="height: 35px">
       <option value="" disabled>Buscar...</option>
       <option *ngFor="let hospital of hospitals" [ngValue]="hospital">
         {{ hospital.name }}
@@ -14,7 +14,7 @@
   <button class="btn marginLeft10Top25 btn-vs" (click)="searchHospitalProduct()">Buscar</button>
 
 
-  <div class="container yellowVS marginLeft50Top30" *ngIf="viewResult">
+  <div class="container yellowVS marginLeft50Top30" *ngIf="viewResult()">
 
     <div class="text-left ">
       <table class="table">

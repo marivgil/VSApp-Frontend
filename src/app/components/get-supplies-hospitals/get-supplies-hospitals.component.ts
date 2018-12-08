@@ -29,10 +29,12 @@ export class GetSuppliesHospitalsComponent implements OnInit {
   async searchHospitalProduct(){
     if(!this.hospital){
       this.toastr.error('Te falto seleccionar el hospital');
-
     }else{
       this.firstEntry= false;
-      this.hospitalProducts = await this.service.searchHospitalProduct(this.hospital.name)
+      this.hospitalProducts = await this.service.searchHospitalProduct(this.hospital.name);
+      if (this.hospitalProducts.length==0){
+        this.toastr.warning(('El hospital seleccionado NO tiene productos asignados'));
+      }
     }
   }
 
