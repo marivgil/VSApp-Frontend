@@ -44,6 +44,11 @@
           <td>{{c.gender}}</td>
           <td>{{c.size}}</td>
           <td>{{c.quantity}}</td>
+          <td>
+            <label>
+              <input type="checkbox" class="big-checkbox">
+            </label>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -59,6 +64,11 @@
 
           <tr *ngFor="let other of others">
             <td>{{other}}</td>
+            <td>
+              <label>
+                <input type="checkbox" class="big-checkbox">
+              </label>
+            </td>
           </tr>
           </tbody>
       </table>
