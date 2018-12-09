@@ -18,24 +18,24 @@ import {ClothingMatrixComponent} from "./components/request-street/clothing-matr
 import {CloseRequestComponent} from "./components/request-street/close-request/close-request.component";
 
 const APP_ROUTES: Routes = [
-  { path: 'homeEcology', component: HomeEcologyComponent, canActivate: [AuthGuardService] ,
+  { path: 'homeEcologia', component: HomeEcologyComponent, canActivate: [AuthGuardService] ,
     children: []},
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
-  { path: 'homeEcology/homeReceptionCenters/SearchCenter', component: ReceptionCentersComponent, canActivate: [AuthGuardService]},
-  { path: 'homeEcology/homeReceptionCenters', component: HomeReceptionCentersComponent, canActivate: [AuthGuardService]},
+  { path: 'homeEcologia/centroDeRecepcion/buscarCentro', component: ReceptionCentersComponent, canActivate: [AuthGuardService]},
+  { path: 'homeEcologia/centroDeRecepcion', component: HomeReceptionCentersComponent, canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent},
-  { path: 'homeEcology/education', component: HomeEducationComponent, canActivate: [AuthGuardService]},
-  { path: 'homeStreet', component: HomeStreetComponent, canActivate: [AuthGuardService]},
-  { path: 'homeStreet/requestStreet', component: RequestStreetComponent, canActivate: [AuthGuardService]},
+  { path: 'homeEcologia/education', component: HomeEducationComponent, canActivate: [AuthGuardService]},
+  { path: 'homeCalle', component: HomeStreetComponent, canActivate: [AuthGuardService]},
+  { path: 'homeCalle/pedidoDeCalle', component: RequestStreetComponent, canActivate: [AuthGuardService]},
   { path: 'homeSede', component: HomeSedeComponent, canActivate: [AuthGuardService]},
-  { path: 'homeSede/getRequests', component: GetRequestsComponent, canActivate: [AuthGuardService]},
-  { path: 'homeHospital', component: HomeHospitalsComponent, canActivate: [AuthGuardService]},
+  { path: 'homeSede/pedidos', component: GetRequestsComponent, canActivate: [AuthGuardService]},
+  { path: 'homeHospitales', component: HomeHospitalsComponent, canActivate: [AuthGuardService]},
   { path: '', component: HomeComponent},
-  { path: 'homeHospital/loadSupplies', component: LoadSuppliesHospitalsComponent, canActivate: [AuthGuardService]},
-  { path: 'homeHospital/getSupplies', component: GetSuppliesHospitalsComponent, canActivate: [AuthGuardService]},
-  { path: 'homeStreet/requestStreet/clothingMatrixComponent', component: ClothingMatrixComponent, canActivate: [AuthGuardService]},
-  { path: 'homeStreet/requestStreet/clothingMatrixComponent/closeRequestComponent', component: CloseRequestComponent, canActivate: [AuthGuardService]},
+  { path: 'homeHospitales/cargarSuministros', component: LoadSuppliesHospitalsComponent, canActivate: [AuthGuardService]},
+  { path: 'homeHospitales/suministros', component: GetSuppliesHospitalsComponent, canActivate: [AuthGuardService]},
+  { path: 'homeCalle/pedidoDeCalle/prendas', component: ClothingMatrixComponent, canActivate: [AuthGuardService]},
+  { path: 'homeCalle/pedidoDeCalle/prendas/CerrarPedido', component: CloseRequestComponent, canActivate: [AuthGuardService]},
   ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
