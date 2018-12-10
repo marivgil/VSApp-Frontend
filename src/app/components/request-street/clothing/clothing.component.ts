@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewContainerRef} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {RequestStreetService} from "../request-street.service";
-import {ToastsManager} from "ng5-toastr";
+import {ToastrService} from "ngx-toastr";
 
 declare var $;
 @Component({
@@ -16,10 +16,8 @@ export class ClothingComponent implements OnInit {
 
   constructor(
     private serviceStreet: RequestStreetService,
-    private _vcr: ViewContainerRef,
-    public toastr: ToastsManager
+    private toastr: ToastrService
   ) {
-    this.toastr.setRootViewContainerRef(_vcr);
   }
 
   async ngOnInit() {

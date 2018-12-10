@@ -28,8 +28,8 @@
     "jquery": "^3.3.1",
     "mdbootstrap": "^4.5.9",
     "ng5-toastr": "^4.1.5",
-    "ngx-hm-carousel": "^1.2.9",
     "ngx-pagination": "^3.2.0",
+    "ngx-toastr": "^8.10.2",
     "popper.js": "^1.14.4",
     "rxjs": "^5.5.12",
     "zone.js": "^0.8.19"
