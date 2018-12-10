@@ -7,10 +7,12 @@ import {Observable} from "rxjs";
 export class HospitalsService {
 
   extensionUrl = "hospitalService/";
+  products: any[] = [];
 
   constructor(private http: HttpClient) { }
 
   addProduct(product): Observable<any> {
+    this.products.push(product);
     let url = URL_BACKEND_HOMO + this.extensionUrl + "createHospitalProduct/";
     let json = JSON.stringify(product);
     let headers = new HttpHeaders().set('Content-Type','application/json');

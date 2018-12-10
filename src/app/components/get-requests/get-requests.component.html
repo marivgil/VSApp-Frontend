@@ -2,7 +2,7 @@
 
   <div class="col-md-4">
     <label>Elegí el recorrido a consultar:</label>
-    <select class="custom-select d-block w-100" id="round" required [(ngModel)]="weeklyRound">
+    <select class="custom-select d-block w-100" id="round" required [(ngModel)]="weeklyRound" style="height: 35px">
       <option value="" disabled>Buscar...</option>
       <option *ngFor="let weeklyRound of rounds" [ngValue]="weeklyRound">
         {{ weeklyRound.round.code }} - {{weeklyRound.round.name}}
@@ -44,6 +44,11 @@
           <td>{{c.gender}}</td>
           <td>{{c.size}}</td>
           <td>{{c.quantity}}</td>
+          <td>
+            <label>
+              <input type="checkbox" class="big-checkbox">
+            </label>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -59,6 +64,11 @@
 
           <tr *ngFor="let other of others">
             <td>{{other}}</td>
+            <td>
+              <label>
+                <input type="checkbox" class="big-checkbox">
+              </label>
+            </td>
           </tr>
           </tbody>
       </table>

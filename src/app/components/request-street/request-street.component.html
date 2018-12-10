@@ -4,7 +4,7 @@
   <button class=" btn border border-info marginLeft10 yellowVS textYellowVS marginTop10 col-md-2 button_vs"
           *ngFor="let round of rounds"
           (click)="setRound(round)"
-          [routerLink]="['clothingMatrixComponent']">
+          [routerLink]="['prendas']">
       <span>
         <div class="textButtonVs">
           {{ round.code }} - {{ round.name }}

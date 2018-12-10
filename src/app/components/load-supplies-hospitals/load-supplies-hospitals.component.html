@@ -3,7 +3,7 @@
 
   <div class="col-md-4">
     <label for="hospital">Hospital: </label>
-    <select class="custom-select d-block w-100" id="hospital" required [(ngModel)]="hospital">
+    <select class="custom-select d-block w-100" id="hospital" required [(ngModel)]="hospital" style="height: 35px">
       <option value="">Buscar...</option>
       <option *ngFor="let hospital of hospitals" [ngValue]="hospital">
         {{ hospital.name }}
@@ -16,12 +16,15 @@
 
     <div class="col-md-4">
       <label for="prodType">Tipo Producto:</label>
-        <select class="custom-select d-block w-100" id="prodType" required [(ngModel)]="prodType">
+        <select class="custom-select d-block w-100" id="prodType" required [(ngModel)]="prodType" style="height: 35px">
           <option disabled>Buscar...</option>
           <option *ngFor="let prodType of productsType" [ngValue]="prodType">
             {{ prodType }}
           </option>
         </select>
+      <div class="invalid-feedback">
+        Por favor seleccioná una opción.
+      </div>
     </div>
 
     <div class="form-group col-md-4">
@@ -37,13 +40,11 @@
 
 
 
-  <div class="yellowVS marginLeft50Top30" *ngIf="viewResult">
+  <div class="yellowVS margin50" *ngIf="viewResult">
 
-    <div class="container text-left">
-      <table class="table col-md-4 ">
+      <table class="table ">
         <thead>
         <tr >
-          <th>Hospital</th>
           <th>Nombre</th>
           <th>Tipo</th>
           <th>Cantidad</th>
@@ -51,24 +52,13 @@
         </thead>
         <tbody >
 
-        <tr *ngFor="let hp of hospitalProducts | paginate: { itemsPerPage: 10, currentPage: rc }; let i = index">
+        <tr *ngFor="let hp of hospitalProducts">
           <td>{{hp.name}}</td>
           <td>{{hp.type}}</td>
           <td>{{hp.quantity}}</td>
         </tr>
         </tbody>
-
       </table>
-
-      <div *ngIf="firstEntry === false && hospitalProducts.length === 0" class="alert alert-light text-center" role="alert">
-        <p>El hospital no tiene asignados productos.</p>
-      </div>
-
-    </div>
-
-    <div *ngIf="hospitalProducts.length > 0" class="d-flex flex-row justify-content-center">
-      <pagination-controls (pageChange)="rc = $event"></pagination-controls>
-    </div>
 
   </div>
 </div>

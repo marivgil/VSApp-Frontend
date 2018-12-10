@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {HospitalsService} from "../home-hospitals/hospitals.service";
 import {Router} from "@angular/router";
-import {ToastsManager} from "ng2-toastr";
+import {ToastsManager} from "ng5-toastr";
 
 @Component({
   selector: 'app-load-supplies-hospitals',
@@ -18,7 +18,7 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
   rc;
   viewResult = false;
 
-  hospitalProducts;
+  hospitalProducts: any[] = [];
   firstEntry = false;
 
   constructor(private service: HospitalsService, private router: Router,
@@ -47,8 +47,10 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
                           "name": this.nameProduct,
                           "quantity": this.quantityProd
                         };
+                        this.hospitalProducts.push(product);
                         this.service.addProduct(product).subscribe();
                         this.toastr.success('El producto fue dado de alta');
+                        this.viewResult =true;
                       }
     this.firstEntry = true;
     this.nameProduct = '';
@@ -56,14 +58,6 @@ export class LoadSuppliesHospitalsComponent implements OnInit {
 
     let date = new Date();
     let month:number = date.getMonth()+1; // WTF????
-
-    /*
-    this.service.getProductsHospitalByDay(
-      date.getFullYear()+""+month+""+date.getDate()).
-    subscribe(res => {
-      this.hospitalProducts = res;
-    });
-*/
   }
 
 }
