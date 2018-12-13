@@ -16,12 +16,14 @@ import {LoadSuppliesHospitalsComponent} from "./components/load-supplies-hospita
 import {GetSuppliesHospitalsComponent} from "./components/get-supplies-hospitals/get-supplies-hospitals.component";
 import {ClothingMatrixComponent} from "./components/request-street/clothing-matrix/clothing-matrix.component";
 import {CloseRequestComponent} from "./components/request-street/close-request/close-request.component";
+import {AddReceptionCenterComponent} from "./components/reception.centers/add-reception-center/add-reception-center.component";
 
 const APP_ROUTES: Routes = [
   { path: 'homeEcologia', component: HomeEcologyComponent, canActivate: [AuthGuardService] ,
     children: []},
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'homeEcologia/centroDeRecepcion/buscarCentro', component: ReceptionCentersComponent, canActivate: [AuthGuardService]},
+  { path: 'homeEcologia/centroDeRecepcion/altaCentro', component: AddReceptionCenterComponent, canActivate: [AuthGuardService]},
   { path: 'homeEcologia/centroDeRecepcion', component: HomeReceptionCentersComponent, canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent},

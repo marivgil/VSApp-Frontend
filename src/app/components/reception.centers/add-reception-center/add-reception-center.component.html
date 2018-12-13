@@ -1,0 +1,36 @@
+<div class="container marginLeft50Top30">
+
+  <div class="form-group col-md-4">
+    <label for="nameRC">Nombre: </label>
+    <input class="form-control" id="nameRC" [(ngModel)]="nameRC" [disabled]="disabledNameRC">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="surnameRC">Apellido: </label>
+    <input class="form-control" id="surnameRC" [(ngModel)]="surnameRC" [disabled]="disabledSurnameRC">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="locationRC">Localidad: </label>
+    <input class="form-control" id="locationRC" [(ngModel)]="locationRC" [disabled]="disabledLocationRC">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="phoneRC">Teléfono: </label>
+    <input class="form-control" id="phoneRC" [(ngModel)]="phoneRC"  [disabled]="disabledPhoneRC">
+  </div>
+
+  <button class="btn btn-vs marginLeft10Top25" (click)="addReceptionCenter()">Dar de alta</button>
+
+</div>
+
+<div class="container marginLeft50Top30">
+
+  <div class="form-group col-md-4">
+    <label for="nearbyLocation">Agregar barrio cercano: </label>
+    <input class="form-control" id="nearbyLocation" [(ngModel)]="nearbyLocation">
+  </div>
+
+  <button class="btn btn-vs marginLeft10Top25" (click)="addNearbyLocation()">Agregar</button>
+
+</div>

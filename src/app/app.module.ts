@@ -38,6 +38,7 @@ import { ClothingMatrixComponent } from './components/request-street/clothing-ma
 import { CloseRequestComponent } from './components/request-street/close-request/close-request.component';
 import {ToastrModule} from "ngx-toastr";
 import {CommonModule} from "@angular/common";
+import { AddReceptionCenterComponent } from './components/reception.centers/add-reception-center/add-reception-center.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import {CommonModule} from "@angular/common";
     ClothingMatrixComponent,
     ClothingComponent,
     CloseRequestComponent,
+    AddReceptionCenterComponent,
   ],
   imports: [
     CommonModule,
