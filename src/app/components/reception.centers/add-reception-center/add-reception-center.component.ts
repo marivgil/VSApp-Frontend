@@ -12,6 +12,7 @@ export class AddReceptionCenterComponent implements OnInit {
   nameRC;
   surnameRC;
   locationRC;
+  mailRC;
   nearbyLocation;
   nearbyLocationList: any[] = [];
 
@@ -19,6 +20,7 @@ export class AddReceptionCenterComponent implements OnInit {
   disabledNameRC = false;
   disabledSurnameRC = false;
   disabledLocationRC = false;
+  disabledMailRC = false;
 
   constructor(private service: ReceptionCentersService,
               private serviceToastr: ToastrService) { }
@@ -27,8 +29,11 @@ export class AddReceptionCenterComponent implements OnInit {
   }
 
   addNearbyLocation(){
-    this.nearbyLocationList.push(this.nearbyLocation);
-    this.nearbyLocationList = null;
+    let nl = {
+     "nameLocation": this.nearbyLocation
+    };
+    this.nearbyLocationList.push(nl);
+    this.nearbyLocation = null;
   }
 
   addReceptionCenter(){
@@ -36,14 +41,16 @@ export class AddReceptionCenterComponent implements OnInit {
     this.disabledNameRC = true;
     this.disabledSurnameRC = true;
     this.disabledLocationRC = true;
+    this.disabledMailRC = true;
     let receptionCenter = {
       "name": this.nameRC,
       "surname": this.surnameRC,
       "location": this.locationRC,
       "phone": this.phoneRC,
-      "nearbyLocations": this.nearbyLocationList
+      "nearbyLocations": this.nearbyLocationList,
+      "mail": this.mailRC
     };
     this.service.addReceptionCenter(receptionCenter).subscribe();
-    this.serviceToastr.success("el centro de recepción fue dado de alta :)")
+    this.serviceToastr.success("el centro de recepción fue dado de alta :)");
   }
 }

@@ -5,5 +5,6 @@ export interface receptionCenter {
   surname: String;
   location: String;
   phone: String;
-  nearbyLocations: String[];
+  mail: String;
+  nearbyLocations: Location[];
 }
