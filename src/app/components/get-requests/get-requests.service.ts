@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {URL_BACKEND_HOMO} from "../../config";
+import {URL_BACKEND} from "../../config";
 
 @Injectable()
 export class GetRequestsService {
@@ -11,13 +11,13 @@ export class GetRequestsService {
 
   searchRequest(round): Promise<any>{
     return this.http.get(
-      URL_BACKEND_HOMO +  this.extensionUrl + "findRequestByRound/" + round).toPromise();
+      URL_BACKEND +  this.extensionUrl + "findRequestByRound/" + round).toPromise();
   }
 
   findAllRequests(): Promise<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this.http.get(
-      URL_BACKEND_HOMO +  this.extensionUrl + "findAllRequests/", {headers: headers}).toPromise();
+      URL_BACKEND +  this.extensionUrl + "findAllRequests/", {headers: headers}).toPromise();
   }
 
 }
