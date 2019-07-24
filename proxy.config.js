@@ -4,6 +4,7 @@ const proxy = [
   {
     context: '/api',
     target: URL_BACKEND,
+    secure: false,
     pathRewrite: {'^/api' : ''}
   }
 ];
