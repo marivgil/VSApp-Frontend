@@ -1,0 +1,58 @@
+<div class="container marginLeft50Top30">
+
+  <div class="form-group col-md-4">
+    <label for="nameRC">Nombre: </label>
+    <input class="form-control" id="nameRC" [(ngModel)]="nameRC" [disabled]="disabledNameRC">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="surnameRC">Apellido: </label>
+    <input class="form-control" id="surnameRC" [(ngModel)]="surnameRC" [disabled]="disabledSurnameRC">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="locationRC">Localidad: </label>
+    <input class="form-control" id="locationRC" [(ngModel)]="locationRC" [disabled]="disabledLocationRC">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="phoneRC">Teléfono: </label>
+    <input class="form-control" id="phoneRC" [(ngModel)]="phoneRC"  [disabled]="disabledPhoneRC">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="phoneRC">E-Mail: </label>
+    <input class="form-control" id="mailRC" [(ngModel)]="mailRC"  [disabled]="disabledMailRC">
+  </div>
+
+</div>
+
+<div class="container marginLeft50Top30">
+
+  <div class="form-group col-md-4">
+    <label for="nearbyLocation">Agregar barrio cercano: </label>
+    <input class="form-control" id="nearbyLocation" [(ngModel)]="nearbyLocation">
+  </div>
+
+  <button class="btn btn-vs marginLeft10Top25" (click)="addNearbyLocation()">Agregar</button>
+
+  <div class="yellowVS margin50">
+
+    <table class="table ">
+      <thead>
+      <tr >
+        <th>Barrio Cercano</th>
+      </tr>
+      </thead>
+      <tbody >
+
+      <tr *ngFor="let loc of nearbyLocationList">
+        <td>{{loc.nameLocation}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <button class="btn btn-vs marginLeft10Top25" (click)="addReceptionCenter()">Dar de alta</button>
+</div>

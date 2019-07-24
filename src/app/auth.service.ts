@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import * as auth0 from 'auth0-js';
 import {BehaviorSubject} from "rxjs";
 import {UserService} from "./user.service";
+import {URL_FRONTEND_PROD} from "./config";
 
 (window as any).global = window;
 
@@ -16,7 +17,7 @@ export class AuthService {
     domain: 'vsapp.auth0.com',
     responseType: 'token id_token',
     audience: 'https://vsapp.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4200',
+    redirectUri: URL_FRONTEND_PROD,
     scope: 'openid profile email'
   });
 

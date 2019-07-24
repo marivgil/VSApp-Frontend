@@ -18,10 +18,8 @@ export class ReceptionCentersComponent implements OnInit {
 
   }
 
-  getReceptionCenter() {
-    this.service.getReceptionCenter(this.location).subscribe(res => {
-      this.listRecepCenters = res.json();
-    });
+  async getReceptionCenter() {
+    this.listRecepCenters = await this.service.getReceptionCenter(this.location);
     this.viewResult = true;
   }
 

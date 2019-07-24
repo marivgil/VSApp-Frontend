@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {URL_BACKEND_HOMO} from "../../config";
+import {URL_BACKEND} from "../../config";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Clothes} from "../../interfaces/clothes";
 import {WeeklyRound} from "../../interfaces/WeeklyRound";
@@ -90,7 +90,7 @@ export class RequestStreetService {
         "round": this.getRound(),
       };
 
-      let url = URL_BACKEND_HOMO + this.extensionUrl + "createRequest";
+      let url = URL_BACKEND + this.extensionUrl + "createRequest";
       let json = JSON.stringify(this.weeklyRound);
       let headers = new HttpHeaders().set('Content-Type','application/json');
 
@@ -104,7 +104,7 @@ export class RequestStreetService {
 
 
     }else{
-      let url = URL_BACKEND_HOMO + this.extensionUrl + "updateRequest";
+      let url = URL_BACKEND + this.extensionUrl + "updateRequest";
       this.weeklyRound.request = request;
       let json = JSON.stringify(this.weeklyRound);
       let headers = new HttpHeaders().set('Content-Type','application/json');
@@ -121,7 +121,7 @@ export class RequestStreetService {
   // trae todos los recorridos
   getAllRounds(): Promise<any>{
     return this.http.get(
-      URL_BACKEND_HOMO +  this.extensionUrl + "getAllRounds/").toPromise();
+      URL_BACKEND +  this.extensionUrl + "getAllRounds/").toPromise();
   }
 
   //trae todas los tipos de prendas
@@ -132,7 +132,7 @@ export class RequestStreetService {
     });
 
     return this.http.get(
-      URL_BACKEND_HOMO +  this.extensionClothingUrl + "findAllClothings/"+json).toPromise();
+      URL_BACKEND +  this.extensionClothingUrl + "findAllClothings/"+json).toPromise();
   }
 
   addClothing(clothe){
