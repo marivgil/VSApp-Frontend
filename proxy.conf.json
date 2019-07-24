@@ -1,10 +1,4 @@
-{
-  "/posts": {
-    "target": "https://vsapp-backend.herokuapp.com/rest/",
-    "secure": true,
-    "pathRewrite": {
-      "^/posts": ""
-    },
-    "changeOrigin": true
-  }
-}
+{  "*": {
+  "target": "https://vsapp-backend.herokuapp.com/rest/",
+  "secure": false,
+  "pathRewrite": {"^/api" : ""}  }}
