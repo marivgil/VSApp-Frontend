@@ -88,11 +88,13 @@ export class AuthService {
       if (profile) {
         self.userService.userProfile = profile;
           this.userService.getUser(profile.email).subscribe( res => {
-
+/*
             if (res.status === 204) {
               window.alert("No estás dado de alto en el sistema...");
               this.logout();
             }
+
+ */
           });
       }
       cb(err, profile);
